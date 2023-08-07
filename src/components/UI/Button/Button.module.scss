@@ -1,0 +1,18 @@
+@import "../../../app/variables.scss";
+
+.grey, .orange {
+    border: none;
+    border-radius: 20px;
+    color: #000;
+    font-size: 1.5rem;
+}
+
+.grey {
+    background: $secondary-grey;
+    box-shadow: 0 10px $shadow-grey;
+}
+
+.orange {
+    background: $main-yellow;
+    box-shadow: 0 10px $shadow-orange;
+}

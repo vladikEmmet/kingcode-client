@@ -1,0 +1,36 @@
+@import "../../app/variables.scss";
+
+.blur {
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    right: 0;
+}
+
+.list {
+    height: 100%;
+    vertical-align: center;
+    position: relative;
+    z-index: $over-menu;
+    
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+        list-style: none;
+        z-index: $over-menu;
+        margin-top: 20%;
+
+        a {
+            text-decoration: none;
+            color: $main-yellow;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+    }
+}
