@@ -1,0 +1,52 @@
+@import "../../app/variables.scss";
+
+.section {
+    padding: 60px 0;
+    background: $main-yellow;
+
+    h2, .empty {
+        text-align: center;
+        color: $black;
+    }
+
+    h2 {
+        margin-bottom: 40px;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+    }
+}
+
+// .grid {
+//     display: grid;
+//     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+//     gap: 20px;
+//     padding: 20px;
+//     max-width: 100%;
+//     margin: 0 auto;
+// }
+
+.grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+} 
+
+.slider {
+    height: auto;
+    width: 100%;
+
+    .slick-list {
+        left: -15px!important;
+    }
+
+    .slick-track {
+        left: -15px!important;
+    }
+}
+
+.gird-item {
+    padding: 10px;
+    border: 1px solid #ccc;
+}

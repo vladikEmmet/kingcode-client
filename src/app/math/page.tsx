@@ -1,6 +1,11 @@
+import { MainScreen } from "@/components/MainScreen/MainScreen"
+import mainImg from "@/assets/math/mainScreen.png"
+
 const Math = () => {
     return (
-        <h1>Math</h1>
+        <MainScreen img={mainImg} ageRange="0-7 КЛАСС" scrollTarget="">
+            ОЛИМПИАДНАЯ МАТЕМАТИКА
+        </MainScreen>
     )
 }
 

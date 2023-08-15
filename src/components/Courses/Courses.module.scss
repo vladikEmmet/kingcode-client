@@ -1,18 +1,13 @@
 @import "../../app/variables.scss";
 
-.container {
+.section {
     width: 100%;
-    height: 100vh;
-    padding: $side-padding;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 70px 0;
     background: $main-yellow;
-    position: relative;
 
     ul {
         $z-over-img: 2;
-
+        margin: 0 auto;
         list-style: none;
         width: 100%;
 
@@ -24,12 +19,12 @@
             li {
                 display: block;
                 width: 100%;
-                height: 14rem;
+                height: 235px;
                 position: relative;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                margin-bottom: 4rem;
+                margin-bottom: 60px;
     
                 img {
                     position: absolute;
@@ -39,8 +34,8 @@
                     position: relative;
                     z-index: $z-over-img;
                     text-align: center;
-                    font-size: 3em;
-                    letter-spacing: 1.5%;
+                    font-size: 1.5rem;
+                    // letter-spacing: 1.5%;
                 }
             }
             

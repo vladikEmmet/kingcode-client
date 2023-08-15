@@ -33,6 +33,8 @@
   }
 }
 
+// COMMON
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -45,46 +47,110 @@ body {
   overflow-x: hidden;
   color: $main-yellow;
   scroll-behavior: smooth;
+  font-size: 30px;
 }
 
-header {
-  width: full;
-  background: $main-grey;
+.no-scroll {
+  position: fixed!important;
+  overflow: hidden!important;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.fast-scroll {
+  scroll-behavior: unset;
+}
+
+.container {
+  max-width: $container-width;
+  margin: 0 auto;
+  padding: 0 15px;
+  min-height: 100%;
+}
+
+.helper {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
+// HEADER & FOOTER
+
+header, footer {
+  box-sizing: content-box;
+  min-width: 100%;
+  background: $main-grey;
   color: $main-yellow;
-  padding: 1rem 10rem;
+  padding: 1% 0;
+  height: 10vh;
+
+  .container {
+    height: 100%;
+  }
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100%;
+    flex: 0 1 32%;
+  }
 
   .logo {
     text-align: center;
+    align-self: center;
   }
-
+  
   .burger {
     text-align: right;
   }
 }
 
+header {
+  position: relative;
+  z-index: $over-menu;
+}
+
+footer {
+  box-shadow: 0 -27px 30px 0 rgba(0, 0, 0, 0.25);
+  flex: 0 0 auto;
+}
+
+// BURGER MENU
+
 .menu {
-  width: 40%;
+  width: 400px;
   height: 100vh;
   position: fixed;
-  top: 0;
   right: 0;
+  bottom: 0;
   background: rgba(0, 0, 0, .4);
   transform: translateX(100%);
   transition: 0.5s all ease;
+  z-index: 3;
 
   &.active {
-      transform: translateX(0);
+    transform: translateX(0);
   }
 }
 
+// BURGER BUTTON
+
 .burger-wrapper {
   position: relative;
-  width: $bar-width;
-  height: $bar-height + $bar-spacing*2;
   cursor: pointer;
+  flex: 0 1 32%;
+  text-align: right;
+}
+
+.burger-container {
+  height: $bar-height + $bar-spacing*2;
+  display: flex;
+  justify-content: end;
 }
 
 .burger,
@@ -92,6 +158,8 @@ header {
 .burger:before {
   width: $bar-width;
 	height: $bar-height;
+  outline: none;
+  margin-left: auto;
 }
 
 .burger {
@@ -137,12 +205,114 @@ header {
 	transition: bottom 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1);;
 }
 
+// OTHER
+
 .main-title {
   color: $white;
   letter-spacing: 1.5%;
+}
 
-  .highlighted {
-    color: $main-yellow;
+.highlighted {
+  color: $main-yellow;
+}
+
+.up-btn {
+  width: 150px;
+  height: 60px;
+  cursor: pointer;
+  margin-left: auto;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+}
+
+.flag-dropdown {
+  display: none;
+}
+
+.phone-input {
+  height: 80px;
+  width: 450px;
+  border-radius: 25px;
+  padding: 0 20px;
+  font-size: 1.1rem;
+  text-align: center;
+
+  &::placeholder {
+    font-size: 1.1rem;
+    color: $placeholder-grey;
+    text-align: center;
   }
 }
 
+.carousel-dots {
+  position: absolute;
+  bottom: -25px;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+
+  li {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+    padding: 0;
+    cursor: pointer;
+
+    button {
+      font-size: 0;
+      line-height: 0;
+      display: block;
+      width: 20px;
+      height: 20px;
+      padding: 5px;
+      cursor: pointer;
+      color: transparent;
+      border: 0;
+      outline: none;
+      background: transparent;
+      
+      &::before {
+        opacity: 0.25;
+        color: $main-yellow;
+        font-family: 'slick';
+        font-size: 6px;
+        line-height: 20px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        content: '•';
+        text-align: center;
+      }
+    }
+
+    &.slick-active {
+      button::before {
+        opacity: 0.75;
+      }
+    }
+  }
+}
+
+.slick-slider {
+  height: auto;
+}
+
+.form-section {
+  padding-top: 100px;
+}
+
+.gather-section {
+  background: $main-yellow;
+  padding: 100px 0;
+}

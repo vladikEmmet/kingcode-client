@@ -1,16 +1,7 @@
 import programming from "@/assets/programming.png"
 import math from "@/assets/math.png"
 import modeling from "@/assets/modeling.png"
-import { StaticImageData } from "next/image";
-
-interface RouteProps {
-    title: string;
-    img: StaticImageData;
-    link?: string;
-    subEl?: RouteProps[];
-}
-
-type RoutesType = RouteProps[];
+import { RoutesType } from "./types/route.type"
 
 export const routes: RoutesType = [
     {

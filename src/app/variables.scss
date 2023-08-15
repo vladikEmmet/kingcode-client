@@ -4,17 +4,31 @@ $main-yellow: #FDD034;
 $main-grey: #2D2D2D;
 $secondary-grey: #D9D9D9;
 $white: #fff;
+$black: #000;
+$placeholder-grey: #878787;
+$tab-grey: #424242;
 
 $shadow-grey: #AEAEAE;
 $shadow-orange: #E88725;
+$shadow-orange-button: #D3801E;
+$icons-shadow-grey: #8D8D8D;
+$shadow-black: #212121;
+$shadow-black-tab: #282828;
+
+$curtain-black: #2D2D2D;
 
 // Z-indexes
 
 $over-menu: 9;
+$z-modal: 99;
 
 // Sizes
 
 $bar-width: 30px;
 $bar-height: 3px;
 $bar-spacing: 10px;
-$side-padding: 10rem;
+$container-width: 1320px;
+
+// Text
+
+$text-indent: 10px;

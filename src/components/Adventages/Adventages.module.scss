@@ -1,0 +1,42 @@
+@import "../../app/variables.scss";
+
+.section {
+    background: $main-yellow;
+    color: $black;
+    padding: 50px 0;
+
+    h2 {
+        text-align: center;
+        font-weight: bold;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        margin-bottom: 55px;
+    }
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.element {
+    max-width: 200px;
+    img {
+        margin: 5px auto;
+        display: block;
+    }
+
+    h3, p {
+        font-size: 0.6rem;
+        text-align: center;
+    }
+
+    h3 {
+        font-weight: bolder;
+        margin-bottom: 25px;
+    }
+
+    p {
+        font-weight: medium;
+    }
+}

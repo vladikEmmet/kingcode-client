@@ -2,17 +2,16 @@
 
 .section {
     width: 100%;
-    height: calc(100vh - 10vh);
+    min-height: calc(100vh - 10vh);
     background: $main-yellow;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 10rem;
 }
 
 .wrapper {
     width: 100%;
-    height: 85%;
+    height: 770px;
 }
 
 .content {
@@ -28,16 +27,16 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    text-align: center;
 
     h1 {
         color: $white;
-        width: 80%;
-        font-size: 5rem;
+        padding: 10px;
+        font-size: 2.5rem;
         text-align: center;
         line-height: 1.2;
-        text-transform: uppercase;
+        margin-top: 300px;
         
         span {
             color: $main-yellow;
@@ -55,14 +54,16 @@
     -moz-background-size: 100% 100%;
     -ms-background-size: 100% 100%;
     -khtml-background-size: 100% 100%;
-    width: 11em;
-    height: 8em;
-    bottom: 5%;
-    right: 7%;
+    width: 175px;
+    height: 175px;
+    bottom: 4%;
+    // left: 7%;
+    right: 5%;
     display: flex;
     align-items: center;
     text-align: center;
     justify-content: center;
+    // display: none;
 
     h5 {
         font-size: 1.2em;
@@ -73,17 +74,20 @@
     }
 }
 
-a {
-    width: 40%;
-    height: 7%;
-}
 
 .button {
-    align-self: flex-end;
-    margin-bottom: 10rem;
-    margin-top: 5rem;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-    text-align: center;
+    align-self: flex-end!important;
+    margin-top: 90px!important;
+    margin-left: auto!important;
+    margin-right: auto!important;
+    width: 520px!important;
+    height: 60px!important;
+    cursor: pointer!important;
+    text-align: center!important;
+    font-size: 1.1rem!important;
+
+    a {
+        width: 100%;
+        height: 100%;
+    }
 }

@@ -1,0 +1,51 @@
+@import "../../../app/variables.scss";
+
+.section {
+    background: $main-yellow;
+    padding-bottom: 165px;
+    padding-top: 180px;
+
+    h2 {
+        text-transform: uppercase;
+        font-size: 1.1rem;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+}
+
+.tab {
+    padding: 50px 125px;
+    position: relative;
+
+    p {
+        color: $white;
+        margin-bottom: 55px;
+        text-indent: $text-indent;
+    }
+}
+
+.img-left, .img-right {
+    position: absolute;
+}
+
+.img-left {
+    float: left;
+    top: -10%;
+    left: -150px;
+
+}
+
+.img-right {
+    float: right;
+    bottom: -20%;
+    right: -170px;
+}
+
+.first {
+    max-width: calc(100% - 230px);
+    margin-left: auto;
+}
+
+.second {
+    max-width: calc(100% - 210px);
+}

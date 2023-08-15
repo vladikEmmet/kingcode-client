@@ -6,12 +6,19 @@ export const Burger = () => {
   const burgerMenu = useBurgerMenu();
   const handleClick = () => {
     burgerMenu.changeState();
-    console.log(burgerMenu.isOpened);
+    if(!burgerMenu.isOpened) {
+        document?.body?.classList.add("no-scroll");
+        return;
+    }
+
+    document?.body?.classList.remove("no-scroll");
   }
 
   return (
     <div className="burger-wrapper" onClick={handleClick}>
-        <div className={`burger ${burgerMenu.isOpened ? "animated" : ""}`}/>
+        <div className="burger-container">
+            <div className={`burger ${burgerMenu.isOpened ? "animated" : ""}`}/>
+        </div>
     </div>
   )
 }

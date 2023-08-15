@@ -1,0 +1,16 @@
+@import "../../app/variables.scss";
+
+.section {
+    background: $main-grey;
+    padding: 50px 0;
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+}
+
+.empty {
+    text-align: center;
+    margin-top: 10px;
+}

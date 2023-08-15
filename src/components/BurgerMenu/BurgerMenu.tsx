@@ -10,20 +10,22 @@ interface BurgerMenuProps {
 
 export const BurgerMenu: FC<BurgerMenuProps> = ({isOpened}) => {
   const burgerMenu = useBurgerMenu();
-  const handleClick = () => burgerMenu.changeState();
+  const handleClick = () => {
+    burgerMenu.changeState();
+    document?.body?.classList.remove('no-scroll');
+  };
     
   return (
     <div className={`menu ${burgerMenu.isOpened ? "active" : ""}`}>
         <div className={styles.blur}/>
-        <div className={styles.list}>
+        <nav className={styles.list}>
             <ul>
-                <li><a href="*" rel="noreferer" rev="Page navigation">Направления</a></li>
-                <li><a href="*" rel="noreferer" rev="Page navigation">О нас</a></li>
-                <li><a href="*" rel="noreferer" rev="Page navigation">Преподаватели</a></li>
-                <li><a href="*" rel="noreferer" rev="Page navigation">Отзывы</a></li>
-                <li><a href="*" rel="noreferer" rev="Page navigation">Цены</a></li>
+                <li><a href="#courses" rel="noreferer" rev="Page navigation" onClick={handleClick}>Направления</a></li>
+                <li><a href="#about-us" rel="noreferer" rev="Page navigation" onClick={handleClick}>О нас</a></li>
+                <li><a href="#reviews" rel="noreferer" rev="Page navigation" onClick={handleClick}>Отзывы</a></li>
+                <li><a href="#prices" rel="noreferer" rev="Page navigation" onClick={handleClick}>Цены</a></li>
             </ul>
-        </div>
+        </nav>
     </div>
   )
 }

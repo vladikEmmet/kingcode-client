@@ -1,0 +1,66 @@
+@import "../../../app/variables.scss";
+
+.wrapper {
+    width: 700px;
+    background: $main-yellow;
+    box-shadow: 0 10px $shadow-orange;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    color: black;
+    border-radius: 25px;
+    padding-top: 30px;
+
+    h3 {
+        font-size: 1.1rem;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+
+        input {
+            height: 80px;
+            width: 450px;
+            border-radius: 25px;
+            padding: 0 20px;
+            font-size: 1.1rem;
+            text-align: center;
+
+            &::placeholder {
+                font-size: 1.1rem;
+                color: $placeholder-grey;
+                text-align: center;
+            }
+        }
+
+        button {
+            height: 80px;
+            width: 320px;
+            background: transparent;
+            border: none;
+            border-radius: 25px;
+            margin-bottom: 25px;
+            box-shadow: inset 1px 4px 4px 0 rgba(255, 255, 255, 0.5), 0 10px $shadow-orange-button;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+
+            &:disabled {
+                cursor: not-allowed;
+            }
+        }
+    }
+}
+
+.error {
+    text-align: center;
+    font-size: 0.6rem;
+    // color: $main-grey;
+    color: rgb(167, 4, 4);
+}

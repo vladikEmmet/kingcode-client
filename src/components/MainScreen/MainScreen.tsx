@@ -21,21 +21,23 @@ const berlin = localFont({src: "../../assets/fonts/BRLNSDB.woff", variable: "--f
 export const MainScreen: FC<MainScreenProps> = ({ageRange, img, children, scrollTarget}) => {
   return (
     <section className={styles.section}>
-        <div className={styles.wrapper}>
-            <div className={styles.content} style={{backgroundImage: `url("${img.src}")`}}>
-                {ageRange && 
-                    <div className={styles.star} style={{backgroundImage: `url(${star.src})`}}>
-                        <h5 className={montserrat.className}>{ageRange}</h5>
-                    </div>
-                }
-                <h1 className={`${montserrat.className} ${berlin.variable}`}>
-                    {children}
-                </h1>
-                <ScrollLink to={scrollTarget} smooth={true} duration={300}>
-                    <Button variant={ButtonVariantsEnum.orange} className={styles.button}>
-                        Выбрать направление
-                    </Button>
-                </ScrollLink>
+        <div className="container">
+            <div className={styles.wrapper}>
+                <div className={styles.content} style={{backgroundImage: `url("${img.src}")`}}>
+                    {ageRange && 
+                        <div className={styles.star} style={{backgroundImage: `url(${star.src})`}}>
+                            <h5 className={montserrat.className}>{ageRange}</h5>
+                        </div>
+                    }
+                    <h1 className={`${montserrat.className} ${berlin.variable}`}>
+                        {children}
+                    </h1>
+                    <ScrollLink to={scrollTarget} smooth={true} duration={100}>
+                        <Button variant={ButtonVariantsEnum.orange} className={styles.button}>
+                                Выбрать направление
+                        </Button>
+                    </ScrollLink>
+                </div>
             </div>
         </div>
     </section>
