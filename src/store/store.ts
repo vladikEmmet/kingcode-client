@@ -17,13 +17,10 @@ export const useBurgerMenu = create<BurgerMenuState>()(set => ({
 export const useModal = create<ModalState>()(set => ({
     children: null,
     scrollPosition: 0,
-    append: (child) => set(state => {
+    style: {},
+    xStyle: "black",
+    append: (child, style={}, xStyle="black") => set(state => {
         const curPosition = window.pageYOffset || document.documentElement.scrollTop;
-        return {children: child, scrollPosition: curPosition}
+        return {children: child, scrollPosition: curPosition, style, xStyle};
     }),
-}));
-
-export const useCarousel = create<{index: number}>()(set => ({
-    index: 0,
-    setIndex: (idx: number) => set(state => ({index: idx})),
 }));

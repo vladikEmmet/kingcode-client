@@ -3,7 +3,7 @@ import cn from 'clsx';
 import styles from "./BlackTab.module.scss";
 
 interface BlackTab {
-    children: React.ReactNode[];
+    children: React.ReactNode | React.ReactNode[];
     className?: string;
 }
 

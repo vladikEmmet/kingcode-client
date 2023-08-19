@@ -16,8 +16,8 @@ export const WhatToDo = () => {
         <Image 
             src={tinkerCubes}
             alt="Кубиками выложено TINKER"
-            width={255}
-            height={800}
+            // width={255}
+            // height={800}
             className={styles.cubes}
         />
         <h2 className={montserrat.className}>Что делать, если ребёнок никогда не занимался ничем подобным?</h2>

@@ -1,0 +1,48 @@
+@import "../../../app/variables.scss";
+
+.section {
+    background: $main-grey;
+    padding: 50px 0 100px;
+
+    h2 {
+        text-transform: uppercase;
+        margin-bottom: 45px;
+        font-size: 1.1rem;
+        text-align: center;
+    }
+}
+
+.list-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+
+    div {
+        min-width: 130px;
+        height: 130px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: $main-yellow;
+        box-shadow: 0 10px $shadow-orange;
+        color: $black;
+        border-radius: 50%;
+        font-size: 2rem;
+        margin-right: 40px;
+    }
+
+    p {
+        color: $white;
+        line-height: 1.2;
+    }
+}
+
+.img {
+    max-width: 100%;
+    margin-top: 65px;
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}

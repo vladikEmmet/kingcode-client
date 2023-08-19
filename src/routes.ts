@@ -1,7 +1,9 @@
-import programming from "@/assets/programming.png"
-import math from "@/assets/math.png"
-import modeling from "@/assets/modeling.png"
-import { RoutesType } from "./types/route.type"
+import programming from "@/assets/programming.png";
+import math from "@/assets/math.png";
+import modeling from "@/assets/modeling.png";
+import unity from "@/assets/unity.png";
+import scratch from "@/assets/scratch.png";
+import { RoutesType } from "./types/route.type";
 
 export const routes: RoutesType = [
     {
@@ -10,13 +12,13 @@ export const routes: RoutesType = [
         subEl: [
             {
                 title: "Unity",
-                img: programming,
-                link: "/pogramming/unity",
+                img: unity,
+                link: "/programming/unity",
             },
             {
                 title: "Scratch",
-                img: programming,
-                link: "/pogramming/scratch",
+                img: scratch,
+                link: "/programming/scratch",
             }
         ],
     },

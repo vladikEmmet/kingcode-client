@@ -1,4 +1,6 @@
-@import "variables.scss"; 
+@import "variables.scss";
+@import url("../assets/styles/_slick.scss");
+@import url("../assets/styles/_slick-theme.scss");
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -63,6 +65,7 @@ body {
 
 .container {
   max-width: $container-width;
+  // width: $container-width;
   margin: 0 auto;
   padding: 0 15px;
   min-height: 100%;
@@ -304,9 +307,9 @@ footer {
   }
 }
 
-.slick-slider {
-  height: auto;
-}
+// .slick-slider {
+//   height: auto;
+// }
 
 .form-section {
   padding-top: 100px;
@@ -315,4 +318,21 @@ footer {
 .gather-section {
   background: $main-yellow;
   padding: 100px 0;
+}
+
+img {
+  pointer-events: none;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+.slick-arrow.slick-next:before {
+  content: ""!important;
+}
+
+.slick-arrow.slick-prev:before {
+  content: ""!important;
 }

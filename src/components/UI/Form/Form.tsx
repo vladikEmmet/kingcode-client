@@ -5,8 +5,13 @@ import { CallRequestData } from "@/services/callRequest/callRequest.types";
 import { Montserrat } from "next/font/google"
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import styles from "./Form.module.scss"
-import { FC, forwardRef, useState } from 'react';
+import { FC, forwardRef, useRef, useState } from 'react';
 import { CallRequestService } from '@/services/callRequest/callRequest.service';
+import { getCookie } from '@/utils/getCookie';
+import { setCookie } from '@/utils/setCookie';
+import { errorCatch } from '@/app/api/helper';
+import {Tooltip as ReactTooltip} from 'react-tooltip';
+import { useModal } from '@/store/store';
 
 const montserrat = Montserrat({subsets: ["cyrillic"], weight: ["700"]});
 
@@ -16,12 +21,23 @@ interface FormProps {
 
 export const Form: FC<FormProps> = ({courseName}) => {
     const [isButtonDisabled, setIsButtonDisabled] = useState(false);
-    const {register, handleSubmit, formState: {errors}, control, reset, clearErrors} = useForm<CallRequestData>({
+    const {append} = useModal();
+    const {register, handleSubmit, formState: {errors, isSubmitSuccessful}, control, reset} = useForm<CallRequestData>({
         mode: "onSubmit",
     });
     
     const onSubmit: SubmitHandler<CallRequestData> = async(data) => {
         try {
+            const isAlreadyTried = getCookie("effort");
+            // if(isAlreadyTried) {
+            //     reset({
+            //         name: "",
+            //         phone: "",
+            //     });
+            //     append("Мы перезвоним Вам в ближайшее время!");
+            //     return;
+            // }
+
             setIsButtonDisabled(true);
             const formData = new FormData();
             formData.append("name", data?.name || "");
@@ -36,11 +52,18 @@ export const Form: FC<FormProps> = ({courseName}) => {
             
             const json = await CallRequestService.post(formData, sendedData);
 
-            reset();
+            if(isSubmitSuccessful) {
+                reset({
+                    name: "",
+                    phone: "",
+                });
+
+                setCookie("effort", "true", {"max-age": 600});
+            }
 
             setIsButtonDisabled(false);
         } catch(err) {
-            console.log(err);
+            append("Упс! Ошибка: " + errorCatch(err));
         }
     }
     
@@ -60,7 +83,7 @@ export const Form: FC<FormProps> = ({courseName}) => {
                 render={({ field: { onChange, value } }) => (
                     <>
                         <PhoneInput
-                            value=""
+                            value={value}
                             onChange={onChange}
                             placeholder="+7 (xxx)-xxx-xx-xx"
                             disableCountryCode={false}

@@ -15,6 +15,7 @@ export const Header = () => {
               <Image 
                 src={logo} 
                 alt="Logo"
+                priority
               />
           </Link>
           <Burger />

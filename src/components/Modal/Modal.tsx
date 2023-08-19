@@ -10,17 +10,20 @@ export const Modal = () => {
 
     const onClose = () => {
         document?.body?.classList.remove("no-scroll");
+        document.documentElement.classList.remove("no-scroll");
         document.documentElement.classList.add('fast-scroll');
         document.body.classList.add("fast-scroll");
         window.scrollTo(0, modal.scrollPosition);
         document.documentElement.classList.remove('fast-scroll');
         document.body.classList.remove("fast-scroll");
-        modal.append(null);
+        modal.append(null, {}, "black");
     }
 
     useEffect(() => {
         if(!modal.children) return;
         window.scrollTo(0, modal.scrollPosition);
+        document.documentElement.classList.add("no-scroll");
+        document.body.classList.add("no-scroll");
     }, [modal.children])
 
     useEffect(() => {
@@ -37,13 +40,10 @@ export const Modal = () => {
     if(!modal.children) return null;
   
     return (
-        <div className={styles.curtain} onClick={(e) => {
-            e.stopPropagation();
-            onClose()
-        }}>
-            <div className={styles.container}>
+        <div className={styles.curtain}>
+            <div className={styles.container} style={modal.style}>
                 <div className={styles.button}>
-                    <button onClick={onClose}>
+                    <button onClick={onClose} className={modal.xStyle === "white" ? styles.light : styles.dark}>
                         <HiXMark />
                     </button>
                 </div>

@@ -12,7 +12,7 @@ import AboutUs from '@/components/AboutUs/AboutUs'
 export default function Home() {
   return (
     <>
-      <MainScreen img={mainScreen} scrollTarget='courses'>
+      <MainScreen img={mainScreen} scrollTarget='courses' text="small">
         НАЧНИ СВОЙ ПУТЬ В <span className="highlighted">IT</span> ВМЕСТЕ С <span className="highlighted">KingCode</span>
       </MainScreen>
       <Courses />

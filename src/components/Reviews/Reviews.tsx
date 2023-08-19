@@ -5,13 +5,15 @@ import styles from "./Reviews.module.scss"
 import { ReviewItem } from "./ReviewItem/ReviewItem";
 import { Montserrat } from "next/font/google";
 import cn from 'clsx'
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { errorCatch } from "@/app/api/helper";
 import { useModal } from "@/store/store";
 import Slider from "react-slick";
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+// import 'slick-carousel/slick/slick.css';
+// import 'slick-carousel/slick/slick-theme.css';
 import { ReviewData } from "@/services/review/review.types";
+import { NextArrow } from "../UI/Arrows/NextArrow/NextArrow";
+import { PrevArrow } from "../UI/Arrows/PrevArrow/PrevArrow";
 
 const montserrat = Montserrat({subsets: ["cyrillic"], weight: ["700"]});
 
@@ -26,14 +28,17 @@ export default function Reviews() {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    arrows: true,
+    centerMode: true,
+    centerPadding: "0px", 
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />
   }
 
   const syncCarouselSettings = {
     dots: false,
     infinite: true,
     speed: 500,
-    // slidesToShow: 3,
-    // slidesToScroll: 3,
     arrows: false,
     autoplay: true,
     autoplaySpeed: 4000,
@@ -45,17 +50,20 @@ export default function Reviews() {
 
   const onClick = useCallback((index: number) => {
     append(
-      <Slider {...carouselSettings} initialSlide={index || 0}>
-        {reviews.map((review, idx) => 
-          <ReviewItem 
-            authorName={review.authorName}
-            authorImg={review.authorImg}
-            text={review.text}
-            key={review.id}
-            index={idx}
-          />
-        )}
-      </Slider>
+      <div className={styles["carousel-container"]}>
+        <Slider {...carouselSettings} initialSlide={index || 0} className={styles["modal-slider"]}>
+          {reviews.map((review, idx) => 
+            <ReviewItem 
+              authorName={review.authorName}
+              authorImg={review.authorImg}
+              text={review.text}
+              key={review.id}
+              index={idx}
+              className={styles["review-specified"]}
+            />
+          )}
+        </Slider>
+      </div>
     )
   }, [reviews]);
   

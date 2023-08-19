@@ -25,6 +25,7 @@
 .additional {
     margin-top: 30px;
     text-indent: $text-indent;
+    max-width: calc(100% - 60px);
 }
 
 .images {
@@ -49,6 +50,8 @@
     left: 0;
     top: 5px;
     transform: translateX(-70%);
+    max-width: 255px;
+    height: auto;
 }
 
 .wrapper {

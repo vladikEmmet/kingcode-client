@@ -1,0 +1,59 @@
+@import "../../../app/variables.scss";
+
+.section {
+    background: $main-yellow;
+    padding: 50px 0 60px;
+
+    h2 {
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 50px;
+        color: $black;
+    }
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.grid-item {
+    padding: 25px 55px 35px;
+    margin-bottom: 50px;
+
+    &:nth-child(1),
+    &:nth-child(3) {
+        flex-basis: calc(55% - 20px);
+    }
+
+    &:nth-child(2),
+    &:nth-child(4) {
+        flex-basis: calc(45% - 20px);
+    }
+    
+    div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        h4 {
+            text-transform: uppercase;
+            color: black;
+            text-align: center;
+            display: inline-block;
+            padding: 15px 90px;
+            background: $main-yellow;
+            box-shadow: 0 10px $shadow-orange;
+            border-radius: 25px;
+            margin-bottom: 40px;
+        }
+    }
+
+    p {
+        color: $white;
+        line-height: 1.2;
+    }
+}

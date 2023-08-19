@@ -15,9 +15,12 @@
     }
 
     p {
-       margin-top: 65px;
-       color: $white; 
-       text-indent: $text-indent;
+        margin-top: 65px;
+        color: $white; 
+        text-indent: $text-indent;
+        line-height: 117%;
+        max-width: 955px;
+        margin: 65px auto 0;   
     }
 }
 

@@ -1,0 +1,36 @@
+@import "../../../app/variables.scss";
+
+.section {
+    background: $main-grey;
+    padding-top: 45px;
+    overflow: hidden;
+
+    h2 {
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 55px;
+    }
+}
+
+.list-item {
+    background: $main-yellow;
+    border-radius: 20px;
+    box-shadow: 0 10px $shadow-orange;
+    color: $black;
+    padding: 35px 120px;
+    margin-bottom: 40px;
+    line-height: 1.2;
+}
+
+.img {
+    max-width: 680px;
+    margin: 0 auto;
+
+    img {
+        width: 100%;
+        height: auto;
+        margin-top: 80px;
+        transform: translateY(20px);
+    }
+}

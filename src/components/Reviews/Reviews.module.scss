@@ -16,15 +16,6 @@
     }
 }
 
-// .grid {
-//     display: grid;
-//     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-//     gap: 20px;
-//     padding: 20px;
-//     max-width: 100%;
-//     margin: 0 auto;
-// }
-
 .grid {
     display: flex;
     flex-direction: column;
@@ -36,17 +27,21 @@
 .slider {
     height: auto;
     width: 100%;
+}
 
-    .slick-list {
-        left: -15px!important;
-    }
-
-    .slick-track {
-        left: -15px!important;
-    }
+.modal-slider {
+    z-index: 99999;
+    max-height: 100%;
+    max-width: 700px;
 }
 
 .gird-item {
     padding: 10px;
     border: 1px solid #ccc;
+}
+
+.review-specified {
+    margin-left: auto!important;
+    margin-right: auto!important;
+    width: 100%!important;
 }

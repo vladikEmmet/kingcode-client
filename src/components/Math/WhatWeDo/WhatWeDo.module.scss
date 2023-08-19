@@ -1,0 +1,51 @@
+@import "../../../app/variables.scss";
+
+.section {
+    background: $main-yellow;
+    padding: 100px 0;
+}
+
+.tab {
+    padding: 50px 0 0 60px;
+    position: relative;
+    overflow: hidden;
+    
+    h2 {
+        font-size: 1.1rem;
+        text-align: center;
+    }
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    p {
+        color: $white;
+        max-width: 795px;
+        flex: 1;
+        margin-top: 40px;
+        padding-bottom: 20px;
+
+    }
+}
+
+.img {
+    transform: translate(30px, 40px);
+    // position: absolute;
+    // bottom: -30px;
+    // right: -30px;
+    // width: auto;
+    // align-self: flex-end;
+    max-width: 560px;
+    flex: 0.8;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}

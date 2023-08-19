@@ -1,0 +1,44 @@
+@import "../../../app/variables.scss";
+
+.section {
+    background: $main-grey;
+    padding: 42px 0 70px;
+
+    h2 {
+        font-size: 1.1rem;
+        text-align: center;
+        margin-bottom: 35px;
+    }
+}
+
+.list-item {
+    background: $main-yellow;
+    border-radius: 20px;
+    box-shadow: 0 10px $shadow-orange;
+    color: $black;
+    padding: 20px 120px 30px;
+
+    &:not(:last-child) {
+        margin-bottom: 50px;
+    }
+
+    h3 {
+        font-size: 1rem;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+}
+
+.list-info {
+    font-size: 0.8rem;
+    line-height: 34.357px;
+
+    &.list-flex {
+        display: flex;
+        align-items: center;
+    }
+
+    p {
+        max-width: 590px;
+    }
+}

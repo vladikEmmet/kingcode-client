@@ -1,0 +1,41 @@
+@import "../../../app/variables.scss";
+
+.section {
+    background: $main-yellow;
+    padding: 50px 0 100px;
+}
+
+.tab {
+    padding: 45px 55px 35px 120px;
+
+    h2 {
+        font-size: 1.1rem;
+        text-align: center;
+        margin-bottom: 25px;
+    }
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: center;
+
+
+    p {
+        color: $white;
+        margin-top: 60px;
+        flex: 1;
+        line-height: 117%;
+    }
+}
+
+.img {
+    max-width: 100%;
+    flex: 0.8;
+
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}

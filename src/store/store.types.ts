@@ -1,5 +1,3 @@
-import { PricesProps } from "@/types/price.type";
-
 export interface BurgerMenuState {
     isOpened: boolean;
     changeState: () => void;
@@ -11,13 +9,11 @@ export interface BurgerMenuState {
 //     close: () => void;
 // }
 
+
 export interface ModalState {
     children: React.ReactNode | null;
-    append: (child: React.ReactNode | null) => void;
+    append: (child: React.ReactNode | null, style?: {}, xStyle?: "white" | "black") => void;
     scrollPosition: number;
-}
-
-export interface PricesState extends PricesProps {
-    error: string | null;
-    isLoading: boolean;
+    style: {};
+    xStyle: "white" | "black";
 }
