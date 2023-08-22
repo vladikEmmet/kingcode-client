@@ -14,14 +14,12 @@ export enum EducationVariantEnum {
     individual = "individual",
 }
 
-const montserrat = Montserrat({subsets: ["cyrillic", "latin"], weight: ["700", "500"]});
-
-export const Tab: FC<TabProps> = memo(({price, variant, title, hours, exercises, educationVariant, description, isBlack}) => {
+export const Tab: FC<TabProps> = memo(({price, variant, title, hours, exercises, educationVariant, description, isBlack, className}) => {
   const iconsAmount = educationVariant === EducationVariantEnum.group ? 3 : 1;
 
   return (
     <div className={cn(styles.wrapper)}>
-        <div className={cn(styles.main, variant === ButtonVariantsEnum.orange ? styles.orange : styles.grey, {
+        <div className={cn(styles.main, className, variant === ButtonVariantsEnum.orange ? styles.orange : styles.grey, {
             [styles['main-black']]: isBlack,
         })}>
 
@@ -33,10 +31,10 @@ export const Tab: FC<TabProps> = memo(({price, variant, title, hours, exercises,
             </div>
 
             <div>
-                <h2 className={cn(styles.title, montserrat.className)}>{title}</h2>
+                <h2 className={styles.title}>{title}</h2>
                 {description && <p className={styles.description}>{description}</p>}
             </div>
-            <div className={cn(styles.time, montserrat.className, {
+            <div className={cn(styles.time, {
                 [styles["time-black"]]: isBlack,
             })}>
                 <p>{`${exercises} ${defineEnding(exercises, ["занятие", "занятия", "занятий"])}`}</p>
@@ -49,7 +47,7 @@ export const Tab: FC<TabProps> = memo(({price, variant, title, hours, exercises,
         <div 
             className={cn(styles.price, variant === ButtonVariantsEnum.orange ? styles["grey-btn"] : styles["orange-btn"])}
         >
-            <h3 className={montserrat.className}>{`${price} тг`}</h3>
+            <h3>{`${price} тг`}</h3>
         </div>
     </div>
   )

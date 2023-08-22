@@ -6,15 +6,12 @@ import project4 from "@/assets/scratch/project4.png";
 import project5 from "@/assets/scratch/project5.png";
 import project6 from "@/assets/scratch/project6.png";
 import Image from "next/image";
-import { Montserrat } from "next/font/google";
-
-const montserrat = Montserrat({subsets: ["cyrillic"], weight: ["700"]});
 
 export const OurProjects = () => {
   return (
     <section className={styles.section}>
         <div className="container">
-            <h2 className={montserrat.className}>Проекты наших учеников</h2>
+            <h2 className="subtitle">Проекты наших учеников</h2>
             <div className={styles.grid}>
                 <div className={styles.wrapper}>
                     <div>

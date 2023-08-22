@@ -5,6 +5,10 @@
     padding: 70px 0;
     background: $main-yellow;
 
+    @media only screen and (max-width: 757px) {
+        padding: 20px 0;
+    }
+
     ul {
         $z-over-img: 2;
         margin: 0 auto;
@@ -14,7 +18,12 @@
         a, .wrapper {
             text-decoration: none;
             color: $main-yellow;
-            box-shadow: 0 15 0 0 #000;
+            box-shadow: 0 15 $black;
+
+            @media only screen and (max-width: 575px) {
+                box-shadow: none;
+            }
+
 
             li {
                 display: block;
@@ -26,16 +35,32 @@
                 align-items: center;
                 margin-bottom: 60px;
                 cursor: pointer;
-    
-                img {
-                    position: absolute;
+
+                @media only screen and (min-width: 768px) and (max-width: 991px) {
+                    height: 150px;
+                    margin-bottom: 40px;
+                }
+                @media only screen and (min-width: 576px) and (max-width: 767px) {
+                    height: 150px;
+                    margin-bottom: 25px;
+                }
+
+                @media only screen and (max-width: 575px) {
+                    justify-content: flex-start;
+                    padding-left: 35px;
+                    height: 150px;
+                    margin-bottom: 15px;
                 }
 
                 h1 {
                     position: relative;
                     z-index: $z-over-img;
                     text-align: center;
-                    font-size: 1.5rem;
+                    font-size: 1.3rem;
+
+                    @media only screen and (max-width: 575px) {
+                        max-width: 190px;
+                    }
                 }
             }
             
@@ -54,6 +79,10 @@
         color: $main-yellow;
         box-shadow: 0 15 0 0 #000;
 
+        @media only screen and (max-width: 575px) {
+            box-shadow: none;
+        }
+
         li {
             display: block;
             width: 100%;
@@ -64,18 +93,54 @@
             align-items: center;
             margin-bottom: 60px;
             cursor: pointer;
+            box-shadow: 0 15 0 0 #000;
+
+            @media only screen and (min-width: 768px) and (max-width: 991px) {
+                height: 150px;
+            }
+            @media only screen and (min-width: 576px) and (max-width: 767px) {
+                height: 150px;
+            }
+
+            @media only screen and (max-width: 575px) {
+                justify-content: flex-start;
+                padding-left: 35px;
+                height: 150px;
+            }
 
             img {
                 position: absolute;
+                
+                @media only screen and (min-width: 768px) and (max-width: 991px) {
+                    height: 180px;
+                }
+                @media only screen and (min-width: 576px) and (max-width: 767px) {
+                    height: 130px;
+                }
             }
 
             h1 {
                 position: relative;
                 z-index: $z-over-img;
                 text-align: center;
-                font-size: 1.5rem;
+                font-size: 1.3rem;
+
+                @media only screen and (max-width: 575px) {
+                    max-width: 190px;
+                }
             }
         }
-        
+    }
+}
+
+@media only screen and (min-width: 576px) {
+    .mobile {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .desktop {
+        display: none;
     }
 }

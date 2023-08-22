@@ -16,11 +16,9 @@ export interface ReviewItemProps extends ReviewType {
     onClick?: (index: number) => void;
 }
 
-const montserrat = Montserrat({subsets: ["cyrillic", "latin"], weight: ["500"]});
-
 export const ReviewItem: FC<ReviewItemProps> = ({className, authorImg, authorName, text, index, onClick}) => {
   return (
-    <div className={cn(styles.container, className, montserrat.className)} onClick={onClick ? () => onClick(index) : () => null}>
+    <div className={cn(styles.container, className)} onClick={onClick ? () => onClick(index) : () => null}>
         <div className={styles.info}>
             <div className={styles.image}>
                 <Image 

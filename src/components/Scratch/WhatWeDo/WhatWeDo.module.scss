@@ -3,15 +3,36 @@
 .section {
     background: $main-yellow;
     padding: 60px 0 130px;
+
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+        padding: 55px 0 100px;
+    }
+
+    @media only screen and (max-width: 767px) {
+        padding: 40px 0 50px;
+    }
 }
 
 .tab {
-    padding: 45px 125px 54px;
+    padding: 45px 125px 55px;
+
+    @media only screen and (min-width: 992px) and (max-width: 1199px) {
+        padding: 35px 75px 40px;
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+        padding: 30px 50px 30px;
+    }
+
+    @media only screen and (min-width: 576px) and (max-width: 767px) {
+        padding: 20px 30px 25px;
+    }
+
+    @media only screen and (max-width: 575px) {
+        padding: 10px 20px 15px;
+    }
 
     h2 {
-        font-size: 1.1rem;
-        text-transform: uppercase;
-        text-align: center;
         margin-bottom: 50px;
     }
 
@@ -19,6 +40,10 @@
         color: $white;
         margin-bottom: 50px;
         line-height: 117%;
+
+        @media only screen and (max-width: 767px) {
+            margin-bottom: 30px;
+        }
     }
 
     .img {

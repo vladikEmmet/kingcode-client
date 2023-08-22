@@ -1,33 +1,128 @@
 @import "../../../app/variables.scss";
 
+// .section {
+//     background: $main-grey;
+//     padding-top: 45px;
+
+//     h2 {
+//         text-transform: uppercase;
+//         font-size: 1.1rem;
+//         text-align: center;
+//         margin-bottom: 25px;
+//     }
+// }
+
+// .list-item {
+//     background: $main-yellow;
+//     box-shadow: 0 10px $shadow-orange;
+//     color: $black;
+//     margin-bottom: 40px;
+//     padding: 25px 50px;
+//     text-align: center;
+//     border-radius: 20px;
+// }
+
+// .img {
+//     max-width: 790px;
+//     margin: 0 auto;
+
+//     img {
+//         width: 100%;
+//         height: auto;
+//     }
+// }
+
 .section {
     background: $main-grey;
     padding-top: 45px;
+    overflow: hidden;
 
     h2 {
-        text-transform: uppercase;
-        font-size: 1.1rem;
-        text-align: center;
-        margin-bottom: 25px;
+        margin-bottom: 55px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .section {
+        padding-top: 25px;
+
+        h2 {
+            margin-bottom: 20px;
+        }
     }
 }
 
 .list-item {
     background: $main-yellow;
+    border-radius: 20px;
     box-shadow: 0 10px $shadow-orange;
     color: $black;
+    padding: 35px 120px;
     margin-bottom: 40px;
-    padding: 25px 50px;
-    text-align: center;
-    border-radius: 20px;
+    line-height: 1.2;
+    font-weight: bold;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    @media only screen and (min-width: 992px) and (max-width: 1199px) {
+        padding: 35px 75px;
+        margin-bottom: 30px;
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+        padding: 25px 40px;
+        border-radius: 15px;
+        box-shadow: 0 8px $shadow-orange;
+        margin-bottom: 25px;
+    }
+
+    @media only screen and (min-width: 576px) and (max-width: 767px) {
+        padding: 15px 25px;
+        border-radius: 10px;
+        box-shadow: 0 5px $shadow-orange;
+        margin-bottom: 20px;
+    }
+
+    @media only screen and (max-width: 575px) {
+        padding: 5px 15px;
+        border-radius: 5px;
+        box-shadow: 0 2.5px $shadow-orange;
+        margin-bottom: 15px;
+    }
 }
 
 .img {
-    max-width: 790px;
+    max-width: 680px;
+    width: 50%;
     margin: 0 auto;
+    height: auto;
+
+    @media only screen and (max-width: 575px) {
+        width: 75%;
+    }
 
     img {
         width: 100%;
         height: auto;
+        margin-top: 80px;
+        transform: translateY(20px);
+
+        @media only screen and (max-width: 575px) {
+            margin-top: 0;
+        }
+
+        @media only screen and (min-width: 576px) and (max-width: 767px) {
+            margin-top: 10px;
+        }
+
+        @media only screen and (min-width: 992px) and (max-width: 1199px) {
+            margin-top: 50px;
+        }
+
+        @media only screen and (min-width: 768px) and (max-width: 991px) {
+            margin-top: 30px;
+        }
     }
 }

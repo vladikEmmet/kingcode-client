@@ -2,17 +2,42 @@
 
 .section {
     width: 100%;
-    min-height: calc(100vh - 10vh);
+    height: auto;
+    box-sizing: content-box;
+    padding: 3% 0;
     background: $main-yellow;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media only screen and (orientation: portrait) {
+        min-height: auto;
+        padding: 5% 0;
+    }
+
 }
 
 .wrapper {
+    // max-width: $container-width;
     width: 100%;
-    max-width: $container-width;
-    height: 770px;
+    height: auto;
+    margin-bottom: 10px;
+
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+        height: 550px;
+    }
+
+    @media only screen and (min-width: 576px) and (max-width: 765px) {
+        height: 450px;
+    }
+
+    @media only screen and (min-width: 471px) and (max-width: 575px) {
+        height: 300px;
+    }
+
+    @media only screen and (max-width: 470px) {
+        height: 250px;
+    }
 }
 
 .content {
@@ -30,6 +55,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+    padding: 15px;
 
     h1 {
         color: $white;
@@ -38,11 +64,29 @@
         line-height: 1.2;
         margin-top: 300px;
         padding: 0 15px;
-        // max-width: 1008px;
+
+        @media only screen and (min-width: 768px) and (max-width: 991px) {
+            margin-top: 200px;
+        }
+
+        @media only screen and (min-width: 576px) and (max-width: 765px) {
+            margin-top: 150px;
+        }
+
+        @media only screen and (min-width: 576px) and (max-width: 620px) {
+            font-size: 2.3rem;
+        }
+
+        @media only screen and (max-width: 575px) {
+            margin-top: 70px;
+            // font-size: 1.6rem;
+            font-size: 1.4rem;
+            // min-width: 261px;
+            // max-width: 100%;
+        }
 
         &.big {
             font-size: 3rem;
-            // max-width: 1174px;
         }
         
         span {
@@ -61,8 +105,10 @@
     -moz-background-size: 100% 100%;
     -ms-background-size: 100% 100%;
     -khtml-background-size: 100% 100%;
-    width: 175px;
-    height: 175px;
+    // width: 175px;
+    // height: 175px;
+    width: 15%;
+    padding: 7.5% 0;
     bottom: 4%;
     right: 5%;
     display: flex;
@@ -71,7 +117,7 @@
     justify-content: center;
 
     h5 {
-        font-size: 1.2em;
+        font-size: 0.9em;
         color: #000;
         transform: rotate(7.157deg);
         font-weight: bolder;
@@ -81,15 +127,40 @@
 
 
 .button {
-    align-self: flex-end!important;
-    margin-top: 90px!important;
-    margin-left: auto!important;
-    margin-right: auto!important;
-    width: 520px!important;
-    height: 60px!important;
-    cursor: pointer!important;
-    text-align: center!important;
+    align-self: flex-end;
+    margin: 90px auto 100px;
+    width: 520px;
+    height: 60px;
+    cursor: pointer;
+    text-align: center;
     font-size: 1.1rem!important;
+
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+        width: 400px;
+        height: 50px;
+    }
+
+    @media only screen and (min-width: 576px) and (max-width: 765px) {
+        width: 300px;
+        height: 40px;
+        margin-top: 25%;
+    }
+
+    @media only screen and (min-width: 471px) and (max-width: 575px) {
+        width: 300px;
+        height: 40px;
+        margin-top: 25%;
+    }
+
+    @media only screen and (max-width: 470px) {
+        width: 180px;
+        height: 25px;
+        // margin-top: 25%;
+        box-shadow: 0 4px $shadow-orange;
+        border-radius: 8px!important;
+        font-size: 1rem!important;
+        margin-top: 50px;
+    }
 
     a {
         width: 100%;

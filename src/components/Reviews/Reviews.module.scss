@@ -4,15 +4,14 @@
     padding: 60px 0;
     background: $main-yellow;
 
-    h2, .empty {
+    .empty {
         text-align: center;
         color: $black;
     }
 
     h2 {
         margin-bottom: 40px;
-        font-size: 1.1rem;
-        text-transform: uppercase;
+        color: $black;
     }
 }
 
@@ -25,8 +24,8 @@
 } 
 
 .slider {
-    height: auto;
     width: 100%;
+    height: auto;
 }
 
 .modal-slider {
@@ -45,3 +44,20 @@
     margin-right: auto!important;
     width: 100%!important;
 }
+
+.slider-desktop {
+    @media only screen and (max-width: 575px) {
+        display: none;
+    }
+}
+
+// .slider-mobile {
+//     @media only screen and (max-width: 575px) {
+//         height: 600px!important;
+//         width: 100%;
+//     }
+// }
+
+// .slide {
+//     height: 200px!important;
+// }

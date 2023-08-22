@@ -3,14 +3,32 @@
 .section {
     background: $main-yellow;
     padding: 50px 0 100px;
+
+    @media only screen and (max-width: 767px) {
+        padding: 30px 0;
+    }
 }
 
 .tab {
     padding: 45px 55px 35px 120px;
+    overflow: hidden;
+
+    @media only screen and (min-width: 768px) and (max-width: 991px ) {
+        padding: 35px;
+    }
+    @media only screen and (min-width: 576px) and (max-width: 767px ) {
+        padding: 20px;
+    }
+
+    @media only screen and (min-width: 992px) and (max-width: 1199px) {
+        padding: 45px;
+    }
+
+    @media only screen and (max-width: 575px) {
+        padding: 20px 15px 0;
+    }
 
     h2 {
-        font-size: 1.1rem;
-        text-align: center;
         margin-bottom: 25px;
     }
 }
@@ -20,22 +38,62 @@
     width: 100%;
     align-items: center;
 
-
     p {
         color: $white;
-        margin-top: 60px;
-        flex: 1;
+        // margin-top: 60px;
+        flex: 0 1 70%;
         line-height: 117%;
+        text-indent: $text-indent;
     }
 }
 
 .img {
     max-width: 100%;
-    flex: 0.8;
+    flex: 0 1 30%;
+    align-self: flex-end;
+
+    @media only screen and (max-width: 575px) {
+        transform: translateY(30%);
+    }
 
 
     img {
         width: 100%;
         height: auto;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .wrapper {
+        display: block;
+        padding: 0 10px;
+    }
+
+    .full {
+        display: none;
+    }
+
+    .mobile-wrapper {
+        display: flex;
+
+        p {
+            padding: 20px 0;
+        }
+    }
+
+    .semi {
+        margin-bottom: 10px;
+    }
+}
+
+@media only screen and (min-width: 576px) {
+    .semi {
+        display: none;
+    }
+
+    .mobile-wrapper {
+        p {
+            display: none;
+        }
     }
 }

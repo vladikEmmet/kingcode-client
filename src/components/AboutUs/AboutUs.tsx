@@ -1,9 +1,8 @@
 import { errorCatch } from "@/app/api/helper";
 import { AboutUsService } from "@/services/aboutUs/aboutUs.service";
-import Image from "next/image";
-import { useMemo, useState } from "react";
-import styles from "./AboutUs.module.scss"
+import styles from "./AboutUs.module.scss";
 import { Carousel } from "./Carousel/Carousel";
+import cn from 'clsx';
 
 const fetchSlides = async() => {
   try {
@@ -20,7 +19,7 @@ export default async function AboutUs() {
   return (
     <section className={styles.section} id="about-us">
         <div className="container">
-            <h2>О нас</h2>
+            <h2 className={"subtitle"}>О нас</h2>
             {!slides?.length ?
               <h3 className={styles.empty}>Мы скоро вернемся с новостями!</h3> :
               <Carousel 

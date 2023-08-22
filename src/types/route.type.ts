@@ -5,6 +5,7 @@ interface RouteProps {
     img: StaticImageData;
     link?: string;
     subEl?: RouteProps[];
+    mobileImg?: StaticImageData;
 }
 
 export type RoutesType = RouteProps[];

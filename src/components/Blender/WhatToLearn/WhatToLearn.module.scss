@@ -4,14 +4,21 @@
     background: $main-yellow;
     margin-bottom: 100px;
 
-    h2, h3 {
-        font-size: 1.1rem;
-        text-align: center;
+    @media only screen and (max-width: 767px) {
+        margin-bottom: 30px;
     }
 
     h3 {
+        font-size: 1.1rem;
+        text-align: center;
+        font-weight: bold;
         margin-top: 60px;
         margin-bottom: 50px;
+
+        @media only screen and (max-width: 575px) {
+            margin-bottom: 20px;
+            margin-top: 30px;
+        }
     }
 
     p {
@@ -21,24 +28,70 @@
         line-height: 117%;
         max-width: 955px;
         margin: 65px auto 0;   
+
+        @media only screen and (max-width: 575px) {
+            margin-top: 30px;
+        }
     }
 }
 
 .tab {
     padding: 50px 100px;
+
+    @media only screen and (min-width: 576px) and (max-width: 763px) {
+        padding: 25px;
+    }
+
+    @media only screen and (max-width: 575px) {
+        padding: 25px 20px;
+    }
 }
 
-.images {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    row-gap: 30px;
+    max-width: 1200px;
     margin: 0 auto;
-    gap: 50px;
+
+    @media only screen and (max-width: 763px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-.image-container {
-    background: $main-yellow;
-    border-radius: 20px;
-    padding: 15px;
-    box-shadow: 0 10px $shadow-orange;
+.wrapper {
+    height: auto;
+    width: 100%;
+    
+
+    div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        background: $main-yellow;
+        padding: 10px;
+        border-radius: 20px;
+        box-shadow: 0 12px $shadow-orange;
+        padding: 10px;
+
+        @media only screen and (min-width: 576px) and (max-width: 763px) {
+            padding: 5px;
+            border-radius: 15px;
+            box-shadow: 0 7px $shadow-orange;
+        }
+
+        @media only screen and (max-width: 575px) {
+            padding: 4px;
+            border-radius: 10px;
+            box-shadow: 0 3px $shadow-orange;
+        }
+        
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
 }

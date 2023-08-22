@@ -4,11 +4,27 @@
     padding: 50px 100px;
     position: relative;
 
+    @media only screen and (min-width: 1200px) and (max-width: 1469px) {
+        padding: 50px;
+    }
+
+    @media only screen and (max-width: 1199px) {
+        padding: 50px 35px;
+    }
+
+    @media only screen and (max-width: 575px) {
+        padding: 40px 20px;
+    }
+
     h2, h3 {
         font-size: 1.1rem;
         text-align: center;
         margin-bottom: 50px;
         text-transform: uppercase;
+
+        @media only screen and (max-width: 1199px) {
+            margin-bottom: 20px;
+        }
     }
 
     h3 {
@@ -22,44 +38,141 @@
     }
 }
 
+.content {
+    position: relative;
+}
+
 .additional {
     margin-top: 30px;
     text-indent: $text-indent;
-    max-width: calc(100% - 60px);
+    max-width: calc(100% - 15vw - 15px);
+
+    @media only screen and (min-width: 1200px) and (max-width: 1469px) {
+        max-width: calc(100% - (35vw * 0.75) - 15px);
+    }
+
+    @media only screen and (max-width: 1199px) {
+        max-width: 100%;
+    }
+}
+
+.text {
+    align-self: center;
+    flex: 0 1 65%;
+
+    @media only screen and (max-width: 575px) {
+        align-self: flex-end;
+    }
+
+    @media only screen and (max-width: 418px) {
+        font-size: 0.9rem;
+    }
 }
 
 .images {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center;
-    max-width: 850px;
-    margin: 0 auto;
-    gap: 30px;
+    align-items: flex-start;
+    max-width: 100%;
 }
 
 .image-container {
     background: $main-yellow;
     border-radius: 20px;
-    padding: 15px;
+    padding: 10px;
     box-shadow: 0 10px $shadow-orange;
-    flex-wrap: wrap;
+    max-width: calc(25% - 20px);
+    height: auto;
+    flex: 1;
+
+    @media only screen and (max-width: 992px) {
+        padding: 7px 8px;
+        box-shadow: 0 7px $shadow-orange;
+        border-radius: 15px;
+    }
+
+    @media only screen and (max-width: 767px) {
+        max-width: calc(50% - 20px);
+        flex-basis: calc(45% - 30px);
+        // margin-top: 30px;
+    }
+
+    @media only screen and (max-width: 450px) {
+        padding: 5px;
+        border-radius: 10px;
+        box-shadow: 0 4px $shadow-orange
+    }
+
+    &:nth-child(1),
+    &:nth-child(2) {
+        @media only screen and (max-width: 767px) {
+            margin-bottom: 30px;
+        }
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
 }
 
 .cubes {
     position: absolute;
     left: 0;
-    top: 5px;
-    transform: translateX(-70%);
+    top: -30%;
+    transform: translateX(calc(-100% - 20px));
     max-width: 255px;
-    height: auto;
+    width: 13vw;
+
+    @media only screen and (max-width: 1469px) {
+        display: none;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
 }
 
 .wrapper {
-    max-width: 800px;
+    p {
+        max-width: 800px;
+    }
+
+    @media only screen and (max-width: 1199px) {
+        display: flex;
+        align-items: end;
+        gap: 10px;
+    }
 }
 
 .monkey-tinkercad {
     position: absolute;
-    top: 210px;
-    right: -220px;
+    transform: translateX(50%); 
+    bottom: 0;
+    right: 0;
+    max-width: 565px;
+    width: 30vw;
+
+    @media only screen and (min-width: 1200px) and (max-width: 1469px) {
+        width: 35vw;
+        transform: translateX(25%);
+    }
+
+    @media only screen and (max-width: 1199px) {
+        position: static;
+        transform: none;
+        flex: 0 1 35%;
+    }
+
+    // @media only screen and (max-width: 575px) {
+    //     flex: 0 1 40%;
+    //     width: auto;
+    // }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
 }

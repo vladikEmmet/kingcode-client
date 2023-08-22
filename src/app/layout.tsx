@@ -8,6 +8,7 @@ import { Montserrat } from "next/font/google";
 import { Footer } from "@/components/Footer/Footer";
 import { Curtain } from "@/components/UI/Curtain/Curtain";
 import { Modal } from "@/components/Modal/Modal";
+import { SocialBeforeFooter } from "@/components/SocialBeforeFooter/SocialBeforeFooter";
 config.autoAddCss = false;
 
 export const metadata: Metadata = {
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
   viewport: "width=device-width, initial-scale=1"
 }
 
-const montserrat = Montserrat({ subsets: ['latin', 'cyrillic'], weight: ["600"] })
+const montserrat = Montserrat({ subsets: ['latin', 'cyrillic'], weight: ["500", "600", "700"]});
 
 export default function RootLayout({
   children,
@@ -32,6 +33,7 @@ export default function RootLayout({
             <main>
               {children}
             </main>
+            <SocialBeforeFooter />
             <BurgerMenu />
             <Curtain />
             <Modal />

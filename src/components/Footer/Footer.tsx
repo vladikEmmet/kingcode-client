@@ -10,7 +10,7 @@ export const Footer = () => {
     <footer className="footer">
         <div className="container">
             <div className="wrapper">
-                <SocialMedia />
+                <SocialMedia withPhone={true}/>
                 <Link href="/" className="logo">
                     <Image src={logo} alt="Logo"/>
                 </Link>

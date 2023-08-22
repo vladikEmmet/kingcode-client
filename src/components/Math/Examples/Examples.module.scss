@@ -5,8 +5,6 @@
     padding: 42px 0 70px;
 
     h2 {
-        font-size: 1.1rem;
-        text-align: center;
         margin-bottom: 35px;
     }
 }
@@ -18,27 +16,94 @@
     color: $black;
     padding: 20px 120px 30px;
 
+    @media only screen and (min-width: 992px) and (max-width: 1199px) {
+        padding: 20px 90px 30px;
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+        padding: 20px 50px 30px;
+        border-radius: 15px;
+        box-shadow: 0 7px $shadow-orange;
+    }
+
+    @media only screen and (min-width: 576px) and (max-width: 767px) {
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 5px $shadow-orange;
+    }
+
+    @media only screen and (max-width: 575px) {
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 3px $shadow-orange;
+    }
+
     &:not(:last-child) {
         margin-bottom: 50px;
+
+        @media only screen and (min-width: 576px) and (max-width: 991px) {
+            margin-bottom: 30px;
+        }
+
+        @media only screen and (max-width: 575px) {
+            margin-bottom: 20px;
+        }
     }
 
     h3 {
         font-size: 1rem;
         text-align: center;
         margin-bottom: 15px;
+        font-weight: bold;
     }
 }
 
 .list-info {
     font-size: 0.8rem;
-    line-height: 34.357px;
+    line-height: 34.4px;
+
+    @media only screen and (max-width: 991px) {
+        line-height: 1.2;
+    }
 
     &.list-flex {
         display: flex;
         align-items: center;
+        gap: 20px;
+
+        @media only screen and (max-width: 575px) {
+            flex-direction: column;
+        }
+
+        p {
+            flex-basis: 50%;
+
+            @media only screen and (min-width: 576px) and (max-width: 991px) {
+                flex-basis: 60%;
+            }
+        }
     }
 
     p {
         max-width: 590px;
+    }
+}
+
+.battery {
+    flex-basis: 50%;
+    display: flex;
+    align-items: center;
+
+    @media only screen and (min-width: 576px) and (max-width: 991px) {
+        flex-basis: 40%;
+    }
+
+    @media only screen and (max-width: 575px) {
+        width: 50%;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
     }
 }

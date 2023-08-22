@@ -1,17 +1,12 @@
-import { Montserrat } from "next/font/google";
 import styles from "./WhatToLearn.module.scss";
 import monkeyCat from "@/assets/scratch/monkeyCat.png";
 import Image from "next/image";
-import cn from 'clsx';
-
-
-const montserrat = Montserrat({subsets: ["cyrillic"], weight: ["700"]});
 
 export const WhatToLearn = () => {
   return (
-    <section className={cn(styles.section, montserrat.className)}>
+    <section className={styles.section}>
         <div className="container">
-            <h2>Что будем изучать?</h2>
+            <h2 className="subtitle">Что будем изучать?</h2>
             <div className={styles.list}>
                 <div className={styles["list-item"]}>
                     Сначала мы изучим основы: Координаты, градусы, циклы, условия и многое другое

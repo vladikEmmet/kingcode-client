@@ -3,19 +3,30 @@
 
 .wrapper {
     flex: 0 1 32%;
-}
+    font-size: 30px;
 
-@media only screen and (max-width: 1279px) {
-    .main {
+    @media only screen and (min-width: 576px) and (max-width: 767px) {
+        font-size: 25px;
+        max-width: 100%;
+    }
+
+    @media only screen and (min-width: 411px) and (max-width: 575px) {
+        font-size: 23px;
+        width: 75%;
+        margin: 0 auto;
+    }
+
+    @media only screen and (max-width: 410px) {
+        font-size: 23px;
         width: 100%;
+        margin: 0 auto;
     }
 }
 
 .main {
     color: $black;
     border-radius: 25px;
-    max-width: 420px;
-    min-width: 375px;
+    width: 400px;
     padding: 0 15px;
     text-align: center;
     display: flex;
@@ -25,16 +36,40 @@
 
     .icons {
         text-align: center;
+        border-radius: 13px;
+    }
+
+    @media only screen and (max-width: 767px) {
+        max-width: 100%!important;
+        padding: 15px 0;
+        height: auto!important;
+        gap: 30px;
+        border-radius: 10px;
+    }
+
+    @media only screen and (max-width: 575px) {
+        width: 100%;
+        font-size: 23px;
+        width: 100%;
+        margin: 0 auto;
     }
 }
 
 .title { 
     margin-bottom: 20px;
-    font-size: 30px;
+    font-size: 1em;
+
+    @media only screen and (max-width: 767px) {
+        margin-bottom: 10px;
+    }
+
+    @media only screen and (max-width: 575px) {
+        margin-bottom: 20px;
+    }
 }
 
 .icon_el, .plus_el {
-    font-size: 1.7rem;
+    font-size: 1.7em;
     margin-top: 25px;
 }
 
@@ -46,6 +81,14 @@
     .icon_el, .plus_el {
         color: $white;
         filter: drop-shadow(0 4px $icons-shadow-grey);
+    }
+
+    @media only screen and (max-width: 1270px) {
+        height: 400px;
+    }
+
+    @media only screen and (max-width: 767px) {
+        box-shadow: 0 4px $shadow-orange;
     }
 }
 
@@ -71,6 +114,15 @@
         color: $main-yellow;
         filter: drop-shadow(-2px 4px $shadow-orange);
     }
+
+    @media (max-width: 1270px) {
+        transform: translateY(0);
+        height: 400px;
+    }
+
+    @media only screen and (max-width: 767px) {
+        box-shadow: 0 4px $shadow-grey;
+    }
 }
 
 .time {
@@ -82,12 +134,17 @@
     margin-bottom: 10px;
 
     p, span, svg {
-        font-weight: normal;
-        font-size: 1rem;
+        font-weight: medium;
+        font-size: 1em;
     }
 
     svg {
         margin-right: 10px;
+    }
+
+    @media only screen and (max-width: 767px) {
+        margin-bottom: 30px;
+        padding: 0 30px;
     }
 }
 
@@ -113,11 +170,29 @@
         background: $main-yellow;
         box-shadow: 0 10px $shadow-orange;
         transform: translateY(calc(-40% - 30px));
+
+        @media (max-width: 1270px) {
+            transform: translateY(-40%);
+        }
+
+        @media only screen and (max-width: 767px) {
+            box-shadow: 0 4px $shadow-orange;
+        }
     }
 
     &.grey-btn {
         background: $secondary-grey;
         box-shadow: 0 10px $shadow-grey;
         transform: translateY(-40%);
+
+        @media only screen and (max-width: 767px) {
+            box-shadow: 0 4px $shadow-grey;
+        }
+    }
+
+    @media only screen and (max-width: 767px) {
+        width: 70%;
+        height: 60px;
+        border-radius: 10px
     }
 }

@@ -5,14 +5,26 @@
     border-radius: 20px;
     color: #000;
     font-size: 1.5rem;
+
+    @media only screen and (min-width: 576px) and (max-width: 767px) {
+        border-radius: 12px;
+    }
 }
 
 .grey {
     background: $secondary-grey;
     box-shadow: 0 10px $shadow-grey;
+
+    @media only screen and (max-width: 767px) {
+        box-shadow: 0 4px $shadow-grey;
+    }
 }
 
 .orange {
     background: $main-yellow;
     box-shadow: 0 10px $shadow-orange;
+
+    @media only screen and (max-width: 767px) {
+        box-shadow: 0 4px $shadow-orange;
+    }
 }

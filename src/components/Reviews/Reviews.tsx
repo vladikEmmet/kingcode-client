@@ -5,22 +5,26 @@ import styles from "./Reviews.module.scss"
 import { ReviewItem } from "./ReviewItem/ReviewItem";
 import { Montserrat } from "next/font/google";
 import cn from 'clsx'
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { errorCatch } from "@/app/api/helper";
 import { useModal } from "@/store/store";
 import Slider from "react-slick";
-// import 'slick-carousel/slick/slick.css';
-// import 'slick-carousel/slick/slick-theme.css';
 import { ReviewData } from "@/services/review/review.types";
 import { NextArrow } from "../UI/Arrows/NextArrow/NextArrow";
 import { PrevArrow } from "../UI/Arrows/PrevArrow/PrevArrow";
-
-const montserrat = Montserrat({subsets: ["cyrillic"], weight: ["700"]});
+import { defineSizes } from "@/utils/defineSizes";
 
 export default function Reviews() {
   const [reviews, setReviews] = useState<ReviewData[]>([]);
-  const {append, children} = useModal();
+  const [mobile, setMobile] = useState(false);
+  const {append} = useModal();
   const [elementsPerRow, setElementsPerRow] = useState(3);
+
+  useEffect(() => {
+    const {width} = defineSizes();
+    console.log(width);
+    if(width <= 575) setMobile(true);
+  }, [])
 
   const carouselSettings = {
     dots: true,
@@ -33,6 +37,16 @@ export default function Reviews() {
     centerPadding: "0px", 
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />
+  };
+
+  const mobileSettings = {
+    infinite: true,
+    vertical: true,
+    verticalSwiping: true, 
+    arrows: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    swipeToSlide: true,
   }
 
   const syncCarouselSettings = {
@@ -46,9 +60,35 @@ export default function Reviews() {
     adaptiveHeight: true,
     draggable: false,
     pauseOnHover: false,
-  }
+    responsive: [
+      {
+        breakpoint: 1025,
+        settings: {
+          variableWidth: false,
+          swipeToSlide: true,
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          adaptiveHeight: true,
+        }
+      },
+      {
+        breakpoint: 767,
+        settings: {
+          variableWidth: false,
+          swipeToSlide: true,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          adaptiveHeight: true,
+          centerMode: true,
+          centerPadding: "0px",
+        }
+      },
+    ]
+  };
 
   const onClick = useCallback((index: number) => {
+    if(mobile) return null;
+    
     append(
       <div className={styles["carousel-container"]}>
         <Slider {...carouselSettings} initialSlide={index || 0} className={styles["modal-slider"]}>
@@ -67,6 +107,8 @@ export default function Reviews() {
     )
   }, [reviews]);
   
+  const getMobileSettings = () => mobile ? mobileSettings : syncCarouselSettings;
+  
   useEffect(() => {
     const getReviews = async() => {
       const reviews = await ReviewService.getAll();
@@ -83,14 +125,14 @@ export default function Reviews() {
   
   return (
     <section className={styles.section} id="reviews">
-      <h2 className={montserrat.className}>Отзывы</h2>
+      <h2 className="subtitle">Отзывы</h2>
         <div className={styles.grid}>
           {
-            (!reviews || reviews.length <= 0) ? <p className={cn(montserrat.className, styles.empty)}>Отзывы скоро появятся</p> : (
+            (!reviews || reviews.length <= 0) ? <p className={styles.empty}>Отзывы скоро появятся</p> : (
               <>
-                <Slider {...syncCarouselSettings} rtl={true} className={styles.slider}>
+                <Slider {...syncCarouselSettings} rtl={true} className={cn(styles.slider, styles["slider-desktop"])}>
                   {reviews.slice(0, elementsPerRow).map((review, idx) =>
-                    <ReviewItem 
+                    <ReviewItem
                       authorName={review.authorName}
                       authorImg={review.authorImg}
                       text={review.text}
@@ -100,8 +142,12 @@ export default function Reviews() {
                     />
                   )}
                 </Slider>
-                <Slider {...syncCarouselSettings} className={styles.slider}>
-                  {reviews.slice(elementsPerRow).map((review, idx) =>
+                <Slider  
+                  className={cn(styles.slider, "slider-mobile")}
+                  {...getMobileSettings()}
+                  slide={styles.slide}
+                >
+                  {reviews.slice(mobile ? 0 : elementsPerRow).map((review, idx) =>
                     <ReviewItem 
                       authorName={review.authorName}
                       authorImg={review.authorImg}

@@ -1,15 +1,12 @@
 import styles from "./WhatToExplore.module.scss";
 import monkeyExplorer from "@/assets/unity/monkeyExplorer.png";
 import Image from "next/image";
-import { Montserrat } from "next/font/google";
-
-const montserrat = Montserrat({subsets: ["cyrillic"], weight: ["700"]});
 
 export const WhatToExplore = () => {
   return (
     <section className={styles.section}>
         <div className="container">
-            <h2 className={montserrat.className}>Что будем изучать?</h2>
+            <h2 className="subtitle">Что будем изучать?</h2>
             <div>
                 <div className={styles["list-item"]}>
                     Познакомимся с интерфейсом UNITY

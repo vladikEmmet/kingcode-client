@@ -9,8 +9,6 @@ import { EducationVariantEnum, Tab } from "../UI/Tab/Tab"
 import styles from "./Prices.module.scss"
 import cn from 'clsx'
 
-const montserrat = Montserrat({subsets: ["cyrillic"], weight: ["700", "500"]});
-
 interface PricesProps {
     courseName?: string;
     variant?: "orange" | "grey";
@@ -62,8 +60,8 @@ export const Prices:FC<PricesProps> = ({variant = "grey", courseName}) => {
       <section className={cn(styles.section, styles[variant])} id="prices">
         <div className="container">
             <div className={cn(styles.title, styles[`title-${variant}`])}>
-                <h2 className={montserrat.className}>Абонементы</h2>
-                <h3 className={montserrat.className}>1 месяц</h3>
+                <h2 className="subtitle">Абонементы</h2>
+                <h3>1 месяц</h3>
             </div>
             <div className={styles.wrapper}>
                 {prices.map((price, idx) => 
@@ -76,7 +74,7 @@ export const Prices:FC<PricesProps> = ({variant = "grey", courseName}) => {
                         hours={price.hours}
                         exercises={price.exercises}
                         educationVariant={price.educationVariant}
-                        className={cn(styles.tab, variant === "orange" ? styles["black-tab"] : "")}
+                        className={styles.tab}
                         isBlack={variant === "orange" && idx !== 1}
                     />
                 )}

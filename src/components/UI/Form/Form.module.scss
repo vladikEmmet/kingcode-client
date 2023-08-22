@@ -4,7 +4,7 @@ $button-width: 320px;
 $spinner-width: calc($button-width / 6);
 
 .wrapper {
-    width: 700px;
+    max-width: 700px;
     background: $main-yellow;
     box-shadow: 0 10px $shadow-orange;
     margin-top: 50px;
@@ -12,13 +12,22 @@ $spinner-width: calc($button-width / 6);
     margin-right: auto;
     color: black;
     border-radius: 25px;
-    padding-top: 30px;
+    padding: 30px;
 
     h3 {
-        font-size: 1.1rem;
+        font-size: 1.1em;
         text-align: center;
+        font-weight: bold;
         margin-bottom: 15px;
         line-height: 1.2;
+
+        @media only screen and (max-width: 575px) {
+            font-size: 1.3em;
+        }
+
+        @media only screen and (max-width: 420px) {
+            font-size: 1.1em;
+        }
     }
 
     form {
@@ -33,11 +42,11 @@ $spinner-width: calc($button-width / 6);
             width: 450px;
             border-radius: 25px;
             padding: 0 20px;
-            font-size: 1.1rem;
+            font-size: 1.1em;
             text-align: center;
 
             &::placeholder {
-                font-size: 1.1rem;
+                font-size: 1.1em;
                 color: $placeholder-grey;
                 text-align: center;
             }
@@ -51,13 +60,127 @@ $spinner-width: calc($button-width / 6);
             border-radius: 25px;
             margin-bottom: 25px;
             box-shadow: inset 1px 4px 4px 0 rgba(255, 255, 255, 0.5), 0 10px $shadow-orange-button;
-            font-size: 1rem;
+            font-size: 1em;
             font-weight: bold;
             cursor: pointer;
-            // color: $black;
 
             &:disabled {
                 cursor: not-allowed;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .wrapper {
+        border-radius: 15px;
+        padding-bottom: 20px;
+        font-size: 30px;
+
+        h3 {
+            margin-bottom: 25px;
+        }
+    }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+    .wrapper {
+        border-radius: 10px;
+        padding-bottom: 20px;
+        font-size: 25px;
+
+        h3 {
+            margin-bottom: 25px;
+        }
+    }
+
+}
+
+// @media only screen and (max-width: 575px) {
+//     .wrapper {
+//         border-radius: 10px;
+//         font-size: 16px;
+//         box-shadow: 0 4px $shadow-orange;
+//         padding: 15px 5px;
+
+//         form {
+//             gap: 15px;
+
+//             input {
+//                 width: 90%;
+//             }
+
+//             .phone-input {
+//                 width: 90%;
+
+//                 input {
+//                     width: 100%;
+//                 }
+//             }
+
+//             button {
+//                 width: 250px;
+//                 margin-bottom: 5px;
+//                 height: 75px;
+//                 box-shadow: 0 3px $shadow-orange-button, inset 0.4px 1.5px $white;
+//                 font-size: 1.5rem;
+//             }
+//         }
+//     }
+// }
+
+@media only screen and (max-width: 575px) {
+    .wrapper {
+        border-radius: 9px;
+        font-size: 20px;
+        box-shadow: 0 4px $shadow-orange;
+        padding: 15px 5px;
+
+        form {
+            gap: 15px;
+
+            input {
+                height: 70px;
+                width: 80%;
+            }
+
+            .phone-input {
+                width: 80%;
+
+                input {
+                    width: 100%;
+                }
+            }
+
+            button {
+                width: 200px;
+                margin-bottom: 5px;
+                height: 75px;
+                box-shadow: 0 3px $shadow-orange-button, inset 0.4px 1.5px 1.5px rgba(255, 255, 255, 0.5);
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .wrapper {
+        form {
+            input {
+                width: 100%;
+            }
+
+            .phone-input {
+                width: 100%;
+
+                input {
+                    width: 100%;
+                }
+            }
+
+            button {
+                margin-bottom: 5px;
+                width: 80%;
+                height: 60px;
             }
         }
     }

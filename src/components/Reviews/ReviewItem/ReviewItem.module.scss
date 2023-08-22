@@ -10,6 +10,28 @@
     color: $white;
     box-shadow: 0 21px $shadow-black;
     cursor: pointer;
+    font-size: 22px;
+    box-sizing: content-box;
+    font-weight: medium;
+
+    @media only screen and (max-width: 1199px) {
+        height: 300px;
+    }
+
+    @media only screen and (max-width: 767px) {
+        height: 200px;
+        width: 100%;
+        margin: 30px auto;
+    }
+
+    @media only screen and (max-width: 575px) {
+        box-sizing: border-box;
+        min-height: 100px;
+        max-height: 400px;
+        height: auto;
+        max-width: 90%;
+        padding: 20px;
+    }
 }
 
 .info {
@@ -27,7 +49,7 @@
     }
 
     p {
-        font-size: 0.8rem;
+        font-size: 1em;
         text-transform: uppercase;
         color: $main-yellow;
     }
@@ -40,9 +62,9 @@
 }
 
 .text {
-    font-size: 0.4rem;
+    font-size: 0.5em;
     height: auto;
     max-width: 100%;
-    word-wrap: break-word;
     line-height: 1.2;
+    word-wrap: break-word;
 }

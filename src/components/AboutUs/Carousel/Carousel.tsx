@@ -64,8 +64,8 @@ export const Carousel: FC<CarouselProps> = ({elements, slidesToShow, slidesToScr
                       src={slide.link}
                       className={styles.img}
                       alt={`Слайд номер ${idx + 1}`}
-                      height={500}
-                      width={500}
+                      height={493}
+                      width={870}
                     />
                     <BsFullscreen />
 

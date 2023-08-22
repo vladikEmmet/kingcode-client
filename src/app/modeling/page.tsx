@@ -3,7 +3,6 @@ import imgMain from "@/assets/mainScreen-modeling.png";
 import { WhatWeDo } from "@/components/Blender/WhatWeDo/WhatWeDo";
 import { WhyBlender } from "@/components/Blender/WhyBlender/WhyBlender";
 import { WhatToLearn } from "@/components/Blender/WhatToLearn/WhatToLearn";
-import { Form } from "@/components/UI/Form/Form";
 import { FormSection } from "@/components/FormSection/FormSection";
 import { WhatToDo } from "@/components/Blender/WhatToDo/WhatToDo";
 import { Prospects } from "@/components/Blender/Prospects/Prospects";

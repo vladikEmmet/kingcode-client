@@ -12,9 +12,6 @@ $px: 4px;
     padding: 50px 0 30px;
 
     h2 {
-        text-transform: uppercase;
-        text-align: center;
-        font-size: 1.1rem;
         color: $black;
     }
 }
@@ -22,7 +19,6 @@ $px: 4px;
 .main {
     background: $main-grey;
     width: 100%;
-    // min-height: 100vh;
     overflow: hidden;
 }
 
@@ -51,6 +47,15 @@ $px: 4px;
         padding-top: 6%;
         bottom: 70%;
         left: 47%;
+
+        @media only screen and (min-width: 576px) and (max-width: 767px) {
+            left: 50%;
+        }
+
+
+        @media only screen and (max-width: 575px) {
+            left: 51%;
+        }
     }
 }
 
@@ -72,10 +77,14 @@ $px: 4px;
 }
 
 .comment-wrapper {
-    align-self: flex-start;
     margin: 50px auto;
     display: flex;
     justify-content: center;
+
+    @media only screen and (max-width: 575px) {
+        min-width: 100%;
+        margin: 50px 0;
+    }
 }
 
 .comment {
@@ -87,6 +96,24 @@ $px: 4px;
     border-radius: 24px;
     max-width: 1020px;
     box-shadow: 0 5px $shadow-grey;
+
+    @media only screen and (max-width: 1199px) {
+        padding: 35px 60px 0;
+        max-width: 80%;
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+        padding: 30px 40px 0;
+    }
+
+    @media only screen and (min-width: 576px) and (max-width: 767px) {
+        padding: 20px 30px 0;
+    }
+
+    @media only screen and (max-width: 575px) {
+        padding: 10px 20px 0;
+        min-width: 100%;
+    }
     
     p {
         color: $black;
@@ -95,7 +122,27 @@ $px: 4px;
         line-height: 1.4;
 
         &:last-child {
-            margin-bottom: 60px;
+            margin-bottom: 50px;
+
+            @media only screen and (min-width: 768px) and (max-width: 991px) {
+                margin-bottom: 30px;
+            }
+
+            @media only screen and (min-width: 576px) and (max-width: 767px) {
+                margin-bottom: 20px;
+            }
+
+            @media only screen and (max-width: 575px) {
+                margin-bottom: 20px;
+            }
+        }
+
+        @media only screen and (max-width: 991px) {
+            font-size: 0.8rem;
+        }
+
+        @media only screen and (max-width: 767px) {
+            font-size: 1rem;
         }
     }
 
@@ -103,12 +150,30 @@ $px: 4px;
         content: '';
         position: absolute;
         border-style: solid;
-        border-width: 100px 100px 0;
+        border-width: 50px 50px 0;
         border-color: #FFFFFF transparent;
         display: block;
         width: 0;
         z-index: 1;
-        bottom: -50px;
-        left: 65%;
+        bottom: -45px;
+        left: 70%;
+
+        @media only screen and (max-width: 575px) {
+            left: 65%;
+        }
+
+        @media only screen and (max-width: 390px) {
+            left: 60%;
+        }
     }
+}
+
+.yellow {
+    position: absolute;
+    top: 90px;
+    left: 0;
+    width: 100%;
+    background: $main-yellow;
+    height: 250px;
+    z-index: 0;
 }

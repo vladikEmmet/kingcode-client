@@ -5,11 +5,16 @@
     padding-bottom: 165px;
     padding-top: 180px;
 
+    @media only screen and (max-width: 1024px) {
+        padding: 20px 0 40px;
+    }
+
     h2 {
-        text-transform: uppercase;
-        font-size: 1.1rem;
-        text-align: center;
         margin-bottom: 40px;
+
+        @media only screen and (max-width: 575px) {
+            margin-bottom: 25px;
+        }
     }
 }
 
@@ -17,36 +22,83 @@
     padding: 50px 125px;
     position: relative;
 
+    @media only screen and (max-width: 1024px) {
+        padding: 30px 20px;
+    }
+
     p {
         color: $white;
         margin-bottom: 55px;
         text-indent: $text-indent;
         line-height: 167%;
+
+        @media only screen and (max-width: 1024px) {
+            max-width: 100%;
+            margin-bottom: 0;
+        }
     }
 }
 
-.img-left, .img-right {
+.img-left-container {
+    width: 40%;
     position: absolute;
-}
-
-.img-left {
-    float: left;
-    top: -10%;
+    object-fit: cover;
+    top: calc(-10% + 20px);
     left: -150px;
 
+    @media only screen and (min-width: 1025px) and (max-width: 1199px) {
+        top: calc(-7%);
+        left: -120px;
+    }
+
+    @media only screen and (max-width: 1024px) {
+        position: static;
+        margin: 20px auto;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
 }
 
-.img-right {
-    float: right;
+.img-right-container {
+    width: 50%;
+    position: absolute;
     bottom: -20%;
     right: -170px;
+
+    @media only screen and (min-width: 1025px) and (max-width: 1199px) {
+        bottom: -10%;
+        right: -120px;
+    }
+
+    @media only screen and (max-width: 1024px) {
+        display: none;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
 }
 
+// .img-left, .img-right {
+//     position: absolute;
+// }
+
+// .img-left {
+//     float: left;
+//     top: -10%;
+//     left: -150px;
+
+// }
+
 .first {
-    max-width: calc(100% - 230px);
+    max-width: calc(60% + 150px);
     margin-left: auto;
 }
 
 .second {
-    max-width: calc(100% - 210px);
+    max-width: calc(50% + 170px);
 }

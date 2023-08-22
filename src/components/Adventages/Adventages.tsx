@@ -6,15 +6,13 @@ import team from "@/assets/team.png"
 import jigsaw from "@/assets/jigsaw.png"
 import virtualReality from "@/assets/virtual-reality.png"
 
-const montserrat = Montserrat({subsets: ["cyrillic"], weight: ["500", "700"]});
-
 export const Adventages = () => {
   return (
     <section className={styles.section}>
         <div className="container">
-            <h2 className={montserrat.className}>Почему стоит выбирать нас</h2>
+            <h2 className="subtitle">Почему стоит выбирать нас</h2>
             <div className={styles.container}>
-
+                
                 <div className={styles.element}>
                     <Image 
                         src={virtualReality}
@@ -22,8 +20,8 @@ export const Adventages = () => {
                         width={85}
                         height={85}
                     />
-                    <h3 className={montserrat.className}>Полное прогружение</h3>
-                    <p className={montserrat.className}>Мы не перепрыгиваем с одной программы на другую, что даёт возможность в полной мере освоить софт</p>
+                    <h3>Полное прогружение</h3>
+                    <p>Мы не перепрыгиваем с одной программы на другую, что даёт возможность в полной мере освоить софт</p>
                 </div>
 
                 <div className={styles.element}>
@@ -33,8 +31,8 @@ export const Adventages = () => {
                         width={85}
                         height={85}
                     />
-                    <h3 className={montserrat.className}>Лучшие преподаватели</h3>
-                    <p className={montserrat.className}>Преподаватели проходят два этапа собеседования: технический и психологический. Также они постоянно проходят внутреннюю аттестацию</p>
+                    <h3>Лучшие преподаватели</h3>
+                    <p>Преподаватели проходят два этапа собеседования: технический и психологический. Также они постоянно проходят внутреннюю аттестацию</p>
                 </div>
 
                 <div className={styles.element}>
@@ -44,8 +42,8 @@ export const Adventages = () => {
                         width={85}
                         height={85}
                     />
-                    <h3 className={montserrat.className}>Индивидуальный подход</h3>
-                    <p className={montserrat.className}>Занятия проходят в мини-группах до 3-4 человек. А если требуется дополнительное внимание от преподаватель, существуют индивидуальные занятия</p>
+                    <h3>Индивидуальный подход</h3>
+                    <p>Занятия проходят в мини-группах до 3-4 человек. А если требуется дополнительное внимание от преподаватель, существуют индивидуальные занятия</p>
                 </div>
 
                 <div className={styles.element}>
@@ -55,8 +53,8 @@ export const Adventages = () => {
                         width={85}
                         height={85}
                     />
-                    <h3 className={montserrat.className}>Игровая форма</h3>
-                    <p className={montserrat.className}>{'Мы, конечно, за учёбу и всё такое. Но и зарубиться в созданные проекты мы никогда не против :)'}</p>
+                    <h3>Игровая форма</h3>
+                    <p>{'Мы, конечно, за учёбу и всё такое. Но и зарубиться в созданные проекты мы никогда не против :)'}</p>
                 </div>
                 
             </div>

@@ -4,6 +4,11 @@
     background: $main-grey;
     padding-bottom: 70px;
     position: relative;
+    overflow: hidden;
+
+    @media only screen and (max-width: 575px) {
+        padding-bottom: 0;
+    }
 }
 
 .header {
@@ -13,7 +18,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 150px;
+    margin-bottom: 100px;
+
+    @media only screen and (max-width: 767px) {
+        margin-bottom: 50px;
+    }
 
     h2 {
         font-size: 1.1rem;
@@ -43,6 +52,26 @@
     }
 }
 
+@media only screen and (max-width: 375px) {
+    .list-item {
+        max-width: 300px;
+        margin: 0 auto;
+
+        &:not(:last-child) {
+            margin-bottom: 30px;
+        }
+
+        &:nth-child(2) {
+            max-width: 300px;
+        }
+
+        &:nth-child(3) {
+            max-width: 300px;
+        }
+    }
+
+}
+
 .list-mark {
     min-width: 130px;
     height: 130px;
@@ -54,6 +83,28 @@
     align-items: center;
     color: $black;
     margin-right: 40px;
+    font-weight: bold;
+
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+        min-width: 100px;
+        height: 100px;
+        margin-right: 30px;
+        box-shadow: 0 7px $shadow-orange;
+    }
+
+    @media only screen and (min-width: 576px) and (max-width: 767px) {
+        min-width: 80px;
+        height: 80px;
+        margin-right: 20px;
+        box-shadow: 0 5px $shadow-orange;
+    }
+
+    @media only screen and (max-width: 575px) {
+        min-width: 45px;
+        height: 45px;
+        margin-right: 15px;
+        box-shadow: 0 3px $shadow-orange;
+    }
 
     svg {
         font-size: 1.5rem;
@@ -66,8 +117,20 @@
 
 .two-monkeys {
     position: absolute;
-    width: 47%;
-    height: auto;
+    width: 45%;
     bottom: 0;
-    right: 100px;
+    right: 5%;
+
+    @media only screen and (max-width: 575px) {
+        position: static;
+        margin: 0 auto;
+        transform: translateY(5px);
+        width: 70%;
+        margin-top: 30px;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
 }

@@ -12,6 +12,12 @@ const berlin = localFont({src: "../../assets/fonts/BRLNSDB.woff"})
 export const Courses = () => {
     const {append} = useModal();
     
+    const onClick = () => {
+        document.body.classList.remove("no-scroll");
+        document.documentElement.classList.remove("no-scroll");
+        append(null);
+    }
+    
     return (
         <section className={styles.section} id="courses">
             <div className="container">
@@ -24,6 +30,13 @@ export const Courses = () => {
                                         src={course.img} 
                                         alt={course.title}
                                         fill={true}
+                                        className={styles.desktop}
+                                    />
+                                    <Image 
+                                        src={course.mobileImg || course.img}
+                                        alt={course.title}
+                                        fill={true}
+                                        className={styles.mobile}
                                     />
                                     <h1 className={berlin.className}>
                                         {course.title}
@@ -34,12 +47,19 @@ export const Courses = () => {
                                     <li onClick={() => append(
                                         <ul className={styles["modal-list"]}>
                                             {course.subEl?.map(sub => 
-                                                <Link href={sub.link || "/"} onClick={() => append(null)} key={sub.title}>
+                                                <Link href={sub.link || "/"} onClick={onClick} key={sub.title}>
                                                     <li>
                                                         <Image 
-                                                            src={sub.img}
-                                                            alt={sub.title}
+                                                            src={course.img} 
+                                                            alt={course.title}
                                                             fill={true}
+                                                            className={styles.desktop}
+                                                        />
+                                                         <Image 
+                                                            src={course.mobileImg || course.img}
+                                                            alt={course.title}
+                                                            fill={true}
+                                                            className={styles.mobile}
                                                         />
                                                         <h1 className={berlin.className}>{sub.title}</h1>
                                                     </li>
@@ -47,10 +67,17 @@ export const Courses = () => {
                                             )}
                                         </ul>
                                     )}>
-                                        <Image
-                                            src={course.img}
+                                        <Image 
+                                            src={course.img} 
                                             alt={course.title}
                                             fill={true}
+                                            className={styles.desktop}
+                                        />
+                                         <Image 
+                                            src={course.mobileImg || course.img}
+                                            alt={course.title}
+                                            fill={true}
+                                            className={styles.mobile}
                                         />
                                         <h1 className={berlin.className}>{course.title}</h1>
                                     </li>

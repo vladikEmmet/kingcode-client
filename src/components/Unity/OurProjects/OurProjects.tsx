@@ -8,13 +8,11 @@ import project4 from "@/assets/unity/project4.png";
 import project5 from "@/assets/unity/project5.png";
 import project6 from "@/assets/unity/project6.png";
 
-const montserrat = Montserrat({subsets: ["cyrillic"], weight: ["700"]});
-
 export const OurProjects = () => {
   return (
     <section className={styles.section}>
         <div className="container">
-            <h2 className={montserrat.className}>Проекты наших учеников</h2>
+            <h2 className="subtitle">Проекты наших учеников</h2>
             <div className={styles.grid}>
                 <div className={styles.wrapper}>
                     <div>

@@ -1,16 +1,14 @@
 "use client"
 
-import { useBurgerMenu, useModal } from "@/store/store"
+import { useBurgerMenu } from "@/store/store"
 import styles from "./Curtain.module.scss"
-import cn from 'clsx'
 
 export const Curtain = () => {
   const {isOpened} = useBurgerMenu();
-  const {children} = useModal();
 
   return (
-    <div className={cn(styles.curtain)}
-        style={{visibility: (isOpened || children) ? "visible" : "hidden", opacity: (isOpened || children) ? 1 : 0, display: "none"}}
+    <div className={styles.curtain}
+        style={{visibility: isOpened ? "visible" : "hidden", opacity: isOpened ? 1 : 0}}
     />
   )
 }

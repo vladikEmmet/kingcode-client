@@ -15,8 +15,8 @@ export const Burger = () => {
   }
 
   return (
-    <div className="burger-wrapper" onClick={handleClick}>
-        <div className="burger-container">
+    <div className="burger-wrapper">
+        <div className="burger-container" onClick={handleClick}>
             <div className={`burger ${burgerMenu.isOpened ? "animated" : ""}`}/>
         </div>
     </div>

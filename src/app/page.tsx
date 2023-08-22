@@ -7,8 +7,6 @@ import Reviews from '@/components/Reviews/Reviews'
 import { Adventages } from '@/components/Adventages/Adventages'
 import AboutUs from '@/components/AboutUs/AboutUs'
 
-
-
 export default function Home() {
   return (
     <>

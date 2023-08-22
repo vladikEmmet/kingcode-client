@@ -24,6 +24,10 @@
         z-index: $over-menu;
         margin: 15vh auto 0;
 
+        @media only screen and (max-width: 575px) {
+            width: 80%;
+        }
+
         li {
             display: block;
             padding: 0 20px;
@@ -34,6 +38,10 @@
             justify-content: center;
             align-items: center;
 
+            @media only screen and (max-width: 1199px) {
+                height: 100px;
+            }
+
             &:last-child {
                 border-bottom: none;
             }
@@ -42,6 +50,18 @@
                 text-decoration: none;
                 color: $main-yellow;
                 font-size: 0.6rem;
+
+                @media only screen and (max-width: 1199px) {
+                    font-size: 0.8rem;
+                }
+
+                @media only screen and (min-width: 576px) and (max-width: 767px) {
+                    font-size: 1rem;
+                }
+
+                @media only screen and (max-width: 575px) {
+                    font-size: 1.5rem;
+                }
             }
         }
     }

@@ -1,19 +1,15 @@
 import styles from "./WhatToKnow.module.scss";
 import { MdChildCare, MdOutlineMouse } from 'react-icons/md';
 import { PiNotebook } from 'react-icons/pi';
-import { Montserrat } from "next/font/google";
-import cn from 'clsx';
 import twoMonkeys from "@/assets/math/twoMonkeys.png";
 import Image from "next/image";
-
-const montserrat = Montserrat({subsets: ["cyrillic"], weight: ["700"]});
 
 export const WhatToKnow = () => {
   return (
     <section className={styles.section}>
         <div className={styles.header}>
             <div className="container">
-                <h2 className={montserrat.className}>Что должен уметь и знать ребёнок для прохождения курса?</h2>
+                <h2>Что должен уметь и знать ребёнок для прохождения курса?</h2>
             </div>
         </div>
         <div className="container">
@@ -35,7 +31,7 @@ export const WhatToKnow = () => {
                     </div>
                 </div>
                 <div className={styles["list-item"]}>
-                    <div className={cn(styles["list-mark"], montserrat.className)}>
+                    <div className={styles["list-mark"]}>
                         0-10
                     </div>
                     <div className={styles["list-description"]}>
@@ -51,11 +47,12 @@ export const WhatToKnow = () => {
                     </div>
                 </div>
             </div>
-            <Image 
-                src={twoMonkeys}
-                alt="Взрослая обезьянка учит маленькую считать"
-                className={styles["two-monkeys"]}
-            />
+            <div className={styles["two-monkeys"]}>
+                <Image 
+                    src={twoMonkeys}
+                    alt="Взрослая обезьянка учит маленькую считать"
+                />
+            </div>
         </div>
     </section>
   )

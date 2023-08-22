@@ -24,6 +24,12 @@
     z-index: $z-modal;
     border-radius: 40px;
     box-shadow: 0 16px $shadow-orange;
+
+    @media only screen and (max-width: 1145px) {
+        border-radius: 0px;
+        box-shadow: 0 12px $shadow-orange;
+        padding: 25px;
+    }
 }
 
 .content {
@@ -38,11 +44,19 @@
     text-align: right;
     margin-bottom: 20px;
 
+    @media only screen and (max-width: 1145px) {
+        margin-bottom: 40px;
+    }
+
     button {
         background: transparent;
         border: none;
         cursor: pointer;
         font-size:1.8rem;
+
+        @media only screen and (max-width: 1145px) {
+            font-size: 2.5rem;
+        }
 
         &.light {
             color: $white;

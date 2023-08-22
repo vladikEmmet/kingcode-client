@@ -8,12 +8,6 @@ export const useBurgerMenu = create<BurgerMenuState>()(set => ({
     changeState: () => set(state => ({ isOpened: !state.isOpened }))
 }));
 
-// export const useModal = create<ModalState>()(set => ({
-//     isOpened: false,
-//     open: () => set(state => ({ isOpened: true })),
-//     close: () => set(state => ({ isOpened: false })),
-// }));
-
 export const useModal = create<ModalState>()(set => ({
     children: null,
     scrollPosition: 0,
