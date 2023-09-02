@@ -1,0 +1,36 @@
+@import "../../app/variables.scss";
+
+.container {
+    flex: 1; 
+    background: $main-yellow;
+    color: $black;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column-reverse;
+    padding: 20px;
+}
+
+.text {
+    h2 {
+        font-size: 1rem;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .text {
+        margin-bottom: 20px;
+        
+        p {
+            text-align: center;
+        }
+    }
+}
+
+@media only screen and (min-width: 435px) and (max-width: 767px) {
+    .text h2 {
+        font-size: 1.5rem;
+    }
+}

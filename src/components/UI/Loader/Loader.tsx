@@ -12,7 +12,7 @@ export const Loader: FC<LoaderProps> = ({className}) => {
     
   return (
     <div className="loader-container">
-        <div className="loader-img">
+        <div className={cn("loader-img", className)}>
             <Image 
                 src={loader}
                 alt="Загрузка..."
@@ -20,7 +20,6 @@ export const Loader: FC<LoaderProps> = ({className}) => {
                 height={100}
             />
         </div>
-        <h4>Отправка данных...</h4>
     </div>
   )
 }

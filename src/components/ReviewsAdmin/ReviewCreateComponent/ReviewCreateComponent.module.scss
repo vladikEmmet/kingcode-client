@@ -1,0 +1,11 @@
+@import "../../../app/variables.scss";
+
+.container {
+    min-height: 100%;
+    background: $main-yellow;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+}

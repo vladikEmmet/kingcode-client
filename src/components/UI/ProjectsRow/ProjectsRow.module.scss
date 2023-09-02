@@ -1,0 +1,60 @@
+@import "../../../app/variables.scss";
+
+.images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 100%;
+}
+
+.image-container {
+    background: $main-yellow;
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: 0 10px $shadow-orange;
+    max-width: calc(25% - 20px);
+    flex: 1;
+
+    @media only screen and (max-width: 992px) {
+        padding: 7px 8px;
+        box-shadow: 0 7px $shadow-orange;
+        border-radius: 15px;
+    }
+
+    @media only screen and (max-width: 767px) {
+        max-width: calc(50% - 20px);
+        flex-basis: calc(45% - 30px);
+    }
+
+    @media only screen and (max-width: 450px) {
+        padding: 5px;
+        border-radius: 10px;
+        box-shadow: 0 4px $shadow-orange
+    }
+
+    &:nth-child(1),
+    &:nth-child(2) {
+        @media only screen and (max-width: 767px) {
+            margin-bottom: 30px;
+        }
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.grey {
+    background: $tab-grey;
+    box-shadow: 0 12px #2C2C2C;
+
+    @media only screen and (min-width: 576px) and (max-width: 763px) {
+        box-shadow: 0 7px #2C2C2C;
+    }
+
+    @media only screen and (max-width: 575px) {
+        box-shadow: 0 3px #2C2C2C;
+    }
+}

@@ -2,7 +2,7 @@ import { StaticImageData } from "next/image";
 
 export type ReviewType = {
     authorName: string;
-    authorImg?: StaticImageData;
+    authorImg?: string;
     text: string;
 }
 

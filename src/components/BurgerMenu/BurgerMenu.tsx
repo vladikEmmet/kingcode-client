@@ -1,14 +1,9 @@
 "use client"
 
 import { useBurgerMenu } from "@/store/store";
-import { FC } from "react";
 import styles from "./BurgerMenu.module.scss"
 
-interface BurgerMenuProps {
-    isOpened?: boolean;
-}
-
-export const BurgerMenu: FC<BurgerMenuProps> = ({isOpened}) => {
+export const BurgerMenu = () => {
   const burgerMenu = useBurgerMenu();
   const handleClick = () => {
     burgerMenu.changeState();

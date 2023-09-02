@@ -8,7 +8,6 @@ import { FC, useState } from 'react';
 import { CallRequestService } from '@/services/callRequest/callRequest.service';
 import { getCookie } from '@/utils/getCookie';
 import { setCookie } from '@/utils/setCookie';
-import { errorCatch } from '@/app/api/helper';
 import { useModal } from '@/store/store';
 import { Loader } from '../Loader/Loader';
 
@@ -58,16 +57,25 @@ export const Form: FC<FormProps> = ({courseName}) => {
                 setCookie("effort", "true", {"max-age": 600});
             }
 
-            setIsButtonDisabled(false);
+            append(<div><h3 className={styles["success-message"]}>Данные успешно отправлены.</h3> <br/> <h3>Мы свяжемся с Вами в ближайшее время!</h3></div>, {}, "black", true);
+
         } catch(err) {
-            append("Упс! Ошибка: " + errorCatch(err));
+            append(<div><h3 className={styles["error-message"]}>{`Oops! Ошибка.`}</h3> <br/><h3>{`Пожалуйста, повторите позднее.`}</h3></div>, {}, "black", true);
+            console.log(err);
+        } finally {
+            setIsButtonDisabled(false);
         }
     }
     
   return (
     <div className={styles.wrapper}>
         {isButtonDisabled ?
-            <Loader /> : (
+            (
+                <>
+                    <Loader />
+                    <h4 className={styles.sending}>Отправка данных...</h4>
+                </>
+            ) : (
             <>
                 <h3>Оставьте свой номер и мы сами свяжемся с Вами:</h3>
                 <form onSubmit={handleSubmit(onSubmit)} className={styles.form} method="POST">

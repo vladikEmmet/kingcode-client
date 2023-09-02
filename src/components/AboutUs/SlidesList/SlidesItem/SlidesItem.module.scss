@@ -1,0 +1,36 @@
+@import "../../../../app/variables.scss";
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 30px 0 50px;
+    max-width: 200px;
+
+    button {
+        box-shadow: none;
+        border: 2px solid $black;
+        padding: 10px;
+        cursor: pointer;
+        transition: 0.5s all ease;
+
+        &:hover {
+            background: $black;
+            color: $main-yellow;
+            border: 2px solid $main-yellow;
+        }
+    }
+
+    .img,
+    .video {
+        max-width: 100%;
+        height: auto;
+
+        img, video {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+    }
+}

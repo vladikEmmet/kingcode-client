@@ -10,3 +10,9 @@ export type ReviewData = {
 };
 
 export type ReviewsData = ReviewData[];
+
+export type ReviewSendedData = {
+    authorName: string;
+    authorImg?: File,
+    text: string;
+} 

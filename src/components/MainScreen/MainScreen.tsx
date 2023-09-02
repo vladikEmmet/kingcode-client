@@ -14,11 +14,12 @@ interface MainScreenProps {
     children?: React.ReactNode;
     scrollTarget: string;
     text?: "small" | "big";
+    buttonText: string;
 }
 
 const berlin = localFont({src: "../../assets/fonts/BRLNSDB.woff", variable: "--font-berlin-bold"});
 
-export const MainScreen: FC<MainScreenProps> = ({ageRange, img, children, scrollTarget, text = "small"}) => {
+export const MainScreen: FC<MainScreenProps> = ({ageRange, img, children, scrollTarget, text = "big", buttonText}) => {
   return (
     <section className={styles.section}>
         <div className="container">
@@ -35,8 +36,8 @@ export const MainScreen: FC<MainScreenProps> = ({ageRange, img, children, scroll
                         {children}
                     </h1>
                     <ScrollLink to={scrollTarget} smooth={true} duration={100}>
-                        <Button variant={ButtonVariantsEnum.orange} className={styles.button}>
-                                Выбрать направление
+                        <Button variant={ButtonVariantsEnum.orange} className={cn(styles.button, text === "big" ? styles.big : "")}>
+                            {buttonText}
                         </Button>
                     </ScrollLink>
                 </div>

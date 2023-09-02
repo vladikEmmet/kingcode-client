@@ -6,6 +6,8 @@ import modeling from "@/assets/modeling.png";
 import modelingMobile from "@/assets/modeling-mobile.png";
 import unity from "@/assets/unity.png";
 import scratch from "@/assets/scratch.png";
+import scratchMobile from "@/assets/scratch-mobile.png";
+import unityMobile from "@/assets/unity-mobile.png";
 import { RoutesType } from "./types/route.type";
 
 export const routes: RoutesType = [
@@ -18,11 +20,14 @@ export const routes: RoutesType = [
                 title: "Scratch",
                 img: scratch,
                 link: "/programming/scratch",
+                mobileImg: scratchMobile,
+                isRightText: true,
             },
             {
                 title: "Unity",
                 img: unity,
                 link: "/programming/unity",
+                mobileImg: unityMobile,
             },
         ],
     },

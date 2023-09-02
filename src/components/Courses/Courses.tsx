@@ -33,14 +33,14 @@ export const Courses = () => {
                                         className={styles.desktop}
                                     />
                                     <Image 
-                                        src={course.mobileImg || course.img}
+                                        src={course.mobileImg || ""}
                                         alt={course.title}
                                         fill={true}
                                         className={styles.mobile}
                                     />
-                                    <h1 className={berlin.className}>
+                                    <h2 className={berlin.className}>
                                         {course.title}
-                                    </h1>
+                                    </h2>
                                 </li>
                             </Link> ) : (
                                 <div className={styles.wrapper} key={course.title}>
@@ -48,20 +48,20 @@ export const Courses = () => {
                                         <ul className={styles["modal-list"]}>
                                             {course.subEl?.map(sub => 
                                                 <Link href={sub.link || "/"} onClick={onClick} key={sub.title}>
-                                                    <li>
+                                                    <li className={sub.isRightText ? styles.right : ""}>
                                                         <Image 
-                                                            src={course.img} 
+                                                            src={sub.img} 
                                                             alt={course.title}
                                                             fill={true}
                                                             className={styles.desktop}
                                                         />
                                                          <Image 
-                                                            src={course.mobileImg || course.img}
+                                                            src={sub.mobileImg || ""}
                                                             alt={course.title}
                                                             fill={true}
                                                             className={styles.mobile}
                                                         />
-                                                        <h1 className={berlin.className}>{sub.title}</h1>
+                                                        <h2 className={berlin.className}>{sub.title}</h2>
                                                     </li>
                                                 </Link>
                                             )}
@@ -74,12 +74,12 @@ export const Courses = () => {
                                             className={styles.desktop}
                                         />
                                          <Image 
-                                            src={course.mobileImg || course.img}
+                                            src={course.mobileImg || ""}
                                             alt={course.title}
                                             fill={true}
                                             className={styles.mobile}
                                         />
-                                        <h1 className={berlin.className}>{course.title}</h1>
+                                        <h2 className={berlin.className}>{course.title}</h2>
                                     </li>
                                 </div>
                             ) 

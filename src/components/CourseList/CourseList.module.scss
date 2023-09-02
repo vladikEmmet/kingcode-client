@@ -1,0 +1,28 @@
+@import "../../app/variables.scss";
+
+.container {
+    min-height: 100%;
+    width: 100%;
+    background: $main-yellow;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.prices {
+    width: 100%;
+}
+
+.sub {
+    color: $black;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.tab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background: $main-grey;
+}

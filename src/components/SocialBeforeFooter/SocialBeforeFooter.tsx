@@ -16,7 +16,7 @@ export const SocialBeforeFooter = () => {
             <a href="*" target="_blank" rel="noopener noreferrer nofollow author">
                 <FaTelegramPlane />
             </a>
-            <a href="*" target="_blank" rel="noopener noreferrer nofollow author">
+            <a href="https://instagram.com/kingcode_school?igshid=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer nofollow author">
                 <FaInstagram />
             </a>
             <a href="*" target="_blank" rel="noopener noreferrer nofollow author">

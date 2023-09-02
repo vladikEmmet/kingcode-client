@@ -1,5 +1,4 @@
 import { EducationVariantEnum } from "./components/UI/Tab/Tab";
-import { PricesProps } from "./types/price.type";
 
 // export const prices: PricesProps = {
 //     prices: [

@@ -3,7 +3,8 @@
 import { useModal } from "@/store/store";
 import styles from "./Modal.module.scss";
 import { HiXMark } from 'react-icons/hi2';
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
+import cn from 'clsx';
 
 export const Modal = () => { 
     const modal = useModal();
@@ -41,7 +42,9 @@ export const Modal = () => {
   
     return (
         <div className={styles.curtain}>
-            <div className={styles.container} style={modal.style}>
+            <div className={cn(styles.container, {
+                [styles.notification]: modal.notification,
+            })} style={modal.style}>
                 <div className={styles.button}>
                     <button onClick={onClose} className={modal.xStyle === "white" ? styles.light : styles.dark}>
                         <HiXMark />

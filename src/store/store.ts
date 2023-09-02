@@ -13,8 +13,9 @@ export const useModal = create<ModalState>()(set => ({
     scrollPosition: 0,
     style: {},
     xStyle: "black",
-    append: (child, style={}, xStyle="black") => set(state => {
+    notification: false,
+    append: (child, style={}, xStyle="black", notification = false) => set(state => {
         const curPosition = window.pageYOffset || document.documentElement.scrollTop;
-        return {children: child, scrollPosition: curPosition, style, xStyle};
+        return {children: child, scrollPosition: curPosition, style, xStyle, notification};
     }),
 }));

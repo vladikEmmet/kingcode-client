@@ -10,8 +10,9 @@ export const UpButton = () => {
   return (
     <div className="up-btn" onClick={onClick}>
         <Image 
-            src={img}
-            alt={`Кнопка "Наверх"`}
+          src={img}
+          alt={`Кнопка "Наверх"`}
+          style={{cursor: "pointer"}}
         />
     </div>
   )

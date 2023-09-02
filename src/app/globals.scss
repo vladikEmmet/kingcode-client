@@ -1,6 +1,6 @@
 @import "variables.scss";
-@import url("../assets/styles/_slick.scss");
-@import url("../assets/styles/_slick-theme.scss");
+@import "./styles/slick-theme";
+@import "./styles/slick";
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -51,6 +51,7 @@ body {
   scroll-behavior: smooth;
   font-size: 30px;
   font-weight: 600;
+  background: $main-yellow;
 
   @media only screen and (min-width: 992px) and (max-width: 1199px) {
     font-size: 26px;
@@ -87,18 +88,20 @@ body {
   min-height: 100%;
 
   @media (max-width: 1320px) {
-    max-width: 1320px;
+    width: 100%;
   }
 }
 
 .helper {
   display: flex;
   flex-direction: column;
-  min-height: 100%;
+  min-height: 100vh;
 }
 
 .content {
-  flex: 1 0 auto;
+  flex: 1; 
+  display: flex;
+  flex-direction: column;
 }
 
 // HEADER & FOOTER
@@ -123,12 +126,6 @@ header, footer {
     align-items: center;
     justify-content: space-between;
     min-height: 100%;
-    flex: 0 1 32%;
-
-    @media only screen and (max-width: 1199px) {
-      width: 50%;
-      margin-left: auto;
-    }
   }
 
   .logo {
@@ -141,15 +138,44 @@ header, footer {
       width: 100%;
       height: auto;
     }
-
-    @media only screen and (max-width: 1199px) {
-      transform: translateX(-50%);
-    }
-
   }
   
   .burger {
     text-align: right;
+  }
+}
+
+footer .wrapper {
+  @media only screen and (max-width: 1199px) {
+    width: 50%;
+    margin-left: auto;
+  }
+
+  .logo {
+    @media only screen and (max-width: 1199px) {
+      transform: translateX(-50%);
+    }
+  }
+
+}
+
+header.without-burger {
+  .wrapper {
+    width: 50%;
+
+    // @media only screen and (max-width: 1199px) {
+    //   margin-left: 0;
+    //   width: 100%;
+    //   justify-content: center;
+    // }
+
+    .logo {
+      transform: translateX(50%);
+
+      // @media only screen and (max-width: 1199px) {
+      //   transform: none;
+      // }
+    }
   }
 }
 
@@ -165,6 +191,12 @@ header {
 footer {
   box-shadow: 0 -27px 30px 0 rgba(0, 0, 0, 0.25);
   flex: 0 0 auto;
+
+  .footer-social {
+    @media only screen and (max-width: 1199px) {
+      display: none;
+    }
+  }
 }
 
 // BURGER MENU
@@ -196,7 +228,7 @@ footer {
   flex: 0 1 32%;
   text-align: right;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   margin-right: 20px;
 }
 
@@ -204,8 +236,6 @@ footer {
   height: $bar-height + $bar-spacing*2;
   width: $bar-width;
   cursor: pointer;
-  // display: flex;
-  // justify-content: end;
 }
 
 .burger,
@@ -316,7 +346,7 @@ footer {
 
 .carousel-dots {
   position: absolute;
-  bottom: -25px;
+  bottom: -40px;
   display: block;
   width: 100%;
   padding: 0;
@@ -359,12 +389,33 @@ footer {
         height: 20px;
         content: '•';
         text-align: center;
+        font-size: 10px;
       }
     }
 
     &.slick-active {
       button::before {
         opacity: 0.75;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1199px) {
+  .carousel-dots li {
+    width: 30px;
+    height: 30px;
+
+    button {
+      width: 30px;
+      height: 30px;
+      padding: 10px;
+
+      &::before {
+        line-height: 30px;
+        width: 30px;
+        height: 30px;
+        // font-size: 15px;
       }
     }
   }
@@ -400,8 +451,11 @@ img {
 }
 
 main {
+  margin: 0;
+  flex: 1;
   display: flex;
   flex-direction: column;
+  min-height: 100%;
 }
 
 .slick-arrow.slick-next:before {
@@ -438,6 +492,8 @@ main {
   }
 }
 
+// LOADER
+
 .loader-container {
   display: flex;
   flex-direction: column;
@@ -445,8 +501,8 @@ main {
   align-items: center;
   
   .loader-img {
-      animation: spin 2s linear infinite;
-      -webkit-animation: spin 2s linear infinite;
+      animation: spin 3s linear infinite;
+      -webkit-animation: spin 3s linear infinite;
       display: inline-block;
 
       img {
@@ -467,5 +523,73 @@ main {
   }
   100% { 
       transform: rotate(360deg); 
+  }
+}
+
+// LOADING PAGE
+
+.loading-page-container {
+  min-height: 100%;
+  width: 100vw;
+  flex: 1;
+  background: $main-yellow;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .loader-container {
+    width: 100%;
+    height: 100%;
+
+    .loader-img {
+      width: 250px;
+      height: 250px;
+    }
+  }
+}
+
+.admin-btn {
+  border: 2px solid black!important;
+  padding: 20px 40px;
+  box-shadow: none!important;
+  margin: 20px 0;
+  cursor: pointer;
+  transition: 0.3s all ease;
+
+  &:hover {
+    background: $black;
+    color: $main-yellow;
+    border: 2px solid $main-yellow;
+  }
+}
+
+.flex-header {
+  flex-direction: column;
+}
+
+.admin-panel-header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $main-grey;
+  border: 1px solid $white;
+  
+  a {
+    text-decoration: none;
+    color: $white;
+  }
+}
+
+.full-height-container {
+  background: $main-yellow;
+  min-height: 100%;
+  color: $black;
+  padding: 30px 0;
+  padding: 20px;
+
+  h1 {
+    text-align: center;
   }
 }

@@ -13,9 +13,10 @@ interface PricesProps {
     courseName?: string;
     variant?: "orange" | "grey";
     isBlack?: boolean;
+    onClick?: (index: number) => void;
 }
 
-export const Prices:FC<PricesProps> = ({variant = "grey", courseName}) => {
+export const Prices:FC<PricesProps> = ({variant = "grey", courseName, onClick}) => {
     const [prices, setPrices] = useState([
         {
             title: "Групповые занятия",
@@ -46,7 +47,7 @@ export const Prices:FC<PricesProps> = ({variant = "grey", courseName}) => {
         const fetchPrices = async () => {
             if(!courseName) return;
             const data = await CourseService.get(courseName);
-            setPrices([...data.prices]);
+            setPrices([...data.prices.sort((a, b) => a.id - b.id)]);
         }
 
         try {
@@ -70,12 +71,14 @@ export const Prices:FC<PricesProps> = ({variant = "grey", courseName}) => {
                         description={price.description}
                         variant={idx % 2 ? ButtonVariantsEnum.grey : ButtonVariantsEnum.orange}
                         title={price.title}
-                        key={price.title}
+                        key={price.title + idx}
                         hours={price.hours}
                         exercises={price.exercises}
                         educationVariant={price.educationVariant}
                         className={styles.tab}
                         isBlack={variant === "orange" && idx !== 1}
+                        onClick={() => onClick ? onClick(idx) : null}
+                        index={idx}
                     />
                 )}
             </div>

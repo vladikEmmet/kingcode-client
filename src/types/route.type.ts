@@ -5,6 +5,7 @@ interface RouteProps {
     img: StaticImageData;
     link?: string;
     subEl?: RouteProps[];
+    isRightText?: boolean;
     mobileImg?: StaticImageData;
 }
 

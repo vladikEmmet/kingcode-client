@@ -9,6 +9,25 @@
     }
 }
 
+.text {
+    margin-top: 60px;
+    
+    p {
+        color: $white;
+        font-size: 0.65rem;
+        margin-top: 20px;
+        text-indent: $text-indent;
+
+        &:not(:first-child) {
+            margin-top: 20px;
+        }
+
+        @media only screen and (max-width: 767px) {
+            text-indent: $mobile-text-indent;
+        }
+    }
+}
+
 .empty {
     text-align: center;
     margin-top: 10px;

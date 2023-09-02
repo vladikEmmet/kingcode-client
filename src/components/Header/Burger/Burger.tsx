@@ -1,9 +1,8 @@
-"use client"
-
 import { useBurgerMenu } from "@/store/store"
 
 export const Burger = () => {
   const burgerMenu = useBurgerMenu();
+
   const handleClick = () => {
     burgerMenu.changeState();
     if(!burgerMenu.isOpened) {

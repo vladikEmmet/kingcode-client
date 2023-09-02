@@ -49,10 +49,10 @@
                     justify-content: flex-start;
                     padding-left: 35px;
                     height: 150px;
-                    margin-bottom: 15px;
+                    margin-bottom: 30px;
                 }
 
-                h1 {
+                h2 {
                     position: relative;
                     z-index: $z-over-img;
                     text-align: center;
@@ -108,6 +108,14 @@
                 height: 150px;
             }
 
+            &.right {
+
+                @media only screen and (max-width: 575px) {
+                    justify-content: flex-end;
+                    padding-right: 35px;
+                }
+            }
+
             img {
                 position: absolute;
                 
@@ -119,7 +127,7 @@
                 }
             }
 
-            h1 {
+            h2 {
                 position: relative;
                 z-index: $z-over-img;
                 text-align: center;
@@ -143,4 +151,9 @@
     .desktop {
         display: none;
     }
+}
+
+.mobile {
+    box-shadow: 0 13px #212121;
+    border-radius: 20px;
 }

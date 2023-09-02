@@ -1,53 +1,55 @@
 "use client";
 
-import { ReviewService } from "@/services/review/review.service"
 import styles from "./Reviews.module.scss"
 import { ReviewItem } from "./ReviewItem/ReviewItem";
-import { Montserrat } from "next/font/google";
 import cn from 'clsx'
-import { useCallback, useEffect, useState } from "react";
-import { errorCatch } from "@/app/api/helper";
+import { FC, useCallback, useEffect, useState } from "react";
 import { useModal } from "@/store/store";
 import Slider from "react-slick";
 import { ReviewData } from "@/services/review/review.types";
 import { NextArrow } from "../UI/Arrows/NextArrow/NextArrow";
 import { PrevArrow } from "../UI/Arrows/PrevArrow/PrevArrow";
 import { defineSizes } from "@/utils/defineSizes";
+import { Loader } from "../UI/Loader/Loader";
+import { SingleReview } from "./SingleReview/SingleReview";
 
-export default function Reviews() {
-  const [reviews, setReviews] = useState<ReviewData[]>([]);
+interface ReviewsProps {
+  reviews?: ReviewData[];
+}
+
+export const Reviews: FC<ReviewsProps> = ({reviews}) => {
   const [mobile, setMobile] = useState(false);
   const {append} = useModal();
   const [elementsPerRow, setElementsPerRow] = useState(3);
+  const [isLoading, setIsLoading] = useState(false);
+  const [firstRow, setFirstRow] = useState<React.ReactNode[]>([]);
+  const [secondRow, setSecondRow] = useState<React.ReactNode[]>([]);
 
   useEffect(() => {
     const {width} = defineSizes();
-    console.log(width);
     if(width <= 575) setMobile(true);
   }, [])
 
   const carouselSettings = {
     dots: true,
     infinite: true,
-    speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: true,
     centerMode: true,
     centerPadding: "0px", 
     nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />
+    prevArrow: <PrevArrow />,
+    adaptiveHeight: true,
+    responsive: [
+      {
+        breakpoint: 991,
+        settings: {
+          arrows: false, 
+        }
+      }
+    ]
   };
-
-  const mobileSettings = {
-    infinite: true,
-    vertical: true,
-    verticalSwiping: true, 
-    arrows: true,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    swipeToSlide: true,
-  }
 
   const syncCarouselSettings = {
     dots: false,
@@ -81,87 +83,132 @@ export default function Reviews() {
           adaptiveHeight: true,
           centerMode: true,
           centerPadding: "0px",
+          pauseOnHover: true,
         }
       },
     ]
   };
 
-  const onClick = useCallback((index: number) => {
+  const onClick = useCallback((index: number, isFirst: boolean = true) => {
     if(mobile) return null;
+    console.log(isFirst);
     
     append(
       <div className={styles["carousel-container"]}>
-        <Slider {...carouselSettings} initialSlide={index || 0} className={styles["modal-slider"]}>
-          {reviews.map((review, idx) => 
-            <ReviewItem 
+        <Slider {...carouselSettings} initialSlide={isFirst ? index : elementsPerRow + index || 0} className={styles["modal-slider"]} slide={styles["review-specified"]}>
+          {reviews?.map((review) => 
+            <SingleReview 
               authorName={review.authorName}
-              authorImg={review.authorImg}
+              authorImg={review.authorImg && `${process.env.NEXT_PUBLIC_SERVER_URL}${review.authorImg}`}
               text={review.text}
               key={review.id}
-              index={idx}
               className={styles["review-specified"]}
             />
           )}
         </Slider>
-      </div>
+      </div>,
+      {minHeight: "100vh", width: "100%", backgroundColor: "transparent", boxShadow: "none", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"},
+      "white"
     )
   }, [reviews]);
-  
-  const getMobileSettings = () => mobile ? mobileSettings : syncCarouselSettings;
-  
-  useEffect(() => {
-    const getReviews = async() => {
-      const reviews = await ReviewService.getAll();
-      setElementsPerRow(Math.round(reviews.length / 2));
-      setReviews(reviews);
-    }
 
-    try {
-      getReviews();
-    } catch(err) {
-      console.log(errorCatch(err));
-    }
-  }, [])
+  // const firstRow = useMemo(() => {
+  //   return reviews.slice(0, elementsPerRow).map((review, idx) =>
+  //     <ReviewItem
+  //       authorName={review.authorName}
+  //       authorImg={review.authorImg && `${process.env.NEXT_PUBLIC_SERVER_URL}${review.authorImg}`}
+  //       text={review.text}
+  //       key={review.id}
+  //       onClick={onClick}
+  //       index={idx}
+  //     />
+  //   )
+  // }, [reviews]);
+
+  // const secondRow = useMemo(() => {
+  //   return reviews.slice(mobile ? 0 : elementsPerRow).map((review, idx) =>
+  //     <ReviewItem 
+  //       authorName={review.authorName}
+  //       authorImg={review.authorImg && `${process.env.NEXT_PUBLIC_SERVER_URL}${review.authorImg}`}
+  //       text={review.text}
+  //       key={review.id}
+  //       onClick={() => onClick(idx, false)}
+  //       index={idx}
+  //     />
+  //   )
+  // }, [reviews])
+
+  useEffect(() => {
+    setIsLoading(true);
+    const curFirstRow = reviews?.slice(0, elementsPerRow).map((review, idx) =>
+      <ReviewItem
+        authorName={review.authorName}
+        authorImg={review.authorImg && `${process.env.NEXT_PUBLIC_SERVER_URL}${review.authorImg}`}
+        text={review.text}
+        key={review.id}
+        onClick={onClick}
+        index={idx}
+      />
+    );
+    setFirstRow(curFirstRow || []);
+    const curSecondRow = reviews?.slice(elementsPerRow).map((review, idx) =>
+      <ReviewItem
+        authorName={review.authorName}
+        authorImg={review.authorImg && `${process.env.NEXT_PUBLIC_SERVER_URL}${review.authorImg}`}
+        text={review.text}
+        key={review.id}
+        onClick={() => onClick(idx, false)}
+        index={idx}
+      />
+    );
+    setSecondRow(curSecondRow || []);
+    setIsLoading(false);
+  }, []);
+  
   
   return (
     <section className={styles.section} id="reviews">
       <h2 className="subtitle">Отзывы</h2>
+      { isLoading ? <Loader /> : (
         <div className={styles.grid}>
           {
             (!reviews || reviews.length <= 0) ? <p className={styles.empty}>Отзывы скоро появятся</p> : (
               <>
                 <Slider {...syncCarouselSettings} rtl={true} className={cn(styles.slider, styles["slider-desktop"])}>
-                  {reviews.slice(0, elementsPerRow).map((review, idx) =>
+                  {/* {reviews.slice(0, elementsPerRow).map((review, idx) =>
                     <ReviewItem
                       authorName={review.authorName}
-                      authorImg={review.authorImg}
+                      authorImg={review.authorImg && `${process.env.NEXT_PUBLIC_SERVER_URL}${review.authorImg}`}
                       text={review.text}
                       key={review.id}
                       onClick={onClick}
                       index={idx}
                     />
-                  )}
+                  )} */}
+                  {...firstRow}
                 </Slider>
                 <Slider  
-                  className={cn(styles.slider, "slider-mobile")}
-                  {...getMobileSettings()}
+                  className={cn(styles.slider, styles["slider-mobile"])}
                   slide={styles.slide}
+                  {...syncCarouselSettings}
                 >
-                  {reviews.slice(mobile ? 0 : elementsPerRow).map((review, idx) =>
+                  {/* {reviews.slice(mobile ? 0 : elementsPerRow).map((review, idx) =>
                     <ReviewItem 
                       authorName={review.authorName}
-                      authorImg={review.authorImg}
+                      authorImg={review.authorImg && `${process.env.NEXT_PUBLIC_SERVER_URL}${review.authorImg}`}
                       text={review.text}
                       key={review.id}
-                      onClick={onClick}
+                      onClick={() => onClick(idx, false)}
                       index={idx}
                     />
-                  )}
+                  )} */}
+                  {...secondRow}
                 </Slider>
               </>
             )
           }
         </div>
+      )}
     </section>
   )
 }

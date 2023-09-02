@@ -1,4 +1,4 @@
-import { axiosJson } from "@/app/api/helper";
+import { axiosFormData, axiosJson } from "@/app/api/helper";
 import { ReviewsType } from "@/types/review.type";
 import { URL } from "@/types/url";
 import { ReviewData, ReviewsData } from "./review.types";
@@ -12,8 +12,8 @@ export const ReviewService = {
         return data;
     },
 
-    async create(data: ReviewData) {
-        return await axiosJson<ReviewData>({
+    async create(data: FormData) {
+        return await axiosFormData<FormData>({
             url: URL.review,
             method: "POST",
             data,

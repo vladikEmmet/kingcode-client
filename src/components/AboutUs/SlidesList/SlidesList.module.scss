@@ -1,0 +1,24 @@
+@import "../../../app/variables.scss";
+
+.container {
+    width: 100vw;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: $main-yellow;
+
+    h1 {
+        text-align: center;
+        text-transform: uppercase;
+        color: $black;
+        margin-top: 50px;
+    }
+
+    .slides {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 50px;
+    }
+}

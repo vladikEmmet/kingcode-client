@@ -7,8 +7,12 @@ const nextConfig = {
     appDir: true,
   },
   images: {
-    // domains: ['localhost', 'cloudflare-ipfs.com', 'hmedia.istockphoto'],
+    domains: ["http://localhost:4200"],
     remotePatterns: [
+      {
+        protocol: "http",
+        hostname: "**",
+      },
       {
         protocol: "https",
         hostname: "**",
