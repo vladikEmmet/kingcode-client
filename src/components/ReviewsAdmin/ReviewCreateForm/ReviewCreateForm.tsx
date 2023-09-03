@@ -7,6 +7,7 @@ import { UploadFile } from "@/components/UI/Input/UploadFile/UploadFile";
 import { Loader } from "@/components/UI/Loader/Loader";
 import { ReviewService } from "@/services/review/review.service";
 import { useModal } from "@/store/store";
+import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { FC, useState } from "react";
 import styles from "./ReviewCreateForm.module.scss";
@@ -31,6 +32,7 @@ export const ReviewCreateForm: FC<ReviewCreateFormProps> = ({
   const {append} = useModal();
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
+  const session = useSession();
 
   const onSubmit = async() => {
     try {
@@ -42,7 +44,7 @@ export const ReviewCreateForm: FC<ReviewCreateFormProps> = ({
         formData.append("authorName", authorName);
         formData.append("text", text);
 
-        const newReview = await ReviewService.create(formData);
+        const newReview = await ReviewService.create(formData, session.data?.backendTokens.accessToken);
         setIsLoading(false);
         router.back();
     } catch(err) {

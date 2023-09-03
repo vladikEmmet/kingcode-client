@@ -12,6 +12,7 @@ import { CourseService } from "@/services/course/course.service";
 import { Loader } from "../UI/Loader/Loader";
 import { useModal } from "@/store/store";
 import { errorCatch } from "@/app/api/helper";
+import { useSession } from "next-auth/react";
 
 interface CourseListProps {
   courses: CourseData[];
@@ -28,6 +29,7 @@ export const CourseList: FC<CourseListProps> = ({courses}) => {
   const [educationVariant, setEducationVariant] = useState<EducationVariantEnum>(EducationVariantEnum.group);
   const [isLoading, setIsLoading] = useState(false);
   const {append} = useModal();
+  const session = useSession();
   
   const onClick = (id: number) => {
       setActiveCourse(id === activeCourse ? null : id);
@@ -46,7 +48,7 @@ export const CourseList: FC<CourseListProps> = ({courses}) => {
       setIsLoading(true);
 
       const data = {title, description, price, hours, exercises, educationVariant, id: courses[activeCourse].prices[editedTab].id }
-      const newPrice = await CourseService.update(activeCourse, {...data});
+      const newPrice = await CourseService.update(activeCourse, {...data}, session.data?.backendTokens.accessToken);
 
       setIsLoading(false);
       return newPrice;

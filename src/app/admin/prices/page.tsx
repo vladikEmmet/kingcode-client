@@ -4,7 +4,7 @@ import { CourseService } from "@/services/course/course.service";
 import { Metadata } from "next";
 
 const getCourses = async() => {
-    try {
+    try { 
         const data = await CourseService.getAll();
         return data;
     } catch(err) {

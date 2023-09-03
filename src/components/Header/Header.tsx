@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Image from "next/image"
 import Link from "next/link"
@@ -10,7 +10,7 @@ import { useSession } from "next-auth/react"
 
 export const Header = () => {
   const pathname = usePathname();
-  const { data: user } = useSession()
+  const { data: session } = useSession();
   
   return (
     <div className="flex-header">
@@ -29,11 +29,12 @@ export const Header = () => {
           </div>
         </div>
       </header>
-      {user &&
+      {session && session.user &&
         <div className="admin-panel-header">
           <Link href="/admin">
             Admin
           </Link>
+          <Link href="/api/auth/signout">Выйти</Link>
         </div>
       }
     </div>

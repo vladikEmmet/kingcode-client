@@ -1,8 +1,11 @@
 "use client";
 
 import { errorCatch } from "@/app/api/helper";
+import { authConfig } from "@/configs/auth";
 import { useModal } from "@/store/store";
 import axios from "axios";
+import { getServerSession } from "next-auth";
+import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Button, ButtonVariantsEnum } from "../UI/Button/Button";
@@ -12,7 +15,7 @@ import { Loader } from "../UI/Loader/Loader";
 import styles from "./CreateSlideForm.module.scss";
 
 
-export const CreateSlideForm= () => {
+export const CreateSlideForm = () => {
   const [file, setFile] = useState<File>();
   const [type, setType] = useState<"img" | "video" | null>(null);
   const [fileError, setFileError] = useState("");
@@ -20,6 +23,7 @@ export const CreateSlideForm= () => {
   const [isLoading, setIsLoading] = useState(false);
   const {append} = useModal();
   const router = useRouter();
+  const session = useSession();
 
   const onSubmit = async() => {
     try {
@@ -35,7 +39,8 @@ export const CreateSlideForm= () => {
         const a = await axios.post("http://localhost:4200/api/about-us", formData, {
             method: "POST",
             headers: {
-                "Content-Type": "multipart/form-data"
+                "Content-Type": "multipart/form-data",
+                "authorization": `Bearer ${session.data?.backendTokens.accessToken}`
             }
         });
         setIsLoading(false);

@@ -21,11 +21,14 @@ export const CourseService = {
         return data;
     },
 
-    async update(id: number, newData: PriceData) {
+    async update(id: number, newData: PriceData, token?: string) {
         const {data} = await axiosJson<PriceData>({
             method: "PATCH",
             url: `${URL.course}/${id}`,
             data: newData,
+            headers: {
+                authorization: `Bearer ${token}`,
+            }
         });
 
         return data;

@@ -11,20 +11,26 @@ export const AboutUsService = {
         return data;
     },
 
-    async delete(id: number) {
+    async delete(id: number, token: string) {
         const {data} = await axiosJson<AboutUsData>({
             url: `${URL.aboutUs}/${id}`,
-            method: "DELETE"
+            method: "DELETE",
+            headers: {
+                authorization: `Bearer ${token}`,
+            }
         });
 
         return data;
     },
 
-    async create(dto: FormData) {
+    async create(dto: FormData, token: string) {
         const {data} = await axiosFormData<FormData>({
             url: `${URL.aboutUs}`,
             method: "POST",
-            data: dto
+            data: dto,
+            headers: {
+                authorization: `Bearer ${token}`,
+            }
         });
 
         return data;

@@ -13,10 +13,6 @@ interface SlidesListProps {
 }
 
 export const SlidesList: FC<SlidesListProps> = ({slides}) => {
-    for(const slide of slides) {
-        console.log(slide.link);
-    }
-    
   return (
     <div className={styles.container}>
         <Link href="/admin/about-us/create">

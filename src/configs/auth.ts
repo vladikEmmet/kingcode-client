@@ -1,10 +1,25 @@
-import { AdminService } from "@/services/admin/admin.service";
 import { NextAuthOptions, User } from "next-auth";
-import Credentials from "next-auth/providers/credentials";
+import { JWT } from "next-auth/jwt";
+import CredentialsProvider from "next-auth/providers/credentials";
+
+async function refreshToken(token: JWT): Promise<JWT> {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}admin/refresh`, {
+        method: "POST",
+        headers: {
+            authorization: `Refresh ${token?.backendTokens?.refreshToken}`
+        },
+    });
+
+    const response = await res.json();
+    return {
+        ...token,
+        backendTokens: response,
+    }
+}
 
 export const authConfig: NextAuthOptions = {
     providers: [
-        Credentials({
+        CredentialsProvider({
             name: "Credentials",
             credentials: {
                 login: {label: "login", type: "text", required: true},
@@ -12,14 +27,39 @@ export const authConfig: NextAuthOptions = {
             },
             async authorize(credentials, req) {
                 if(!credentials?.login || !credentials.password) return null;
-                const admin = await AdminService.login(credentials);
-                if(admin && admin.login === credentials.login) {
-                    const {password, ...userWithoutPassword} = admin;
-                    return userWithoutPassword as unknown as User;
+                const {login, password} = credentials;
+                const res = await fetch(process.env.NEXT_PUBLIC_API_URL + "admin/login", {
+                    method: "POST",
+                    body: JSON.stringify({
+                        login,
+                        password,
+                    }),
+                    headers: {
+                        "Content-Type": "application/json",
+                    }
+                })
+                if(res.status == 401 || res.status == 404 || res.status == 500) {
+                    console.log(res.statusText);
+                    return null;
                 }
-                
-                return null;
+                const user = await res.json();
+                return user;
             }
         }),
-    ]
+    ],
+
+    callbacks: {
+       async jwt({token, user}) {
+        if(user) return {...token, ...user};
+        if(new Date().getTime() < token.backendTokens.expiresIn) return token;
+        return await refreshToken(token);
+       },
+
+       async session({token, session}) {
+        
+        session.user = token.user;
+        session.backendTokens = token.backendTokens;
+        return session;
+       }
+    }
 };

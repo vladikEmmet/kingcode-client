@@ -5,6 +5,7 @@ import { Button, ButtonVariantsEnum } from "@/components/UI/Button/Button";
 import { ReviewService } from "@/services/review/review.service";
 import { ReviewData } from "@/services/review/review.types";
 import { useModal } from "@/store/store";
+import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { FC } from "react";
 import { ReviewItem } from "../ReviewItem/ReviewItem";
@@ -17,10 +18,11 @@ interface ReviewsListProps {
 export const ReviewsList: FC<ReviewsListProps> = ({reviews}) => {
   const {append} = useModal();
   const router = useRouter();
+  const session = useSession();
     
   const onClick = async(id: number) => {
     try {
-        const removedReview = await ReviewService.delete(id);
+        const removedReview = await ReviewService.delete(id, session.data?.backendTokens.accessToken);
         router.refresh();
     } catch(err) {
         console.log(err);
