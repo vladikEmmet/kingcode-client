@@ -54,6 +54,10 @@
     @media only screen and (max-width: 1199px) {
         max-width: 100%;
     }
+
+    @media only screen and (max-width: 767px) {
+        text-indent: $mobile-text-indent;
+    }
 }
 
 .text {

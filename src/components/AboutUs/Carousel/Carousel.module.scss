@@ -13,12 +13,10 @@
         margin: 0 auto;
 
         img, video {
-            // max-width: 100%;
             width: 100%;
             height: auto;
-            // max-height: 100%;
-            // object-fit: contain;
             margin-inline: auto;
+            border-radius: 10px;
 
             source {
                 width: 100%;

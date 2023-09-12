@@ -29,6 +29,10 @@
         max-width: 955px;
         margin: 65px auto 0;   
 
+        @media only screen and (max-width: 767px) {
+            text-indent: $mobile-text-indent;
+        }
+
         @media only screen and (max-width: 575px) {
             margin-top: 30px;
         }

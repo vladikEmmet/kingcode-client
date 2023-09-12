@@ -88,6 +88,10 @@
 .list-description {
     color: $white;
     text-indent: $text-indent;
+
+    @media only screen and (max-width: 767px) {
+        text-indent: $mobile-text-indent;
+    }
 }
 
 .flex-wrapper {

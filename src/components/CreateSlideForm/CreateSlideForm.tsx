@@ -12,6 +12,7 @@ import { Button, ButtonVariantsEnum } from "../UI/Button/Button";
 import { RadioButton } from "../UI/Input/RadioButton/RadioButton";
 import { UploadFile } from "../UI/Input/UploadFile/UploadFile";
 import { Loader } from "../UI/Loader/Loader";
+import { ProgressBar } from "../UI/ProgressBar/ProgressBar";
 import styles from "./CreateSlideForm.module.scss";
 
 
@@ -21,9 +22,11 @@ export const CreateSlideForm = () => {
   const [fileError, setFileError] = useState("");
   const [typeError, setTypeError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [uploadProgress, setUploadProgress] = useState(0);
   const {append} = useModal();
   const router = useRouter();
   const session = useSession();
+  console.log(session);
 
   const onSubmit = async() => {
     try {
@@ -36,14 +39,21 @@ export const CreateSlideForm = () => {
         formData.append("file", file as Blob);
         formData.append("type", type as string);
 
-        const a = await axios.post("http://localhost:4200/api/about-us", formData, {
+        const res = await axios.post("http://localhost:4200/api/about-us", formData, {
             method: "POST",
             headers: {
                 "Content-Type": "multipart/form-data",
                 "authorization": `Bearer ${session.data?.backendTokens.accessToken}`
+            },
+            onUploadProgress: progressEvent => {
+                const totalLength = progressEvent.total;
+                console.log('total', totalLength);
+                if (totalLength) {
+                    let progress = Math.round((progressEvent.loaded * 100) / totalLength);
+                    setUploadProgress(progress);
+                }
             }
         });
-        setIsLoading(false);
         router.back();
     } catch(err) {
         console.log(err);
@@ -53,24 +63,31 @@ export const CreateSlideForm = () => {
     }
   }
 
-  if(isLoading) return <Loader />
+  if(isLoading) return (
+    <>
+        <Loader />
+        <ProgressBar progress={uploadProgress}/>
+    </>
+  )
 
   return (
     <form className={styles.form}>
-        <RadioButton 
-            label="Фото" 
-            name="photo-radio" 
-            checked={type === "img"} 
-            onChange={() => setType("img")}
-            error={typeError}
-        />
-        <RadioButton 
-            label="Видео"
-            name="video-radio"
-            checked={type === "video"}
-            onChange={() => setType("video")}
-            error={typeError}
-        />
+        <div className={styles.types}>
+            <RadioButton 
+                label="Фото" 
+                name="photo-radio" 
+                checked={type === "img"} 
+                onChange={() => setType("img")}
+                error={typeError}
+            />
+            <RadioButton 
+                label="Видео"
+                name="video-radio"
+                checked={type === "video"}
+                onChange={() => setType("video")}
+                error={typeError}
+            />
+        </div>
         {
             type === "video" ? 
             <UploadFile 

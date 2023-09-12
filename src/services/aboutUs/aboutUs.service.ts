@@ -11,7 +11,7 @@ export const AboutUsService = {
         return data;
     },
 
-    async delete(id: number, token: string) {
+    async delete(id: number, token?: string) {
         const {data} = await axiosJson<AboutUsData>({
             url: `${URL.aboutUs}/${id}`,
             method: "DELETE",
@@ -23,7 +23,7 @@ export const AboutUsService = {
         return data;
     },
 
-    async create(dto: FormData, token: string) {
+    async create(dto: FormData, token?: string) {
         const {data} = await axiosFormData<FormData>({
             url: `${URL.aboutUs}`,
             method: "POST",

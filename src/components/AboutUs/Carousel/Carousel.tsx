@@ -2,7 +2,7 @@
 
 import Slider, { Settings } from 'react-slick';
 import styles from "./Carousel.module.scss";
-import { FC, useCallback, useState } from 'react';
+import { FC, useCallback, useRef, useState } from 'react';
 import { AboutUsData } from '@/services/aboutUs/aboutUs.types';
 import Image from 'next/image';
 import { NextArrow } from '@/components/UI/Arrows/NextArrow/NextArrow';
@@ -42,9 +42,31 @@ export const Carousel: FC<CarouselProps> = ({elements, slidesToShow, slidesToScr
   }
   const [isAutoPlay, setIsAutoPlay] = useState(true);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const onPause = useCallback(() => setIsAutoPlay(true), []);
+  const videoRef = useRef<null | HTMLVideoElement>(null);
   const handleSlideChange = (index: number) => {
     setCurrentSlide(index);
+    if(videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current = null;
+    }
+  }
+  
+  const onPlay = (e: React.SyntheticEvent<HTMLVideoElement>) => {
+    setIsAutoPlay(false);
+    videoRef.current = e.currentTarget;
+  }
+
+  const reset = () => {
+    setIsAutoPlay(true);
+    videoRef.current = null;
+  }
+
+  const onPause = () => {
+    reset();
+  };
+
+  const onEnded = () => {
+    reset();
   }
 
   return (
@@ -62,7 +84,12 @@ export const Carousel: FC<CarouselProps> = ({elements, slidesToShow, slidesToScr
                     width={870}
                   />
                 ) : (
-                  <video controls={currentSlide === idx} width="100%" height={500} onPlay={() => setIsAutoPlay(false)} onPause={onPause} onClick={() => console.log("click")}>
+                  <video 
+                    controls={currentSlide === idx} 
+                    onPause={onPause} 
+                    onPlay={onPlay}
+                    onEnded={onEnded}
+                  >
                     <source src={`${process.env.NEXT_PUBLIC_SERVER_URL}${slide.link}`} type="video/mp4"/>
                     Ваш браузер не поддерживает видео.
                   </video>

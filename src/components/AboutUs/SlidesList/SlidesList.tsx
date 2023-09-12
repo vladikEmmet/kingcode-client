@@ -1,10 +1,9 @@
 "use client"
 
-import { errorCatch } from "@/app/api/helper";
 import { Button, ButtonVariantsEnum } from "@/components/UI/Button/Button";
 import { AboutUsData } from "@/services/aboutUs/aboutUs.types";
 import Link from "next/link";
-import { FC, useState } from "react";
+import { FC } from "react";
 import { SlidesItem } from "./SlidesItem/SlidesItem";
 import styles from "./SlidesList.module.scss";
 
@@ -13,6 +12,7 @@ interface SlidesListProps {
 }
 
 export const SlidesList: FC<SlidesListProps> = ({slides}) => {
+    
   return (
     <div className={styles.container}>
         <Link href="/admin/about-us/create">

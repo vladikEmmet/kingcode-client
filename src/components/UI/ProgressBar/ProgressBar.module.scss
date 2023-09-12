@@ -1,0 +1,23 @@
+@import "../../../app/variables.scss";
+
+.container {
+    height: 20px;
+    width: 100%;
+    background-color: "#e0e0de";
+    border-radius: 50px;
+    margin: 50px;
+}
+
+.filler {
+    height: 100%;
+    background: $black;
+    border-radius: inherit;
+    text-align: right;
+    transition: width 1s ease-out;
+}
+
+.label {
+    padding: 5px;
+    color: $white;
+    font-weight: bold;
+}

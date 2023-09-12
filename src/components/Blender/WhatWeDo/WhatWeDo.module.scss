@@ -32,6 +32,10 @@
         text-indent: $text-indent;
         line-height: 167%;
 
+        @media only screen and (max-width: 767px) {
+            text-indent: $mobile-text-indent;
+        }
+
         @media only screen and (max-width: 1024px) {
             max-width: 100%;
             margin-bottom: 0;

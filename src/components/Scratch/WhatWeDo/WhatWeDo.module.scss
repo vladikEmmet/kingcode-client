@@ -40,9 +40,11 @@
         color: $white;
         margin-bottom: 50px;
         line-height: 117%;
+        text-indent: $text-indent;
 
         @media only screen and (max-width: 767px) {
             margin-bottom: 30px;
+            text-indent: $mobile-text-indent;
         }
     }
 

@@ -59,6 +59,11 @@
     p {
         color: $white;
         line-height: 1.2;
+        text-indent: $text-indent;
+
+        @media only screen and (max-width: 767px) {
+            text-indent: $mobile-text-indent;
+        }
     }
 }
 

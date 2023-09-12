@@ -36,11 +36,16 @@
         flex-basis: 60%;
         margin-top: 40px;
         padding-bottom: 20px;
+        text-indent: $text-indent;
 
         @media only screen and (min-width: 768px) and (max-width: 991px) {
             flex-basis: 55%;
         }
 
+        @media only screen and (max-width: 767px) {
+            text-indent: $mobile-text-indent;
+        }
+        
         @media only screen and (max-width: 575px) {
             margin-top: 15px;
             padding-bottom: 0px;
