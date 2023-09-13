@@ -6,12 +6,15 @@ import Link from "next/link";
 import { FC } from "react";
 import { SlidesItem } from "./SlidesItem/SlidesItem";
 import styles from "./SlidesList.module.scss";
+import { useSession } from "next-auth/react";
 
 interface SlidesListProps {
     slides: AboutUsData[];
 }
 
 export const SlidesList: FC<SlidesListProps> = ({slides}) => {
+  const session = useSession();
+  console.log(session);
     
   return (
     <div className={styles.container}>

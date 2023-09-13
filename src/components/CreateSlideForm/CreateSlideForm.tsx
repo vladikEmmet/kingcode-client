@@ -26,7 +26,6 @@ export const CreateSlideForm = () => {
   const {append} = useModal();
   const router = useRouter();
   const session = useSession();
-  console.log(session);
 
   const onSubmit = async() => {
     try {
@@ -39,7 +38,7 @@ export const CreateSlideForm = () => {
         formData.append("file", file as Blob);
         formData.append("type", type as string);
 
-        const res = await axios.post("http://localhost:4200/api/about-us", formData, {
+        const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}about-us`, formData, {
             method: "POST",
             headers: {
                 "Content-Type": "multipart/form-data",

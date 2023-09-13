@@ -6,6 +6,9 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
+  compiler: {
+    styledComponents: true
+  },
   images: {
     domains: ["http://localhost:4200"],
     remotePatterns: [

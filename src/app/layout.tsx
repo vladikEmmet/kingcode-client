@@ -48,7 +48,9 @@ export const metadata: Metadata = {
   }
 }
 
-const montserrat = Montserrat({ subsets: ['latin', 'cyrillic'], weight: ["500", "600", "700"]});
+// const montserrat = Montserrat({ subsets: ['latin', 'cyrillic'], weight: ["500", "600", "700"]});
+const montserrat = Montserrat({subsets: ["cyrillic", "latin"], weight: ["500", "600", "700"]});
+
 
 export default function RootLayout({
   children,

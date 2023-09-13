@@ -16,9 +16,11 @@ interface SlidesItemProps {
 export const SlidesItem: FC<SlidesItemProps> = ({slide}) => {
   const router = useRouter();
   const session = useSession();
+  console.log(session);
     
   const onDelete = async() => {
     try {
+        console.log("click");
         const data = await AboutUsService.delete(slide.id, session.data?.backendTokens.accessToken);
         router.refresh();
     } catch(err) {
