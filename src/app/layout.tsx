@@ -4,12 +4,12 @@ import { Header } from '@/components/Header/Header'
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import { BurgerMenu } from "@/components/BurgerMenu/BurgerMenu";
-import { Montserrat } from "next/font/google";
 import { Footer } from "@/components/Footer/Footer";
 import { Curtain } from "@/components/UI/Curtain/Curtain";
 import { Modal } from "@/components/Modal/Modal";
 import { SocialBeforeFooter } from "@/components/SocialBeforeFooter/SocialBeforeFooter";
 import { Providers } from "@/components/Providers";
+import { Montserrat } from "next/font/google";
 config.autoAddCss = false;
 
 export const metadata: Metadata = {
@@ -48,9 +48,7 @@ export const metadata: Metadata = {
   }
 }
 
-// const montserrat = Montserrat({ subsets: ['latin', 'cyrillic'], weight: ["500", "600", "700"]});
-const montserrat = Montserrat({subsets: ["cyrillic", "latin"], weight: ["500", "600", "700"]});
-
+const montserrat = Montserrat({subsets: ["latin", "cyrillic"], weight: ["500", "600", "700"]})
 
 export default function RootLayout({
   children,

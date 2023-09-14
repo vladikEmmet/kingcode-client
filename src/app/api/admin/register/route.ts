@@ -22,6 +22,7 @@ export async function POST(req: NextApiRequest) {
         });
         return NextResponse.json({login, password}, {status: 200});
     } catch(err) {
+        console.log(err);
         return NextResponse.json({ message: "Произошла ошибка" }, {status: 500});
     }
 }

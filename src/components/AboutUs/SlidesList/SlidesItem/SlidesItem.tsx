@@ -8,6 +8,8 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { FC } from "react";
 import styles from "./SlidesItem.module.scss";
+import { useModal } from "@/store/store";
+import { errorCatch } from "@/app/api/helper";
 
 interface SlidesItemProps {
     slide: AboutUsData;
@@ -16,15 +18,15 @@ interface SlidesItemProps {
 export const SlidesItem: FC<SlidesItemProps> = ({slide}) => {
   const router = useRouter();
   const session = useSession();
-  console.log(session);
+  const {append} = useModal();
     
   const onDelete = async() => {
     try {
-        console.log("click");
         const data = await AboutUsService.delete(slide.id, session.data?.backendTokens.accessToken);
         router.refresh();
     } catch(err) {
         console.log(err);
+        append(errorCatch(err))
     }
   }
 

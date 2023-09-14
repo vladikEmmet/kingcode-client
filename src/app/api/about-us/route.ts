@@ -3,6 +3,7 @@ import prisma from "@/app/api/utils/prisma";
 import { NextApiRequest, NextApiResponse } from "next";
 import { NextResponse } from "next/server";
 import { saveFile } from "../utils/saveFile";
+import { verifyJwt } from "../utils/jwt";
 
 export async function GET(req: NextApiRequest) {
     const slides = await prisma.abousUsSlide.findMany();
@@ -11,6 +12,8 @@ export async function GET(req: NextApiRequest) {
 
 export async function POST(req: any) {
     try {
+        const token = req?.headers?.get("authorization")?.split(' ')[1];
+        if(!token || !verifyJwt(token)) return NextResponse.json({message: "Пожалуйста, авторизуйтесь"}, {status: 401});
         const formData = await req.formData();
         const file: File | null = formData.get("file") as unknown as File;
         const type: string = formData.get("type") as string;
@@ -24,8 +27,9 @@ export async function POST(req: any) {
                 link: fileName,
             }
         });
-        return NextResponse.json(slide, {status: 200});
+        return NextResponse.redirect(`${process.env.NEXT_PUBLIC_URL}/admin`, {status: 303});
     } catch(err) {
+        console.log(err);
         return NextResponse.json({ message: "Внутренняя ошибка сервера" }, {status: 500});
     }
 }

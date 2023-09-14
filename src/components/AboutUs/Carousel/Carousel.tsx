@@ -77,7 +77,7 @@ export const Carousel: FC<CarouselProps> = ({elements, slidesToShow, slidesToScr
               {slide.type === "img" ?
                 (
                   <Image
-                    src={`${process.env.NEXT_PUBLIC_SERVER_URL}${slide.link}`}
+                    src={`/uploads/${slide.link}`}
                     className={styles.img}
                     alt={`Слайд номер ${idx + 1}`}
                     height={493}

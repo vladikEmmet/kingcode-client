@@ -50,8 +50,8 @@ body {
   color: $main-yellow;
   scroll-behavior: smooth;
   font-size: 30px;
-  font-weight: 600;
   background: $main-yellow;
+  font-weight: 600;
 
   @media only screen and (min-width: 992px) and (max-width: 1199px) {
     font-size: 26px;
@@ -479,6 +479,7 @@ main {
   text-align: center;
   text-transform: uppercase;
   font-size: 1.1rem;
+  // font-weight: bold;
   font-weight: bold;
 
   @media only screen and (max-width: 767px) {

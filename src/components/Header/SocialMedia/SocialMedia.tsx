@@ -37,22 +37,22 @@ export const SocialMedia: FC<SocialMediaProps> = ({withPhone = false, className}
   
   return (
     <div className={cn(styles.container, className)}>
-        <a href="*" target="_blank" rel="noopener noreferrer nofollow author">
+        <a href={`${process.env.NEXT_PUBLIC_VK_URL}`} target="_blank" rel="noopener noreferrer nofollow author">
             <FaVk />
         </a>
-        <a href="*" target="_blank" rel="noopener noreferrer nofollow author">
+        <a href={`${process.env.NEXT_PUBLIC_TELEGRAM_URL}`} target="_blank" rel="noopener noreferrer nofollow author">
             <FaTelegramPlane />
         </a>
-        <a href="https://instagram.com/kingcode_school?igshid=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer nofollow author">
+        <a href={`${process.env.NEXT_PUBLIC_INSTAGRAM_URL}`} target="_blank" rel="noopener noreferrer nofollow author">
             <FaInstagram />
         </a>
-        <a href="*" target="_blank" rel="noopener noreferrer nofollow author">
+        <a href={`${process.env.NEXT_PUBLIC_WHATSAPP_URL}`} target="_blank" rel="noopener noreferrer nofollow author">
             <IoLogoWhatsapp />
         </a>
         {
             withPhone && 
             <>
-                <a id="phone-anchor" href="tel:+77719041930">
+                <a id="phone-anchor" href={`tel:${process.env.NEXT_PUBLIC_PHONE_NUMBER}`}>
                     <MdLocalPhone className={styles.phone} />
                 </a>
                 <Tooltip anchorSelect="#phone-anchor" clickable variant="light" delayHide={message ? 3000 : 0}>

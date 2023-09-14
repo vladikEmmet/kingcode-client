@@ -30,20 +30,24 @@ export const config = {
 }
 
 export async function POST(req: NextApiRequest) {
-  const data = await (req as any).json();
-  const {login, password} = data;
-  if(!login || !password) return NextResponse.json({ message: "Введите логин и пароль" }, {status: 404});   
-  const isValid = await validate({login, password});
-  if(!isValid) return NextResponse.json({ message: "Неверный логин или пароль" }, {status: 404});
-  // const accessToken = signJwtAccessToken(isValid);
-  const {accessToken, refreshToken} = generateTokens(isValid);
-  const backendTokens = {
-    accessToken,
-    refreshToken,
-    expiresIn: new Date().setTime(new Date().getTime() + TOKEN_EXPIRE_TIME),
+  try {
+    const data = await (req as any).json();
+    const {login, password} = data;
+    if(!login || !password) return NextResponse.json({ message: "Введите логин и пароль" }, {status: 404});   
+    const isValid = await validate({login, password});
+    if(!isValid) return NextResponse.json({ message: "Неверный логин или пароль" }, {status: 404});
+    const {accessToken, refreshToken} = generateTokens(isValid);
+    const backendTokens = {
+      accessToken,
+      refreshToken,
+      expiresIn: new Date().setTime(new Date().getTime() + TOKEN_EXPIRE_TIME),
+    }
+    return NextResponse.json({
+      user: {...isValid},
+      backendTokens,
+    }, {status: 200});
+  } catch(err) {
+    console.log(err);
+    return NextResponse.json({ message: "Внутренняя ошибка сервера" }, {status: 500});
   }
-  return NextResponse.json({
-    user: {...isValid},
-    backendTokens,
-  }, {status: 200});
 }

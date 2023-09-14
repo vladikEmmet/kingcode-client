@@ -91,7 +91,6 @@ export const Reviews: FC<ReviewsProps> = ({reviews}) => {
 
   const onClick = useCallback((index: number, isFirst: boolean = true) => {
     if(mobile) return null;
-    console.log(isFirst);
     
     append(
       <div className={styles["carousel-container"]}>
@@ -99,7 +98,7 @@ export const Reviews: FC<ReviewsProps> = ({reviews}) => {
           {reviews?.map((review) => 
             <SingleReview 
               authorName={review.authorName}
-              authorImg={review.authorImg && `${process.env.NEXT_PUBLIC_SERVER_URL}${review.authorImg}`}
+              authorImg={review.authorImg && `/uploads/${review.authorImg}`}
               text={review.text}
               key={review.id}
               className={styles["review-specified"]}
@@ -143,7 +142,7 @@ export const Reviews: FC<ReviewsProps> = ({reviews}) => {
     const curFirstRow = reviews?.slice(0, elementsPerRow).map((review, idx) =>
       <ReviewItem
         authorName={review.authorName}
-        authorImg={review.authorImg && `${process.env.NEXT_PUBLIC_SERVER_URL}${review.authorImg}`}
+        authorImg={review.authorImg && `uploads/${review.authorImg}`}
         text={review.text}
         key={review.id}
         onClick={onClick}
@@ -154,7 +153,7 @@ export const Reviews: FC<ReviewsProps> = ({reviews}) => {
     const curSecondRow = reviews?.slice(elementsPerRow).map((review, idx) =>
       <ReviewItem
         authorName={review.authorName}
-        authorImg={review.authorImg && `${process.env.NEXT_PUBLIC_SERVER_URL}${review.authorImg}`}
+        authorImg={review.authorImg && `/uploads/${review.authorImg}`}
         text={review.text}
         key={review.id}
         onClick={() => onClick(idx, false)}
