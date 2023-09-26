@@ -1,7 +1,6 @@
 import loader from "@/assets/loader.png";
 import { FC } from "react";
 import cn from 'clsx';
-import styles from "./Loader.module.scss";
 import Image from "next/image";
 
 interface LoaderProps {

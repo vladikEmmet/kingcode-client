@@ -9,7 +9,7 @@ import { Curtain } from "@/components/UI/Curtain/Curtain";
 import { Modal } from "@/components/Modal/Modal";
 import { SocialBeforeFooter } from "@/components/SocialBeforeFooter/SocialBeforeFooter";
 import { Providers } from "@/components/Providers";
-import { Montserrat } from "next/font/google";
+import localFont from "next/font/local";
 config.autoAddCss = false;
 
 export const metadata: Metadata = {
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   }
 }
 
-const montserrat = Montserrat({subsets: ["latin", "cyrillic"], weight: ["500", "600", "700"]})
+const montserratSemi = localFont({src: "../assets/fonts/Montserrat-SemiBold.woff2", variable: "--font-montserrat-semi"});
 
 export default function RootLayout({
   children,
@@ -57,7 +57,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ru">
-      <body className={montserrat.className}>
+      <body className={montserratSemi.className}>
         <Providers>
           <div className="helper">
             <div className="content">

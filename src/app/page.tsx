@@ -39,7 +39,6 @@ export default async function Home() {
         НАЧНИ СВОЙ ПУТЬ В <span className="highlighted">IT</span> ВМЕСТЕ С <span className="highlighted">KingCode</span>
       </MainScreen>
       <Courses />
-      {/* @ts-expect-error */}
       <AboutUs />
       <Adventages />
       <Reviews reviews={reviews}/>

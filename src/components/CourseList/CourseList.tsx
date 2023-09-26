@@ -1,7 +1,7 @@
 "use client";
 
-import { CourseData, PriceData } from "@/services/course/course.types";
-import { FC, useCallback, useEffect, useMemo, useState } from "react";
+import { CourseData } from "@/services/course/course.types";
+import { FC, useMemo, useState } from "react";
 import { Button, ButtonVariantsEnum } from "../UI/Button/Button";
 import styles from "./CourseList.module.scss";
 import cn from 'clsx';
@@ -132,7 +132,7 @@ export const CourseList: FC<CourseListProps> = ({courses}) => {
       }
     </div>
   )
-  }, [courses, activeCourse, editedTab, title, description, hours, exercises, price, educationVariant])
+  }, [courses, activeCourse, editedTab, title, description, hours, exercises, price, educationVariant, handleTabClick, onSubmit, onCancel, onClick])
 
   if(!courses) return (
     <div className={styles.container}>

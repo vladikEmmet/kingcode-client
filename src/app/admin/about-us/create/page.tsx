@@ -1,5 +1,4 @@
 import { CreateSlideForm } from "@/components/CreateSlideForm/CreateSlideForm";
-import { AboutUsService } from "@/services/aboutUs/aboutUs.service";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

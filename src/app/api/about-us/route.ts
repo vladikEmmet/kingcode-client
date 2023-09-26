@@ -1,11 +1,10 @@
-import { AboutUsData, AboutUsSendedData } from "@/services/aboutUs/aboutUs.types";
 import prisma from "@/app/api/utils/prisma";
 import { NextApiRequest, NextApiResponse } from "next";
 import { NextResponse } from "next/server";
 import { saveFile } from "../utils/saveFile";
 import { verifyJwt } from "../utils/jwt";
 
-export async function GET(req: NextApiRequest) {
+export async function GET(req: Request) {
     const slides = await prisma.abousUsSlide.findMany();
     return NextResponse.json(slides, {status: 200});
 }

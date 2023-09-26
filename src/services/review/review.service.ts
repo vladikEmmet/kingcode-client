@@ -1,7 +1,6 @@
 import { axiosFormData, axiosJson } from "@/app/api/helper";
-import { ReviewsType } from "@/types/review.type";
 import { URL } from "@/types/url";
-import { ReviewData, ReviewsData } from "./review.types";
+import { ReviewData } from "./review.types";
 
 export const ReviewService = {
     async getAll() {

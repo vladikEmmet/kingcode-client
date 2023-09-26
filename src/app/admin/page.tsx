@@ -7,7 +7,6 @@ export const metadata: Metadata = {
 
 export default function Admin() {
   return (
-    //@ts-expect-error
     <AdminPage />
   )
 }

@@ -7,7 +7,7 @@ import styles from "./Courses.module.scss"
 import localFont from 'next/font/local'
 import { useModal } from "@/store/store"
 
-const berlin = localFont({src: "../../assets/fonts/BRLNSDB.woff"})
+const berlin = localFont({src: "../../assets/fonts/BRLNSDB.woff"});
 
 export const Courses = () => {
     const {append} = useModal();

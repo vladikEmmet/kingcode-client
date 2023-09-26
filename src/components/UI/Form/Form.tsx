@@ -10,10 +10,13 @@ import { getCookie } from '@/utils/getCookie';
 import { setCookie } from '@/utils/setCookie';
 import { useModal } from '@/store/store';
 import { Loader } from '../Loader/Loader';
+import localFont from 'next/font/local';
 
 interface FormProps {
     courseName?: string;
 }
+
+const bold = localFont({src: "../../../assets/fonts/Montserrat-Bold.woff2"});
 
 export const Form: FC<FormProps> = ({courseName}) => {
     const [isButtonDisabled, setIsButtonDisabled] = useState(false);
@@ -77,7 +80,7 @@ export const Form: FC<FormProps> = ({courseName}) => {
                 </>
             ) : (
             <>
-                <h3>Оставьте свой номер и мы сами свяжемся с Вами:</h3>
+                <h3 className={bold.className}>Оставьте свой номер и мы сами свяжемся с Вами:</h3>
                 <form onSubmit={handleSubmit(onSubmit)} className={styles.form} method="POST">
                     <input className={styles.input} {...register("name")} placeholder="Ваше имя"/>
                     {errors.name && <p className={styles.error}>{errors?.name?.message}</p>}

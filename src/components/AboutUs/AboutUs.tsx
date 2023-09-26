@@ -2,6 +2,8 @@ import { errorCatch } from "@/app/api/helper";
 import { AboutUsService } from "@/services/aboutUs/aboutUs.service";
 import styles from "./AboutUs.module.scss";
 import { Carousel } from "./Carousel/Carousel";
+import localFont from "next/font/local";
+import cn from 'clsx';
 
 const fetchSlides = async() => {
   try {
@@ -12,13 +14,15 @@ const fetchSlides = async() => {
   }
 }
 
+const bold = localFont({src: "../../assets/fonts/Montserrat-Bold.woff2"});
+
 export default async function AboutUs() {
   const slides = await fetchSlides();
 
   return (
     <section className={styles.section} id="about-us">
         <div className="container">
-            <h2 className={"subtitle"}>О нас</h2>
+            <h2 className={cn("subtitle", bold.className)}>О нас</h2>
             {!slides?.length ?
               <h3 className={styles.empty}>Мы скоро вернемся с новостями!</h3> :
               <Carousel 

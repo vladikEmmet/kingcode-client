@@ -2,12 +2,12 @@
 
 import { errorCatch } from "@/app/api/helper";
 import { CourseService } from "@/services/course/course.service";
-import { Montserrat } from "next/font/google"
 import { FC, useEffect, useState } from "react";
 import { ButtonVariantsEnum } from "../UI/Button/Button"
 import { EducationVariantEnum, Tab } from "../UI/Tab/Tab"
 import styles from "./Prices.module.scss"
 import cn from 'clsx'
+import localFont from "next/font/local";
 
 interface PricesProps {
     courseName?: string;
@@ -15,6 +15,9 @@ interface PricesProps {
     isBlack?: boolean;
     onClick?: (index: number) => void;
 }
+
+const medium = localFont({src: "../../assets/fonts/Montserrat-Medium.woff2"});
+const bold = localFont({src: "../../assets/fonts/Montserrat-Bold.woff2"});
 
 export const Prices:FC<PricesProps> = ({variant = "grey", courseName, onClick}) => {
     const [prices, setPrices] = useState([
@@ -61,8 +64,8 @@ export const Prices:FC<PricesProps> = ({variant = "grey", courseName, onClick}) 
       <section className={cn(styles.section, styles[variant])} id="prices">
         <div className="container">
             <div className={cn(styles.title, styles[`title-${variant}`])}>
-                <h2 className="subtitle">Абонементы</h2>
-                <h3>1 месяц</h3>
+                <h2 className={cn("subtitle", bold.className)}>Абонементы</h2>
+                <h3 className={medium.className}>1 месяц</h3>
             </div>
             <div className={styles.wrapper}>
                 {prices.map((price, idx) => 

@@ -1,12 +1,16 @@
 import Image from "next/image";
 import styles from "./WhyImportant.module.scss";
 import meme from "@/assets/scratch/whyMeme.png";
+import cn from 'clsx';
+import localFont from "next/font/local";
+
+const bold = localFont({src: "../../../assets/fonts/Montserrat-Bold.woff2"});
 
 export const WhyImportant = () => {
   return (
     <section className={styles.section}>
         <div className="container">
-            <h2 className="subtitle">Зачем это нужно ребёнку?</h2>
+            <h2 className={cn("subtitle", bold.className)}>Зачем это нужно ребёнку?</h2>
             <div>
                 <div className={styles["list-item"]}>
                     <div>1</div>

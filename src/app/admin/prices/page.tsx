@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: "Изменение цены - King Code",
 }
 
-export default async function Prices() {
+export default async function PricesPage() {
     const courses = await getCourses();
 
     return (

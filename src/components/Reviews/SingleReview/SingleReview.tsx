@@ -4,10 +4,13 @@ import styles from "./SingleReview.module.scss";
 import cn from 'clsx';
 import Image from 'next/image';
 import monkeyEmpty from "@/assets/monkey.png";
+import localFont from "next/font/local";
 
 interface SingleReviewProps extends ReviewType {
     className?: string;
 }
+
+const bold = localFont({src: "../../../assets/fonts/Montserrat-Bold.woff2"});
 
 export const SingleReview: FC<SingleReviewProps> = 
     ({
@@ -28,10 +31,10 @@ export const SingleReview: FC<SingleReviewProps> =
                         height={100}
                     />
                 </div>
-                <p>{authorName}</p>
+                <p className={bold.className}>{authorName}</p>
             </div>
             <div className={styles["text-container"]}>
-                <p className={styles.text}>{text}</p>
+                <p className={cn(styles.text, bold.className)}>{text}</p>
             </div>
          </div>
     )

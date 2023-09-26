@@ -16,7 +16,7 @@ const fetchReviews = async() => {
     }
 };
 
-export default async function ReviewList() {
+export default async function ReviewListPage() {
     const reviews = await fetchReviews();
 
     return <ReviewsList reviews={reviews}/>

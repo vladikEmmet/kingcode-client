@@ -1,7 +1,6 @@
 import { AdminData } from "@/services/admin/admin.types";
 import prisma from "@/app/api/utils/prisma";
 import { verify } from "argon2";
-import { NextApiRequest } from "next";
 import { NextResponse } from "next/server";
 import { generateTokens, signJwtAccessToken } from "@/app/api/utils/jwt";
 
@@ -23,13 +22,13 @@ const validate = async (dto: AdminData) => {
     return rest;
 }
 
-export const config = {
-    api: {
-      bodyParser: false,
-    },
-}
+// export const config = {
+//     api: {
+//       bodyParser: false,
+//     },
+// }
 
-export async function POST(req: NextApiRequest) {
+export async function POST(req: Request) {
   try {
     const data = await (req as any).json();
     const {login, password} = data;

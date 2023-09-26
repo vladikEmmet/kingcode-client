@@ -10,7 +10,7 @@ const nextConfig = {
     styledComponents: true
   },
   images: {
-    domains: ["http://localhost:4200"],
+    domains: ["http://localhost:3000"],
     remotePatterns: [
       {
         protocol: "http",
@@ -23,10 +23,10 @@ const nextConfig = {
     ],
   },
   sassOptions: {
-    includePaths: [path.join(__dirname, "styles")],
+    includePaths: [path.join(__dirname, "globals")],
   },
   env: {
-    API_URL: process.env.API_URL || "http://localhost:4200/api/",
+    API_URL: process.env.API_URL || "http://localhost:3000/api/",
     SHEETS_URL:
       process.env.SHEETS_URL ||
       "https://script.google.com/macros/s/AKfycbwDZkIUucPVG8mhWsGeZ9SJDAOxOu-6rBuE96B-UpeJXzO4r4oW8v51grBOjzyGhkEibA/exec",

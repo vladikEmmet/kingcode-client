@@ -37,6 +37,10 @@
 
 // COMMON
 
+$bold: var(--font-montserrat-bold);
+$semi: var(--font-montserrat-semi);
+$medium: var(--font-montserrat-medium);
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -51,7 +55,7 @@ body {
   scroll-behavior: smooth;
   font-size: 30px;
   background: $main-yellow;
-  font-weight: 600;
+  font-family: var(--font-montserrat-semi);
 
   @media only screen and (min-width: 992px) and (max-width: 1199px) {
     font-size: 26px;
@@ -479,8 +483,7 @@ main {
   text-align: center;
   text-transform: uppercase;
   font-size: 1.1rem;
-  // font-weight: bold;
-  font-weight: bold;
+  font-family: var(--font-montserrat-bold);
 
   @media only screen and (max-width: 767px) {
     font-size: 1.4rem;

@@ -3,13 +3,17 @@ import styles from "./WhatWeDo.module.scss";
 import monkeyGum from "@/assets/blender/monkeyGum.png";
 import monkeyMixer from "@/assets/blender/monkeyMixer.png";
 import Image from "next/image";
+import cn from 'clsx';
+import localFont from "next/font/local";
+
+const bold = localFont({src: "../../../assets/fonts/Montserrat-Bold.woff2"});
 
 export const WhatWeDo = () => {
   return (
     <section id="what-we-do" className={styles.section}>
         <div className="container">
             <BlackTab className={styles.tab}>
-                <h2 className="subtitle">Чем мы будем заниматься?</h2>
+                <h2 className={cn("subtitle", bold.className)}>Чем мы будем заниматься?</h2>
                 <p className={styles.first}>Моделирование - процесс создания копии чего-либо, максимально приближенной к оригиналу. То есть лепка из пластилина или рисунок на бумаге - это тоже моделирование. Для наших занятий нам не потребуется ни карандашей, ни доски для лепок.</p>
                 <div className={styles["img-left-container"]}>
                     <Image 

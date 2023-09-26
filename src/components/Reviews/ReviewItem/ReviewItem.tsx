@@ -6,12 +6,16 @@ import { FC } from "react";
 import styles from "./ReviewItem.module.scss"
 import cn from 'clsx'
 import monkeyEmpty from "@/assets/monkey.png"
+import localFont from "next/font/local";
 
 export interface ReviewItemProps extends ReviewType {
     className?: string;
     index?: number;
     onClick?: (index: number) => void;
 }
+
+const medium = localFont({src: "../../../assets/fonts/Montserrat-Medium.woff2"});
+const bold = localFont({src: "../../../assets/fonts/Montserrat-Bold.woff2"});
 
 export const ReviewItem: FC<ReviewItemProps> = ({className, authorImg, authorName, text, index, onClick}) => {
   return (
@@ -25,10 +29,10 @@ export const ReviewItem: FC<ReviewItemProps> = ({className, authorImg, authorNam
                     height={100}
                 />
             </div>
-            <p>{authorName}</p>
+            <p className={medium.className}>{authorName}</p>
         </div>
         <div className={styles["text-container"]}>
-            <p className={styles.text}>{text}</p>
+            <p className={cn(styles.text, bold.className)}>{text}</p>
         </div>
     </div>
   )

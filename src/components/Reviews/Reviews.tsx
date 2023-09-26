@@ -12,10 +12,13 @@ import { PrevArrow } from "../UI/Arrows/PrevArrow/PrevArrow";
 import { defineSizes } from "@/utils/defineSizes";
 import { Loader } from "../UI/Loader/Loader";
 import { SingleReview } from "./SingleReview/SingleReview";
+import localFont from "next/font/local";
 
 interface ReviewsProps {
   reviews?: ReviewData[];
 }
+
+const bold = localFont({src: "../../assets/fonts/Montserrat-Bold.woff2"});
 
 export const Reviews: FC<ReviewsProps> = ({reviews}) => {
   const [mobile, setMobile] = useState(false);
@@ -109,33 +112,7 @@ export const Reviews: FC<ReviewsProps> = ({reviews}) => {
       {minHeight: "100vh", width: "100%", backgroundColor: "transparent", boxShadow: "none", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"},
       "white"
     )
-  }, [reviews]);
-
-  // const firstRow = useMemo(() => {
-  //   return reviews.slice(0, elementsPerRow).map((review, idx) =>
-  //     <ReviewItem
-  //       authorName={review.authorName}
-  //       authorImg={review.authorImg && `${process.env.NEXT_PUBLIC_SERVER_URL}${review.authorImg}`}
-  //       text={review.text}
-  //       key={review.id}
-  //       onClick={onClick}
-  //       index={idx}
-  //     />
-  //   )
-  // }, [reviews]);
-
-  // const secondRow = useMemo(() => {
-  //   return reviews.slice(mobile ? 0 : elementsPerRow).map((review, idx) =>
-  //     <ReviewItem 
-  //       authorName={review.authorName}
-  //       authorImg={review.authorImg && `${process.env.NEXT_PUBLIC_SERVER_URL}${review.authorImg}`}
-  //       text={review.text}
-  //       key={review.id}
-  //       onClick={() => onClick(idx, false)}
-  //       index={idx}
-  //     />
-  //   )
-  // }, [reviews])
+  }, [reviews, append, mobile, elementsPerRow]);
 
   useEffect(() => {
     setIsLoading(true);
@@ -167,23 +144,13 @@ export const Reviews: FC<ReviewsProps> = ({reviews}) => {
   
   return (
     <section className={styles.section} id="reviews">
-      <h2 className="subtitle">Отзывы</h2>
+      <h2 className={cn("subtitle", bold.className)}>Отзывы</h2>
       { isLoading ? <Loader /> : (
         <div className={styles.grid}>
           {
             (!reviews || reviews.length <= 0) ? <p className={styles.empty}>Отзывы скоро появятся</p> : (
               <>
                 <Slider {...syncCarouselSettings} rtl={true} className={cn(styles.slider, styles["slider-desktop"])}>
-                  {/* {reviews.slice(0, elementsPerRow).map((review, idx) =>
-                    <ReviewItem
-                      authorName={review.authorName}
-                      authorImg={review.authorImg && `${process.env.NEXT_PUBLIC_SERVER_URL}${review.authorImg}`}
-                      text={review.text}
-                      key={review.id}
-                      onClick={onClick}
-                      index={idx}
-                    />
-                  )} */}
                   {...firstRow}
                 </Slider>
                 <Slider  
@@ -191,16 +158,6 @@ export const Reviews: FC<ReviewsProps> = ({reviews}) => {
                   slide={styles.slide}
                   {...syncCarouselSettings}
                 >
-                  {/* {reviews.slice(mobile ? 0 : elementsPerRow).map((review, idx) =>
-                    <ReviewItem 
-                      authorName={review.authorName}
-                      authorImg={review.authorImg && `${process.env.NEXT_PUBLIC_SERVER_URL}${review.authorImg}`}
-                      text={review.text}
-                      key={review.id}
-                      onClick={() => onClick(idx, false)}
-                      index={idx}
-                    />
-                  )} */}
                   {...secondRow}
                 </Slider>
               </>

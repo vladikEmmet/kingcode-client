@@ -2,12 +2,15 @@ import styles from "./Classes.module.scss";
 import Image from "next/image";
 import cn from 'clsx';
 import monkeyFigure from "@/assets/math/monkeyFigure.png";
+import localFont from "next/font/local";
+
+const bold = localFont({src: "../../../assets/fonts/Montserrat-Bold.woff2"});
 
 export const Classes = () => {
   return (
     <section className={styles.section}>
       <div className={styles.header}>
-        <h2 className="subtitle">Как проходят занятия?</h2>
+        <h2 className={cn("subtitle", bold.className)}>Как проходят занятия?</h2>
       </div>
       <div className={styles.yellow} />
       <div className={styles.main}>

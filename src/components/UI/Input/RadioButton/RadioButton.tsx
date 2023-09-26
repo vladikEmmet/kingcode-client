@@ -1,4 +1,4 @@
-import { FC, InputHTMLAttributes } from "react"
+import { FC } from "react"
 import { InputProps } from "../Input"
 import styles from "./RadioButton.module.scss"
 import cn from 'clsx'

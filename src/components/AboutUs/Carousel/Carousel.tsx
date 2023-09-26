@@ -2,7 +2,7 @@
 
 import Slider, { Settings } from 'react-slick';
 import styles from "./Carousel.module.scss";
-import { FC, useCallback, useRef, useState } from 'react';
+import { FC, useRef, useState } from 'react';
 import { AboutUsData } from '@/services/aboutUs/aboutUs.types';
 import Image from 'next/image';
 import { NextArrow } from '@/components/UI/Arrows/NextArrow/NextArrow';

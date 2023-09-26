@@ -2,7 +2,6 @@ import { errorCatch } from "@/app/api/helper";
 import { SlidesList } from "@/components/AboutUs/SlidesList/SlidesList";
 import { AboutUsService } from "@/services/aboutUs/aboutUs.service"
 import { Metadata } from "next";
-import { notFound } from "next/navigation";
 
 const getSlides = async() => {
     try {
@@ -17,7 +16,7 @@ export const metadata: Metadata = {
     title: "Список слайдов - King Code",
 }
 
-export default async function AboutUs() {
+export default async function AboutUsPage() {
     const slides = await getSlides();
 
     return (

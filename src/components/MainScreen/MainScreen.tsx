@@ -18,6 +18,7 @@ interface MainScreenProps {
 }
 
 const berlin = localFont({src: "../../assets/fonts/BRLNSDB.woff", variable: "--font-berlin-bold"});
+const bold = localFont({src: "../../assets/fonts/Montserrat-Bold.woff2"});
 
 export const MainScreen: FC<MainScreenProps> = ({ageRange, img, children, scrollTarget, text = "big", buttonText}) => {
   return (
@@ -27,10 +28,10 @@ export const MainScreen: FC<MainScreenProps> = ({ageRange, img, children, scroll
                 <div className={styles.content} style={{backgroundImage: `url("${img.src}")`}}>
                     {ageRange && 
                         <div className={styles.star} style={{backgroundImage: `url(${star.src})`}}>
-                            <h5>{ageRange}</h5>
+                            <h5 className={bold.className}>{ageRange}</h5>
                         </div>
                     }
-                    <h1 className={cn(berlin.variable, {
+                    <h1 className={cn(bold.className, {
                         [styles.big]: text === "big"
                     })}>
                         {children}
