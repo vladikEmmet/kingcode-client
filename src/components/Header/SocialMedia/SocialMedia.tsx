@@ -28,7 +28,8 @@ export const SocialMedia: FC<SocialMediaProps> = ({withPhone = false, className}
   }
 
   const onClick = async() => {
-    if(isMobile()) {
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    if(isMobile) {
         setMessage(null);
         window.location.href = `tel:${process.env.NEXT_PUBLIC_PHONE_NUMBER}`;
         return;
