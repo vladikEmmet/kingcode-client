@@ -77,7 +77,7 @@ export const Carousel: FC<CarouselProps> = ({elements, slidesToShow, slidesToScr
               {slide.type === "img" ?
                 (
                   <Image
-                    src={`/uploads/${slide.link}`}
+                    src={`${process.env.NEXT_PUBLIC_SERVER_URL}img/${slide.link}`}
                     className={styles.img}
                     alt={`Слайд номер ${idx + 1}`}
                     height={493}
@@ -90,7 +90,7 @@ export const Carousel: FC<CarouselProps> = ({elements, slidesToShow, slidesToScr
                     onPlay={onPlay}
                     onEnded={onEnded}
                   >
-                    <source src={`${process.env.NEXT_PUBLIC_SERVER_URL}${slide.link}`} type="video/mp4"/>
+                    <source src={`${process.env.NEXT_PUBLIC_SERVER_URL}video/${slide.link}`} type="video/mp4"/>
                     Ваш браузер не поддерживает видео.
                   </video>
                 )
