@@ -36,7 +36,7 @@ export const SlidesItem: FC<SlidesItemProps> = ({slide}) => {
             slide.type === "video" ? (
                 <div className={styles.video}>
                     <video autoPlay={false} controls={true}>
-                        <source type="video/mp4" src={`${process.env.NEXT_PUBLIC_SERVER_URL}video/${slide.link}`}/>
+                        <source type="video/mp4" src={`${process.env.NEXT_PUBLIC_SERVER_URL}${slide.link}`}/>
                     </video>
                 </div>
             ) : (
@@ -45,7 +45,7 @@ export const SlidesItem: FC<SlidesItemProps> = ({slide}) => {
                         width={500}
                         height={300}
                         alt="Изображение"
-                        src={`${process.env.NEXT_PUBLIC_SERVER_URL}img/${slide.link}`}
+                        src={`${process.env.NEXT_PUBLIC_SERVER_URL}${slide.link}`}
                     />
                 </div>
             )
