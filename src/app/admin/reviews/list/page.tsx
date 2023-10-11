@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 const fetchReviews = async() => {
     try {
         const reviews = await ReviewService.getAll();
+        console.log(reviews);
         return reviews;
     } catch(err) {
         throw new Error(errorCatch(err));

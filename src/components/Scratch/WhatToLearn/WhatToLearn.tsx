@@ -13,7 +13,7 @@ export const WhatToLearn = () => {
             <h2 className={cn("subtitle", bold.className)}>Что будем изучать?</h2>
             <div className={styles.list}>
                 <div className={cn(styles["list-item"], bold.className)}>
-                    Сначала мы изучим основы: Координаты, градусы, циклы, условия и многое другое
+                    Сначала мы изучим основы: координаты, градусы, циклы, условия и многое другое
                 </div>
                 <div className={cn(styles["list-item"], bold.className)}>
                     Затем перейдём к переменным, операторам и к другим библиотекам Scratch

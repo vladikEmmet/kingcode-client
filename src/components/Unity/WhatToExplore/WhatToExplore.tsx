@@ -34,7 +34,7 @@ export const WhatToExplore = () => {
                     Разберём понятие переменной, рассмотрим какие бывают типы переменных
                 </div>
                 <div className={cn(styles["list-item"], bold.className)}>
-                    Освоим операторы IF, ELSE
+                    Освоим условные операторы и циклы
                 </div>
             </div>
             <div className={styles.img}>

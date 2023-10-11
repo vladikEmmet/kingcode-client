@@ -6,7 +6,7 @@ import { FaTelegramPlane, FaInstagram, FaVk } from "react-icons/fa";
 import { MdLocalPhone } from 'react-icons/md';
 import { isMobile } from "@/utils/isMobile";
 import { Tooltip } from 'react-tooltip';
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import cn from 'clsx';
 
 interface SocialMediaProps {
@@ -16,6 +16,7 @@ interface SocialMediaProps {
 
 export const SocialMedia: FC<SocialMediaProps> = ({withPhone = false, className}) => {
   const [message, setMessage] = useState<"error" | "success" | null>(null);
+  const [isDeviceMobile, setIsDeviceMobile] = useState(false);
   
   const copyPhone = async() => {
     try {
@@ -27,26 +28,44 @@ export const SocialMedia: FC<SocialMediaProps> = ({withPhone = false, className}
     }
   }
 
+  useEffect(() => {
+    const mobile = isMobile();
+    if(isMobile()) {
+        setIsDeviceMobile(true);
+        const vkLink = document.getElementById("vk-link");
+        const telegramLink = document.getElementById("telegram-link");
+        const whatsappLink = document.getElementById("whatsapp-link");
+
+        if(vkLink) vkLink.setAttribute("target", `_blank`);
+        if(telegramLink) telegramLink.setAttribute("target", `_blank`);
+        if(whatsappLink) whatsappLink.setAttribute("target", `_blank`);
+    }
+  }, [])
+
   const onClick = async() => {
     if(isMobile()) {
+        setMessage(null);
         window.location.href = `tel:${process.env.NEXT_PUBLIC_PHONE_NUMBER}`;
+        return;
     } else {
         await copyPhone();
     }
   }
+
+  
   
   return (
     <div className={cn(styles.container, className)}>
-        <a href={`${process.env.NEXT_PUBLIC_VK_URL}`} target="_blank" rel="noopener noreferrer nofollow author">
+        <a href={`${process.env.NEXT_PUBLIC_VK_URL}`} rel="noopener noreferrer nofollow author" id="vk-link">
             <FaVk />
         </a>
-        <a href={`${process.env.NEXT_PUBLIC_TELEGRAM_URL}`} target="_blank" rel="noopener noreferrer nofollow author">
+        <a href={`${process.env.NEXT_PUBLIC_TELEGRAM_URL}`} rel="noopener noreferrer nofollow author" id="telegram-link">
             <FaTelegramPlane />
         </a>
-        <a href={`${process.env.NEXT_PUBLIC_INSTAGRAM_URL}`} target="_blank" rel="noopener noreferrer nofollow author">
+        <a href={`${process.env.NEXT_PUBLIC_INSTAGRAM_URL}`} rel="noopener noreferrer nofollow author">
             <FaInstagram />
         </a>
-        <a href={`${process.env.NEXT_PUBLIC_WHATSAPP_URL}`} target="_blank" rel="noopener noreferrer nofollow author">
+        <a href={`${process.env.NEXT_PUBLIC_WHATSAPP_URL}`} rel="noopener noreferrer nofollow author" id="whatsapp-link">
             <IoLogoWhatsapp />
         </a>
         {

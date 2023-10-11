@@ -26,7 +26,7 @@ export const WhyImportant = () => {
                 </div>
                 <div className={styles["list-item"]}>
                     <div>4</div>
-                    <p>Мы Слегка затронем основы 3D-моделирования</p>
+                    <p>Мы слегка затронем основы 3D-моделирования</p>
                 </div>
                 <div className={styles["list-item"]}>
                     <div>5</div>

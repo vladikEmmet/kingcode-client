@@ -50,7 +50,7 @@ export const Prices:FC<PricesProps> = ({variant = "grey", courseName, onClick}) 
         const fetchPrices = async () => {
             if(!courseName) return;
             const data = await CourseService.get(courseName);
-            setPrices([...data.prices.sort((a, b) => a.id - b.id)]);
+            setPrices([...data?.prices?.sort((a, b) => a.id - b.id)]);
         }
 
         try {
