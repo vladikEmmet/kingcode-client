@@ -13,25 +13,50 @@ import { defineSizes } from "@/utils/defineSizes";
 import { Loader } from "../UI/Loader/Loader";
 import { SingleReview } from "./SingleReview/SingleReview";
 import localFont from "next/font/local";
-
-interface ReviewsProps {
-  reviews?: ReviewData[];
-}
+import { ReviewService } from "@/services/review/review.service";
+import { errorCatch } from "@/app/api/helper";
 
 const bold = localFont({src: "../../assets/fonts/Montserrat-Bold.woff2"});
 
-export const Reviews: FC<ReviewsProps> = ({reviews}) => {
+export const Reviews = () => {
   const [mobile, setMobile] = useState(false);
   const {append} = useModal();
   const [elementsPerRow, setElementsPerRow] = useState(3);
   const [isLoading, setIsLoading] = useState(false);
   const [firstRow, setFirstRow] = useState<React.ReactNode[]>([]);
   const [secondRow, setSecondRow] = useState<React.ReactNode[]>([]);
+  const [reviews, setReviews] = useState<ReviewData[]>([]);
 
   useEffect(() => {
     const {width} = defineSizes();
     if(width <= 575) setMobile(true);
   }, [])
+
+  // Fetch reviews
+
+  useEffect(() => {
+    const fetchReviews = async() => {
+      try {
+        const reviews = await ReviewService.getAll();
+        console.log(reviews);
+        return reviews;
+      } catch(err) {
+        console.log(err);
+      }
+    }
+    const fetchData = async () => {
+      try {
+        const data = await fetchReviews();
+        if (data) {
+          setReviews(data);
+        }
+      } catch(err) {
+        console.log(errorCatch(err))
+      }
+    }
+    fetchData();
+  }, [])
+
 
   const carouselSettings = {
     dots: true,

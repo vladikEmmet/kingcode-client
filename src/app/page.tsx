@@ -7,9 +7,6 @@ import {Reviews} from '@/components/Reviews/Reviews'
 import { Adventages } from '@/components/Adventages/Adventages'
 import AboutUs from '@/components/AboutUs/AboutUs'
 import { Metadata } from 'next'
-import { ReviewService } from '@/services/review/review.service'
-import { errorCatch } from './api/helper'
-import { AboutUsService } from '@/services/aboutUs/aboutUs.service'
 
 export const metadata: Metadata = {
   title: `Лучшие онлайн курсы для детей и подростков. IT-школа "King Code"`,
@@ -21,21 +18,7 @@ export const metadata: Metadata = {
   }
 }
 
-const fetchReviews = async() => {
-  try {
-    const reviews = await ReviewService.getAll();
-    console.log("in function");
-    console.log(reviews);
-    return reviews;
-  } catch(err) {
-    console.log(err);
-  }
-}
-
 export default async function Home() {
-  const reviews = await fetchReviews();
-  console.log("reviews");
-  console.log(reviews);
   
   return (
     <>
@@ -45,7 +28,7 @@ export default async function Home() {
       <Courses />
       <AboutUs />
       <Adventages />
-      <Reviews reviews={reviews}/>
+      <Reviews />
       <Prices />
       <FormSection />
     </>

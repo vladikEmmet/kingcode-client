@@ -7,18 +7,6 @@ export const metadata: Metadata = {
     title: "Список отзывов - King Code",
 }
 
-const fetchReviews = async() => {
-    try {
-        const reviews = await ReviewService.getAll();
-        console.log(reviews);
-        return reviews;
-    } catch(err) {
-        throw new Error(errorCatch(err));
-    }
-};
-
 export default async function ReviewListPage() {
-    const reviews = await fetchReviews();
-
-    return <ReviewsList reviews={reviews}/>
+    return <ReviewsList />
 }

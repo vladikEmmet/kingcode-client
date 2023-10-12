@@ -1,7 +1,7 @@
 "use client";
 
 import { CourseData } from "@/services/course/course.types";
-import { FC, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Button, ButtonVariantsEnum } from "../UI/Button/Button";
 import styles from "./CourseList.module.scss";
 import cn from 'clsx';
@@ -14,11 +14,7 @@ import { useModal } from "@/store/store";
 import { errorCatch } from "@/app/api/helper";
 import { useSession } from "next-auth/react";
 
-interface CourseListProps {
-  courses: CourseData[];
-}
-
-export const CourseList: FC<CourseListProps> = ({courses}) => {
+export const CourseList = () => {
   const [activeCourse, setActiveCourse] = useState<number | null>(null);
   const [editedTab, setEditedTab] = useState<number | null>(null);
   const [title, setTitle] = useState("");
@@ -27,9 +23,37 @@ export const CourseList: FC<CourseListProps> = ({courses}) => {
   const [exercises, setExercises] = useState(0);
   const [hours, setHours] = useState("");
   const [educationVariant, setEducationVariant] = useState<EducationVariantEnum>(EducationVariantEnum.group);
+  const [courses, setCourses] = useState<CourseData[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const {append} = useModal();
   const session = useSession();
+
+  // Fetch prices
+
+  useEffect(() => {
+    const getCourses = async() => {
+      try { 
+        const data = await CourseService.getAll();
+        console.log(data);
+        return data;
+      } catch(err) {
+        console.log(err);
+      }
+    }
+
+    const fetchCourses = async() => {
+      try {
+        const data = await getCourses();
+        if(data) {
+          setCourses(data);
+        }
+      } catch(err) {
+        console.log(errorCatch(err));
+      }
+    }
+
+    fetchCourses();
+  }, [])
   
   const onClick = (id: number) => {
       setActiveCourse(id === activeCourse ? null : id);

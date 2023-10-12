@@ -7,18 +7,40 @@ import { ReviewData } from "@/services/review/review.types";
 import { useModal } from "@/store/store";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { FC } from "react";
+import { useEffect, useState } from "react";
 import { ReviewItem } from "../ReviewItem/ReviewItem";
 import styles from "./ReviewsList.module.scss";
 
-interface ReviewsListProps {
-    reviews: ReviewData[];
-}
 
-export const ReviewsList: FC<ReviewsListProps> = ({reviews}) => {
+export const ReviewsList = () => {
   const {append} = useModal();
   const router = useRouter();
   const session = useSession();
+  const [reviews, setReviews] = useState<ReviewData[]>([]);
+
+  // Fetch reviews
+
+  useEffect(() => {
+    const fetchReviews = async() => {
+      try {
+        const reviews = await ReviewService.getAll();
+        return reviews;
+      } catch(err) {
+        console.log(err);
+      }
+    }
+    const fetchData = async () => {
+      try {
+        const data = await fetchReviews();
+        if (data) {
+          setReviews(data);
+        }
+      } catch(err) {
+        console.log(errorCatch(err))
+      }
+    }
+    fetchData();
+  }, [])
     
   const onClick = async(id: number) => {
     try {

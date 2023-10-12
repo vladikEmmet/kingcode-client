@@ -1,18 +1,43 @@
 "use client"
 
 import { Button, ButtonVariantsEnum } from "@/components/UI/Button/Button";
-import { AboutUsData } from "@/services/aboutUs/aboutUs.types";
 import Link from "next/link";
-import { FC } from "react";
 import { SlidesItem } from "./SlidesItem/SlidesItem";
 import styles from "./SlidesList.module.scss";
+import { useEffect, useState } from "react";
+import { AboutUsData } from "@/services/aboutUs/aboutUs.types";
+import { errorCatch } from "@/app/api/helper";
+import { AboutUsService } from "@/services/aboutUs/aboutUs.service";
 
-interface SlidesListProps {
-    slides: AboutUsData[];
-}
-
-export const SlidesList: FC<SlidesListProps> = ({slides}) => {
+export const SlidesList = () => {
+  const [slides, setSlides] = useState<AboutUsData[]>([]);
     
+  // Fetch slides
+
+  useEffect(() => {
+    const getSlides = async() => {
+        try {
+            const data = await AboutUsService.getAll();
+            return data;
+        } catch(err) {
+            console.log(err);
+        }
+    }
+
+    const fetchSlides = async() => {
+        try {
+            const data = await getSlides();
+            if(data) {
+                setSlides(data);
+            }
+        } catch(err) {
+            console.log(errorCatch(err));
+        }
+    }
+
+    fetchSlides();
+  }, [])
+  
   return (
     <div className={styles.container}>
         <Link href="/admin/about-us/create">
