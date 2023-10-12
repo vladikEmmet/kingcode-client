@@ -9,12 +9,31 @@ import cn from 'clsx';
 
 const bold = localFont({src: "../../../assets/fonts/Montserrat-Bold.woff2"});
 
+const projects = [
+  {
+    img: project1,
+    description: "Игра-ловилка"
+  },
+  {
+    img: project2,
+    description: "Раннер"
+  },
+  {
+    img: project3,
+    description: "Кликер"
+  },
+  {
+    img: project4,
+    description: `Игра "Танчики"`
+  }
+];
+
 export const OurProjects = () => {
   return (
     <section className={styles.section}>
         <div className="container">
             <h2 className={cn("subtitle", bold.className)}>Проекты наших учеников</h2>
-            <ProjectsRow projects={[project1, project2, project3, project4]} variant="grey"/>
+            <ProjectsRow projects={projects} variant="grey"/>
         </div>
     </section>
   )

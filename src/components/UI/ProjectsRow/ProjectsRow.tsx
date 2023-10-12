@@ -3,8 +3,13 @@ import { FC } from "react";
 import styles from "./ProjectsRow.module.scss";
 import cn from 'clsx';
 
+interface IProject {
+    img: StaticImageData;
+    description?: string;
+}
+
 interface ProjectsRowProps {
-    projects: StaticImageData[];
+    projects: IProject[];
     variant?: "orange" | "grey";
 }
 
@@ -16,12 +21,16 @@ export const ProjectsRow: FC<ProjectsRowProps> = ({projects, variant = "orange"}
                 className={cn(styles["image-container"], {
                     [styles.grey]: variant === "grey"
                 })}
-                key={project.src}
+                key={project.img.src}
             >
                 <Image
-                    src={project}
-                    alt={`Проект номер ${idx + 1}`}
+                    src={project.img}
+                    alt={`Проект № ${idx + 1}`}
+                    width={100}
+                    height={100}
+                    placeholder="blur"
                 />
+                {project.description && <p>{project.description}</p>}
             </div>
         )}
     </div>

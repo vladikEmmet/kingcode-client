@@ -10,6 +10,21 @@ import localFont from "next/font/local";
 
 const bold = localFont({src: "../../../assets/fonts/Montserrat-Bold.woff2"});
 
+const projects = [
+  {
+    img: project1,
+  },
+  {
+    img: project2,
+  },
+  {
+    img: project3,
+  },
+  {
+    img: project4,
+  }
+];
+
 export const WhatToLearn = () => {
   return (
     <div className={styles.section}>
@@ -17,7 +32,7 @@ export const WhatToLearn = () => {
             <h2 className={cn("subtitle", bold.className)}>ЧТО МЫ ИЗУЧИМ ?</h2>
             <p>Мы изучим базовые принципы моделирования, инструменты анимирования, изучим MODELING, SHADING, BLENDER - UV EDITING, режимы рендера и многое другое.</p>
             <h3 className={bold.className}>ПРОЕКТЫ НАШИХ УЧЕНИКОВ</h3>
-            <ProjectsRow projects={[project1, project2, project3, project4]}/>
+            <ProjectsRow projects={projects}/>
         </BlackTab>
     </div>
   )

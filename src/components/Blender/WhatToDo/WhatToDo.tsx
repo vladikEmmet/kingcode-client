@@ -13,6 +13,21 @@ import localFont from "next/font/local";
 
 const bold = localFont({src: "../../../assets/fonts/Montserrat-Bold.woff2"});
 
+const projects = [
+    {
+      img: project1,
+    },
+    {
+      img: project2,
+    },
+    {
+      img: project3,
+    },
+    {
+      img: project4,
+    }
+  ];
+
 export const WhatToDo = () => {
   return (
     <BlackTab className={styles.tab}>
@@ -45,7 +60,7 @@ export const WhatToDo = () => {
             <p className={styles.additional}>В Tinkercad мы изучим примитивы, работу с ними, разрезы, группировку и много чего ещё, но самое главное, мы разовьём базовое пространственное мышление ребёнка. Мы создадим 10 проектов, проверим усвоенные знания на самостоятельных работах и проведём 2 творческих урока, где студенты смогут самостоятельно выбрать тематику своего проекта. Для работы в Tinkercad ничего не надо скачивать, нужен только хороший интернет.</p>
         </div>
         <h3 className={bold.className}>ПРОЕКТЫ В <span className="highlighted">TINKERCAD</span></h3>
-        <ProjectsRow projects={[project1, project2, project3, project4]}/>
+        <ProjectsRow projects={projects}/>
     </BlackTab>
   )
 }

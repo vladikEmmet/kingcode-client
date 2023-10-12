@@ -33,6 +33,11 @@
         box-shadow: 0 4px $shadow-orange
     }
 
+    p {
+        font-size: 0.7rem;
+        text-align: center;
+    }
+
     &:nth-child(1),
     &:nth-child(2) {
         @media only screen and (max-width: 767px) {
