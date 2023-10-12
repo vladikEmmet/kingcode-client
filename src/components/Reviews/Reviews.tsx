@@ -27,6 +27,8 @@ export const Reviews: FC<ReviewsProps> = ({reviews}) => {
   const [isLoading, setIsLoading] = useState(false);
   const [firstRow, setFirstRow] = useState<React.ReactNode[]>([]);
   const [secondRow, setSecondRow] = useState<React.ReactNode[]>([]);
+  console.log("reviews");
+  console.log(reviews);
 
   useEffect(() => {
     const {width} = defineSizes();

@@ -24,6 +24,8 @@ export const metadata: Metadata = {
 const fetchReviews = async() => {
   try {
     const reviews = await ReviewService.getAll();
+    console.log("in function");
+    console.log(reviews);
     return reviews;
   } catch(err) {
     console.log(err);
@@ -32,6 +34,8 @@ const fetchReviews = async() => {
 
 export default async function Home() {
   const reviews = await fetchReviews();
+  console.log("reviews");
+  console.log(reviews);
   
   return (
     <>

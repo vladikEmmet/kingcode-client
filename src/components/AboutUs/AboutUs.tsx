@@ -17,7 +17,9 @@ const fetchSlides = async() => {
 const bold = localFont({src: "../../assets/fonts/Montserrat-Bold.woff2"});
 
 export default async function AboutUs() {
+  console.log("aboutUs");
   const slides = await fetchSlides();
+  console.log(slides);
 
   return (
     <section className={styles.section} id="about-us">

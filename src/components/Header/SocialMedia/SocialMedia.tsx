@@ -4,7 +4,6 @@ import styles from "./SocialMedia.module.scss";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { FaTelegramPlane, FaInstagram, FaVk } from "react-icons/fa";
 import { MdLocalPhone } from 'react-icons/md';
-import { isMobile } from "@/utils/isMobile";
 import { Tooltip } from 'react-tooltip';
 import { FC, useState } from "react";
 import cn from 'clsx';

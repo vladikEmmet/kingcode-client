@@ -1,6 +1,6 @@
 import { axiosFormData, axiosJson } from "@/app/api/helper"
 import { URL } from "@/types/url";
-import { AboutUsData, AboutUsSendedData } from "./aboutUs.types"
+import { AboutUsData } from "./aboutUs.types"
 
 export const AboutUsService = {
     async getAll() {
