@@ -1,9 +1,12 @@
+"use client";
+
 import { errorCatch } from "@/app/api/helper";
 import { AboutUsService } from "@/services/aboutUs/aboutUs.service";
 import styles from "./AboutUs.module.scss";
 import { Carousel } from "./Carousel/Carousel";
 import localFont from "next/font/local";
 import cn from 'clsx';
+import { useEffect, useState } from "react";
 
 const fetchSlides = async() => {
   try {
@@ -16,10 +19,20 @@ const fetchSlides = async() => {
 
 const bold = localFont({src: "../../assets/fonts/Montserrat-Bold.woff2"});
 
-export default async function AboutUs() {
-  console.log("aboutUs");
-  const slides = await fetchSlides();
-  console.log(slides);
+export default function AboutUs() {
+  const [slides, setSlides] = useState<any>([]);
+  useEffect(() => {
+    const fetched = async() => {
+      const data = await fetchSlides();
+      console.log(data);
+      setSlides(data);
+    }
+    try {
+      fetched();
+    } catch(err) {
+      console.log(err);
+    }
+  }, [])
 
   return (
     <section className={styles.section} id="about-us">
