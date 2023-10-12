@@ -34,7 +34,7 @@ export default function Modeling() {
                 </div>
             </section>
             <Prospects />
-            <Prices variant="orange" courseName="3D-Моделирование"/>
+            <Prices variant="orange" courseName="Modeling"/>
             <FormSection courseName="3D-Моделирование" className="form-section"/>
         </>
     )

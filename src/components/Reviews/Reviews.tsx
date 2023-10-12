@@ -3,7 +3,7 @@
 import styles from "./Reviews.module.scss"
 import { ReviewItem } from "./ReviewItem/ReviewItem";
 import cn from 'clsx'
-import { FC, useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useModal } from "@/store/store";
 import Slider from "react-slick";
 import { ReviewData } from "@/services/review/review.types";
@@ -38,7 +38,6 @@ export const Reviews = () => {
     const fetchReviews = async() => {
       try {
         const reviews = await ReviewService.getAll();
-        console.log(reviews);
         return reviews;
       } catch(err) {
         console.log(err);
@@ -46,12 +45,15 @@ export const Reviews = () => {
     }
     const fetchData = async () => {
       try {
+        setIsLoading(true);
         const data = await fetchReviews();
         if (data) {
           setReviews(data);
         }
       } catch(err) {
         console.log(errorCatch(err))
+      } finally {
+        setIsLoading(false);
       }
     }
     fetchData();
@@ -164,7 +166,7 @@ export const Reviews = () => {
     );
     setSecondRow(curSecondRow || []);
     setIsLoading(false);
-  }, []);
+  }, [reviews]);
   
   
   return (

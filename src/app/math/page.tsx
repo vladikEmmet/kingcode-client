@@ -30,7 +30,7 @@ const Math = () => {
             <Classes />
             <WhatToKnow />
             <AgeGroups />
-            <Prices courseName="Математика"/>
+            <Prices courseName="Math"/>
             <FormSection courseName="Математика"/>
         </>
     )
