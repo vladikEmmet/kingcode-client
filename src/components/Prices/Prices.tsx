@@ -80,7 +80,7 @@ export const Prices:FC<PricesProps> = ({variant = "grey", courseName, onClick}) 
                         educationVariant={price.educationVariant}
                         className={styles.tab}
                         isBlack={variant === "orange" && idx !== 1}
-                        onClick={() => onClick ? onClick((price?.id as any), idx) : null}
+                        onClick={() => onClick ? onClick((price as any)?.id, idx) : null}
                         index={idx}
                     />
                 )}
