@@ -22,7 +22,7 @@ export const SocialBeforeFooter = () => {
             <a href={`${process.env.NEXT_PUBLIC_WHATSAPP_URL}`} target="_blank" rel="noopener noreferrer nofollow author">
                 <IoLogoWhatsapp />
             </a>
-            <a href={`tel:${process.env.NEXT_PUBLIC_PHONE_NUMBER}`}>
+            <a href={`tel:${process.env.NEXT_PUBLIC_PHONE_NUMBER}`} rel="noopener noreferrer nofollow author">
                 <MdLocalPhone className={styles.phone}/>
             </a>
         </div>

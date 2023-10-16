@@ -56,7 +56,7 @@ export const SocialMedia: FC<SocialMediaProps> = ({withPhone = false, className}
         {
             withPhone && 
             <>
-                <a id="phone-anchor" href={`tel:${process.env.NEXT_PUBLIC_PHONE_NUMBER}`}>
+                <a id="phone-anchor" href={`tel:${process.env.NEXT_PUBLIC_PHONE_NUMBER}`} rel="noopener noreferrer nofollow author">
                     <MdLocalPhone className={styles.phone} />
                 </a>
                 <Tooltip anchorSelect="#phone-anchor" clickable variant="light" delayHide={message ? 3000 : 0}>
