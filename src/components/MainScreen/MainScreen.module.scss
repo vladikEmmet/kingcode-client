@@ -145,6 +145,10 @@
         transform: rotate(7.157deg);
         font-weight: bolder;
         text-transform: uppercase;
+
+        @media only screen and (max-width: 767px) {
+            font-size: 0.5em;
+        }
     }
 
     // @media only screen and (max-width: 1199px) {
