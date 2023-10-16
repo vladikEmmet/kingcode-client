@@ -19,14 +19,14 @@ export const routes: RoutesType = [
             {
                 title: "Scratch",
                 img: scratch,
-                link: "/programming/scratch",
+                link: "/scratch",
                 mobileImg: scratchMobile,
                 isRightText: true,
             },
             {
                 title: "Unity",
                 img: unity,
-                link: "/programming/unity",
+                link: "/unity",
                 mobileImg: unityMobile,
             },
         ],
