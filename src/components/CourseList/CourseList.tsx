@@ -22,6 +22,7 @@ export const CourseList = () => {
   const [price, setPrice] = useState("");
   const [exercises, setExercises] = useState(0);
   const [hours, setHours] = useState("");
+  const [editedTabIndex, setEditedTabIndex] = useState<null | number>(null);
   const [educationVariant, setEducationVariant] = useState<EducationVariantEnum>(EducationVariantEnum.group);
   const [courses, setCourses] = useState<CourseData[]>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -34,7 +35,6 @@ export const CourseList = () => {
     const getCourses = async() => {
       try { 
         const data = await CourseService.getAll();
-        console.log(data);
         return data;
       } catch(err) {
         console.log(err);
@@ -56,14 +56,15 @@ export const CourseList = () => {
   }, [])
   
   const onClick = (id: number) => {
-      setActiveCourse(id === activeCourse ? null : id);
-      reset();
-      setEditedTab(null);
+    setActiveCourse(id === activeCourse ? null : id);
+    reset();
+    setEditedTab(null);
   }
 
-  const handleTabClick = (index: number) => {
+  const handleTabClick = (index: number, pos: number) => {
     if(!activeCourse) return;
     setEditedTab(index);
+    setEditedTabIndex(pos);
   };
 
   const onSubmit = async() => {
@@ -71,13 +72,14 @@ export const CourseList = () => {
       if(!activeCourse || !editedTab) return;
       setIsLoading(true);
 
-      const data = {title, description, price, hours, exercises, educationVariant, id: courses[activeCourse].prices[editedTab].id }
+      const data = {title, description, price, hours, exercises, educationVariant, id: editedTab }
       const newPrice = await CourseService.update(activeCourse, {...data}, session.data?.backendTokens.accessToken);
 
-      setIsLoading(false);
       return newPrice;
     } catch(err) {
       append(<h1>{`Упс! Ошибка: ${errorCatch(err)}`}</h1>)
+    } finally {
+      setIsLoading(false);
     }
   }
 
@@ -129,7 +131,7 @@ export const CourseList = () => {
                     price={price}
                     exercises={exercises}
                     hours={hours}
-                    variant={editedTab === 1 ? ButtonVariantsEnum.grey : ButtonVariantsEnum.orange}
+                    variant={editedTabIndex === 1 ? ButtonVariantsEnum.grey : ButtonVariantsEnum.orange}
                   />
 
                   <UpdateCourseForm 

@@ -24,7 +24,6 @@ export default function AboutUs() {
   useEffect(() => {
     const fetched = async() => {
       const data = await fetchSlides();
-      console.log(data);
       setSlides(data);
     }
     try {

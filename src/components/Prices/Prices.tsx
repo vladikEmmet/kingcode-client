@@ -13,7 +13,7 @@ interface PricesProps {
     courseName?: string;
     variant?: "orange" | "grey";
     isBlack?: boolean;
-    onClick?: (index: number) => void;
+    onClick?: (index: number, pos: number) => void;
 }
 
 const medium = localFont({src: "../../assets/fonts/Montserrat-Medium.woff2"});
@@ -80,7 +80,7 @@ export const Prices:FC<PricesProps> = ({variant = "grey", courseName, onClick}) 
                         educationVariant={price.educationVariant}
                         className={styles.tab}
                         isBlack={variant === "orange" && idx !== 1}
-                        onClick={() => onClick ? onClick(idx) : null}
+                        onClick={() => onClick ? onClick((price?.id as any), idx) : null}
                         index={idx}
                     />
                 )}
