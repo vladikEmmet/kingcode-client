@@ -1,0 +1,9 @@
+{
+    "name": "Школа IT KingCode",
+    "short_name": "KingCode",
+    "theme_color": "#2d2d2d",
+    "background_color": "#fdd034",
+    "display": "fullscreen",
+    "scope": "/",
+    "start_url": "/"
+}
