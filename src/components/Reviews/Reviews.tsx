@@ -25,6 +25,7 @@ export const Reviews = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [firstRow, setFirstRow] = useState<React.ReactNode[]>([]);
   const [secondRow, setSecondRow] = useState<React.ReactNode[]>([]);
+  const [allRows, setAllRows] = useState<React.ReactNode[]>([]);
   const [reviews, setReviews] = useState<ReviewData[]>([]);
 
   useEffect(() => {
@@ -178,14 +179,14 @@ export const Reviews = () => {
             (!reviews || reviews.length <= 0) ? <p className={styles.empty}>Отзывы скоро появятся</p> : (
               <>
                 <Slider {...syncCarouselSettings} rtl={true} className={cn(styles.slider, styles["slider-desktop"])}>
-                  {...firstRow}
+                  {firstRow}
                 </Slider>
                 <Slider  
                   className={cn(styles.slider, styles["slider-mobile"])}
                   slide={styles.slide}
                   {...syncCarouselSettings}
                 >
-                  {...secondRow}
+                  {mobile ? [...secondRow, ...firstRow] : secondRow}
                 </Slider>
               </>
             )
