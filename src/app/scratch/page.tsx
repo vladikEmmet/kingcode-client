@@ -15,6 +15,9 @@ export const metadata: Metadata = {
     twitter: {
         title: "Scratch для младших классов в школе King Code. Программирование без кода",
         description: "Scratch даёт возможность создавать мультфильмы, игры и приложения без знания языков программирования, что делает его идеальным первым шагом для детей и подростков. Давайте сделаем этот первый, но самый важный шаг с KingCode."
+    },
+    alternates: {
+        canonical: "https://kingcodeschool.com/scratch",
     }
 }
 

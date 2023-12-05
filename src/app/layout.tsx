@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ru_KZ",
     alternateLocale: ["ru_RU", "kk_KZ", "kk_RU", "ru_US"],
-  }
+  },
 }
 
 const montserratSemi = localFont({src: "../assets/fonts/Montserrat-SemiBold.woff2", variable: "--font-montserrat-semi"});

@@ -16,6 +16,9 @@ export const metadata: Metadata = {
     twitter: {
         title: "3D-моделирование в Blender в школе King Code. Онлайн-курс для начинающих",
         description: "Все самые смелые идеи вашего ребёнка можно воплотить на нашем курсе по 3D-моделированию в Blender. На наших занятиях под чутким руководством преподавателей KingCode Вы изучите основы: инструменты анимирования, modeling, shading, Blender - UV Editing, режимы рендера и многое другое.",
+    },
+    alternates: {
+        canonical: "https://kingcodeschool.com/modeling",
     }
 }
 
