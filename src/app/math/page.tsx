@@ -19,7 +19,16 @@ export const metadata: Metadata = {
     },
     alternates: {
         canonical: "https://kingcodeschool.com/math",
-    }
+    },
+    openGraph: {
+        title: `Лучшие онлайн курсы для детей и подростков. IT-школа "King Code"`,
+        description: `"King Code" - онлайн-школа для детей в возрасте от 5 до 15 лет. У нас Вы легко сможете изучить математику, программирование и 3D-моделирование с опытными преподавателями. 0% скуки, 100% драйва.`,
+        url: `${process.env.NEXT_PUBLIC_URL}/math`,
+        siteName: "King Code School",
+        type: "website",
+        locale: "ru_KZ",
+        alternateLocale: ["ru_RU", "kk_KZ", "kk_RU", "ru_US"],
+    },
 }
 
 const Math = () => {
