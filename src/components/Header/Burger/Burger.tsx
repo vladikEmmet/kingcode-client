@@ -4,13 +4,11 @@ export const Burger = () => {
   const burgerMenu = useBurgerMenu();
 
   const handleClick = () => {
-    console.log("click");
     burgerMenu.changeState();
     if(!burgerMenu.isOpened) {
         document?.body?.classList.add("no-scroll");
         return;
     }
-
     document?.body?.classList.remove("no-scroll");
   }
 

@@ -15,6 +15,9 @@ export const metadata: Metadata = {
   twitter: {
     title: `Лучшие онлайн курсы для детей и подростков. IT-школа "King Code"`,
     description: `"King Code" - онлайн-школа для детей в возрасте от 5 до 15 лет. У нас Вы легко сможете изучить математику, программирование и 3D-моделирование с опытными преподавателями. 0% скуки, 100% драйва.`,
+  },
+  alternates: {
+    canonical: "https://kingcodeschool.com",
   }
 }
 
