@@ -44,7 +44,7 @@ export const SlidesItem: FC<SlidesItemProps> = ({slide}) => {
                     <Image 
                         width={500}
                         height={300}
-                        alt="Изображение"
+                        alt={`Изображение №${slide.id}`}
                         src={`${process.env.NEXT_PUBLIC_SERVER_URL}${slide.link}`}
                     />
                 </div>

@@ -21,7 +21,7 @@ export const Header = () => {
             <Link href="/" className="logo">
                 <Image 
                   src={logo} 
-                  alt="Logo"
+                  alt="KingCode logo"
                   priority
                 />
             </Link>

@@ -28,13 +28,13 @@ export const Courses = () => {
                                 <li>
                                     <Image 
                                         src={course.img} 
-                                        alt={course.title}
+                                        alt={`${course.title} - изображение`}
                                         fill={true}
                                         className={styles.desktop}
                                     />
                                     <Image 
                                         src={course.mobileImg || ""}
-                                        alt={course.title}
+                                        alt={`${course.title} - изображение`}
                                         fill={true}
                                         className={styles.mobile}
                                     />
@@ -51,13 +51,13 @@ export const Courses = () => {
                                                     <li className={sub.isRightText ? styles.right : ""}>
                                                         <Image 
                                                             src={sub.img} 
-                                                            alt={course.title}
+                                                            alt={`${course.title} - изображение`}
                                                             fill={true}
                                                             className={styles.desktop}
                                                         />
                                                          <Image 
                                                             src={sub.mobileImg || ""}
-                                                            alt={course.title}
+                                                            alt={`${course.title} - изображение`}
                                                             fill={true}
                                                             className={styles.mobile}
                                                         />
@@ -69,13 +69,13 @@ export const Courses = () => {
                                     )}>
                                         <Image 
                                             src={course.img} 
-                                            alt={course.title}
+                                            alt={`${course.title} - изображение`}
                                             fill={true}
                                             className={styles.desktop}
                                         />
                                          <Image 
                                             src={course.mobileImg || ""}
-                                            alt={course.title}
+                                            alt={`${course.title} - изображение`}
                                             fill={true}
                                             className={styles.mobile}
                                         />

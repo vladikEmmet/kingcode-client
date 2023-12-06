@@ -14,7 +14,7 @@ export const Loader: FC<LoaderProps> = ({className}) => {
         <div className={cn("loader-img", className)}>
             <Image 
                 src={loader}
-                alt="Загрузка..."
+                alt="Выполняется загрузка..."
                 width={100}
                 height={100}
             />

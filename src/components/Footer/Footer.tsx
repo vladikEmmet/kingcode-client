@@ -15,7 +15,7 @@ export const Footer = () => {
                 <Link href="/" className={cn("logo", styles.logo)}>
                     <Image 
                         src={logo} 
-                        alt="Logo"
+                        alt="KingCode Logo"
                     />
                 </Link>
                 <div className={styles.upBtn}>

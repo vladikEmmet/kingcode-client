@@ -17,7 +17,7 @@ export const WhatWeDo = () => {
                 <div className={styles.img}>
                     <Image 
                         src={meme}
-                        alt="Обезьянка-мем"
+                        alt="Обезьянка - мем"
                     />
                 </div>
             </BlackTab>

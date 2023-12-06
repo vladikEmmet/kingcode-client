@@ -26,7 +26,7 @@ export const SingleReview: FC<SingleReviewProps> =
                 <div className={styles.image}>
                     <Image 
                         src={authorImg || monkeyEmpty}
-                        alt="Фото"
+                        alt="Фото с отзыва"
                         width={100}
                         height={100}
                     />
