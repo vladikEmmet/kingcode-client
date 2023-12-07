@@ -27,7 +27,7 @@ export const metadata: Metadata = {
         siteName: "King Code School",
         type: "website",
         locale: "ru_KZ",
-        alternateLocale: ["ru_RU", "kk_KZ", "kk_RU", "ru_US"],
+        alternateLocale: ["ru_RU", "ru_US"],
     },
 }
 

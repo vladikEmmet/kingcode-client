@@ -26,14 +26,43 @@ export const metadata: Metadata = {
     siteName: "King Code School",
     type: "website",
     locale: "ru_KZ",
-    alternateLocale: ["ru_RU", "kk_KZ", "kk_RU", "ru_US"],
+    alternateLocale: ["ru_RU", "ru_US"],
   },
 }
 
 export default async function Home() {
+  const jsonLd = {
+    "@context": "https://schema.org/", 
+    "@type": "BreadcrumbList", 
+    "itemListElement": [{
+      "@type": "ListItem", 
+      "position": 1, 
+      "name": "3Д-Моделирование",
+      "item": "https://kingcodeschool.com/modeling"  
+    },{
+      "@type": "ListItem", 
+      "position": 2, 
+      "name": "Unity",
+      "item": "https://kingcodeschool.com/unity"  
+    },{
+      "@type": "ListItem", 
+      "position": 3, 
+      "name": "Scratch",
+      "item": "https://kingcodeschool.com/scratch"  
+    },{
+      "@type": "ListItem", 
+      "position": 4, 
+      "name": "Математика",
+      "item": "https://kingcodeschool.com/math"  
+    }]
+  }
   
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <MainScreen img={mainScreen} scrollTarget='courses' text="small" buttonText='Выбрать направление'>
         НАЧНИ СВОЙ ПУТЬ В <span className="highlighted">IT</span> ВМЕСТЕ С <span className="highlighted">KingCode</span>
       </MainScreen>
