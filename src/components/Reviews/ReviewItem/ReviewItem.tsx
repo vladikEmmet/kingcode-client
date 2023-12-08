@@ -24,7 +24,7 @@ export const ReviewItem: FC<ReviewItemProps> = ({className, authorImg, authorNam
             <div className={styles.image}>
                 <Image 
                     src={authorImg || monkeyEmpty}
-                    alt="Фото с отзыва"
+                    alt="Фото"
                     width={100}
                     height={100}
                 />
