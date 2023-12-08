@@ -33,28 +33,37 @@ export const metadata: Metadata = {
 export default async function Home() {
   const jsonLd = {
     "@context": "https://schema.org/", 
-    "@type": "BreadcrumbList", 
-    "itemListElement": [{
-      "@type": "ListItem", 
-      "position": 1, 
-      "name": "3Д-Моделирование",
-      "item": "https://kingcodeschool.com/modeling"  
-    },{
-      "@type": "ListItem", 
-      "position": 2, 
-      "name": "Unity",
-      "item": "https://kingcodeschool.com/unity"  
-    },{
-      "@type": "ListItem", 
-      "position": 3, 
-      "name": "Scratch",
-      "item": "https://kingcodeschool.com/scratch"  
-    },{
-      "@type": "ListItem", 
-      "position": 4, 
-      "name": "Математика",
-      "item": "https://kingcodeschool.com/math"  
-    }]
+    "@type": "ItemList", 
+    "itemListElement": [
+      {
+          "@type": "Course",
+          "position": 1,
+          "url": "https://kingcodeschool.com/modeling",
+          "name": "3D-моделирование",
+          "description": "Курс по 3D-моделированию в онлайн-школе Кинг Код"
+      },
+      {
+          "@type": "Course",
+          "position": 2,
+          "url": "https://kingcodeschool.com/scratch",
+          "name": "Scratch",
+          "description": "Курс по программированию на Scratch"
+      },
+      {
+          "@type": "Course",
+          "position": 3,
+          "url": "https://kingcodeschool.com/unity",
+          "name": "Unity",
+          "description": "Курс по разработке в Unity в онлайн-школе Кинг Код"
+      },
+      {
+          "@type": "Course",
+          "position": 4,
+          "url": "https://kingcodeschool.com/math",
+          "name": "Олимпиадная математика",
+          "description": "Курс по математике в онлайн-школе Кинг Код"
+      }
+    ]
   }
   
   return (
