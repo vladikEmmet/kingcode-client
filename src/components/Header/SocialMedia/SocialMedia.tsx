@@ -41,16 +41,16 @@ export const SocialMedia: FC<SocialMediaProps> = ({withPhone = false, className}
   
   return (
     <div className={cn(styles.container, className)}>
-        <a href={`${process.env.NEXT_PUBLIC_VK_URL}`} target="_blank" rel="noopener noreferrer nofollow">
+        <a href={`${process.env.NEXT_PUBLIC_VK_URL}`} target="_blank" rel="noopener noreferrer nofollow" aria-label="Страница ВКонтакте">
             <FaVk />
         </a>
-        <a href={`${process.env.NEXT_PUBLIC_TELEGRAM_URL}`} target="_blank" rel="noopener noreferrer nofollow">
+        <a href={`${process.env.NEXT_PUBLIC_TELEGRAM_URL}`} target="_blank" rel="noopener noreferrer nofollow" aria-label="Наша группа в Telegram">
             <FaTelegramPlane />
         </a>
-        <a href={`${process.env.NEXT_PUBLIC_INSTAGRAM_URL}`} target="_blank" rel="noopener noreferrer nofollow">
+        <a href={`${process.env.NEXT_PUBLIC_INSTAGRAM_URL}`} target="_blank" rel="noopener noreferrer nofollow" aria-label="Наша страница в Instagram">
             <FaInstagram />
         </a>
-        <a href={`${process.env.NEXT_PUBLIC_WHATSAPP_URL}`} target="_blank" rel="noopener noreferrer nofollow">
+        <a href={`${process.env.NEXT_PUBLIC_WHATSAPP_URL}`} target="_blank" rel="noopener noreferrer nofollow" aria-label="Чат в Whatsapp">
             <IoLogoWhatsapp />
         </a>
         {
