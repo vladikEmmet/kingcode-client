@@ -39,7 +39,11 @@ const nextConfig = {
           {
             key: 'X-Frame-Options',
             value: 'SAMEORIGIN'
-          }
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff'
+          },
         ]
       }
     ]
