@@ -36,7 +36,7 @@ export const MainScreen: FC<MainScreenProps> = ({ageRange, img, children, scroll
                         {children}
                     </h1>
                     <Button variant={ButtonVariantsEnum.orange} className={cn(styles.button, text === "big" ? styles.big : "")}>
-                        <a href="#courses">
+                        <a href={`#${scrollTarget}`}>
                             {buttonText}
                         </a>
                     </Button>
