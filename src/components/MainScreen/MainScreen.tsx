@@ -4,7 +4,6 @@ import styles from "./MainScreen.module.scss"
 import { FC } from "react";
 import star from "@/assets/star.png"
 import { Button, ButtonVariantsEnum } from "../UI/Button/Button";
-import { Link as ScrollLink } from "react-scroll";
 import localFont from 'next/font/local';
 import cn from 'clsx';
 
