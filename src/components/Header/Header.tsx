@@ -22,7 +22,6 @@ export const Header = () => {
                 <Image 
                   src={logo} 
                   alt="KingCode logo"
-                  priority
                 />
             </Link>
             {pathname === "/"  && <Burger />}
