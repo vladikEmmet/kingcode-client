@@ -3,7 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import logo from "../../../public/logo.png"
+import logo from "@/assets/logo.png"
 import { Burger } from "./Burger/Burger"
 import { SocialMedia } from "./SocialMedia/SocialMedia"
 import { useSession } from "next-auth/react"
