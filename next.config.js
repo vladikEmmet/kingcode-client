@@ -31,6 +31,19 @@ const nextConfig = {
       process.env.SHEETS_URL ||
       "https://script.google.com/macros/s/AKfycbwDZkIUucPVG8mhWsGeZ9SJDAOxOu-6rBuE96B-UpeJXzO4r4oW8v51grBOjzyGhkEibA/exec",
   },
+  async headers() {
+    return [
+      {
+        source: "/(.*)",
+        headers: [
+          {
+            key: 'X-Frame-Options',
+            value: 'SAMEORIGIN'
+          }
+        ]
+      }
+    ]
+  }
 };
 
 module.exports = nextConfig;
