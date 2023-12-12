@@ -2,6 +2,7 @@
 
 .section {
     width: 100%;
+    background: red;
     height: auto;
     box-sizing: content-box;
     padding: 3% 0;
@@ -19,14 +20,15 @@
 
 .wrapper {
     min-width: 100%;
-    height: auto;
+    height: 800px;
     margin-bottom: 10px;
+    position: relative;
 
     @media only screen and (min-width: 768px) and (max-width: 991px) {
         height: 550px;
     }
 
-    @media only screen and (min-width: 576px) and (max-width: 765px) {
+    @media only screen and (min-width: 576px) and (max-width: 767px) {
         height: 450px;
     }
 
@@ -35,7 +37,17 @@
     }
 
     @media only screen and (max-width: 470px) {
-        height: 250px;
+        height: 235px;
+    }
+}
+
+.info {
+    max-width: 100%;
+    position: absolute;
+    z-index: 3;
+
+    h1 {
+        max-width: 100%;
     }
 }
 
@@ -64,16 +76,20 @@
         margin-top: 300px;
         padding: 0 15px;
 
-        @media only screen and (min-width: 768px) and (max-width: 991px) {
-            margin-top: 200px;
+        @media only screen and (min-width: 765px) and (max-width: 991px) {
+            margin-top: 150px;
         }
-
-        @media only screen and (min-width: 576px) and (max-width: 765px) {
+        
+        @media only screen and (min-width: 576px) and (max-width: 764px) {
             margin-top: 150px;
         }
 
-        @media only screen and (min-width: 576px) and (max-width: 620px) {
+        @media only screen and (min-width: 614px) and (max-width: 686px) {
             font-size: 2.3rem;
+        }
+
+        @media only screen and (min-width: 576px) and (max-width: 614px) {
+            font-size: 2.2rem;
         }
 
         @media only screen and (max-width: 575px) {
@@ -83,7 +99,7 @@
 
         @media only screen and (max-width: 480px) {
             font-size: 2rem;
-            // margin-top: 50px;
+            margin-top: 50px;
         }
 
         @media only screen and (max-width: 413px) {
@@ -103,6 +119,10 @@
 
             @media only screen and (max-width: 1036px) {
                 font-size: 2.5rem;
+            }
+
+            @media only screen and (max-width: 699px) {
+                font-size: 2.1rem;
             }
 
             @media only screen and (max-width: 514px) {
@@ -172,18 +192,19 @@
         height: 50px;
     }
 
-    @media only screen and (min-width: 576px) and (max-width: 765px) {
+    @media only screen and (min-width: 576px) and (max-width: 767px) {
         width: 300px;
         height: 40px;
-        margin-top: 25%;
+        margin-top: 10%;
     }
 
     @media only screen and (min-width: 471px) and (max-width: 575px) {
         width: 250px;
         height: 40px;
-        margin-top: 20%;
+        margin-top: 10%;
         box-shadow: 0 4px $shadow-orange!important;
         border-radius: 9px!important;
+        font-size: 1rem!important;
     }
 
     @media only screen and (max-width: 470px) {
@@ -193,13 +214,19 @@
         box-shadow: 0 4px $shadow-orange!important;
         border-radius: 8px!important;
         font-size: 1rem!important;
-        margin-top: 15%;
+        margin-top: 7%;
+        font-size: 1rem!important;
+    }
+
+    @media only screen and (max-width: 413px) {
+        margin-top: 12%;
     }
 
     &.big {
         @media only screen and (max-width: 470px) {
             // font-size: 0.8rem!important;
             font-size: 0.9rem!important;
+            margin-bottom: 10%;
         }
     }
 
