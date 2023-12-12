@@ -8,7 +8,6 @@ interface ErrorComponentProps {
 }
 
 export const ErrorComponent: FC<ErrorComponentProps> = ({error}) => {
-  console.log(error);
   
   return (
     <div className={styles.container}>

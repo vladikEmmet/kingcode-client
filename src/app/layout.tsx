@@ -37,7 +37,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@KingCode_school",
     creator: "@KingCode_school",
-    
   },
 }
 
