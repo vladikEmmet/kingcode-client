@@ -50,11 +50,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ru">
-      <head>
-      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5HGJB23C"
-        height="0" width="0" style={{display:"none", visibility:"hidden"}}></iframe></noscript>
-      </head>
       <body className={montserratSemi.className}>
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5HGJB23C"
+          height="0" width="0" style={{display:"none", visibility:"hidden"}}></iframe></noscript>
         <Providers>
           <div className="helper">
             <div className="content">
