@@ -40,28 +40,72 @@ export default async function Home() {
           "position": 1,
           "url": "https://kingcodeschool.com/modeling",
           "name": "3D-моделирование",
-          "description": "Курс по 3D-моделированию в онлайн-школе Кинг Код"
+          "description": "Курс по 3D-моделированию в онлайн-школе Кинг Код",
+          "offers": {
+            "@type": "Offer",
+            "price": "25.000",
+            "priceCurrency": "KZT",
+            "availability": "https://schema.org/InStock"
+          },
+          "provider": {
+            "@type": "Organization",
+            "name": "Онлайн-школа Кинг Код",
+            "url": "https://kingcodeschool.com/"
+          }
       },
       {
           "@type": "Course",
           "position": 2,
           "url": "https://kingcodeschool.com/scratch",
           "name": "Scratch",
-          "description": "Курс по программированию на Scratch"
+          "description": "Курс по программированию на Scratch",
+          "offers": {
+            "@type": "Offer",
+            "price": "25.000",
+            "priceCurrency": "KZT",
+            "availability": "https://schema.org/InStock"
+          },
+          "provider": {
+            "@type": "Organization",
+            "name": "Онлайн-школа Кинг Код",
+            "url": "https://kingcodeschool.com/"
+          }
       },
       {
           "@type": "Course",
           "position": 3,
           "url": "https://kingcodeschool.com/unity",
           "name": "Unity",
-          "description": "Курс по разработке в Unity в онлайн-школе Кинг Код"
+          "description": "Курс по разработке в Unity в онлайн-школе Кинг Код",
+          "offers": {
+            "@type": "Offer",
+            "price": "25.000",
+            "priceCurrency": "KZT",
+            "availability": "https://schema.org/InStock"
+          },
+          "provider": {
+            "@type": "Organization",
+            "name": "Онлайн-школа Кинг Код",
+            "url": "https://kingcodeschool.com/"
+          }
       },
       {
           "@type": "Course",
           "position": 4,
           "url": "https://kingcodeschool.com/math",
           "name": "Олимпиадная математика",
-          "description": "Курс по математике в онлайн-школе Кинг Код"
+          "description": "Курс по математике в онлайн-школе Кинг Код",
+          "offers": {
+            "@type": "Offer",
+            "price": "25.000",
+            "priceCurrency": "KZT",
+            "availability": "https://schema.org/InStock"
+          },
+          "provider": {
+            "@type": "Organization",
+            "name": "Онлайн-школа Кинг Код",
+            "url": "https://kingcodeschool.com/"
+          }
       }
     ]
   }
