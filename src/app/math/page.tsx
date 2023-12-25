@@ -32,31 +32,9 @@ export const metadata: Metadata = {
 }
 
 const Math = () => {
-    const jsonLd = {
-        "@context": "https://schema.org",
-        "@type": "Course",
-        "name": "Олимпиадная математика",
-        "description": "Олимпиадная математика в онлайн-школе Кинг Код",
-        "provider": {
-            "@type": "Organization",
-            "name": "Онлайн-школа King Code",
-            "contactPoint": {
-                "@type": "ContactPoint",
-                "telephone": "+77066565738",
-                "contactType": "Консультация"
-            },
-            "sameAs": [
-                "https://www.instagram.com/kingcode_school",
-            ]
-        }
-    }
     
     return (
         <>
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-            />
             <MainScreen img={mainImg} ageRange="0-7 КЛАСС" scrollTarget="what-we-do" buttonText="Пробный урок бесплатно">
                 ОЛИМПИАДНАЯ МАТЕМАТИКА
             </MainScreen>

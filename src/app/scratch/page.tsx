@@ -31,31 +31,8 @@ export const metadata: Metadata = {
 }
 
 export default function Scratch() {
-    const jsonLd = {
-        "@context": "https://schema.org",
-        "@type": "Course",
-        "name": "Scratch",
-        "description": "Курс по программированию в Scratch в онлайн-школе Кинг Код",
-        "provider": {
-            "@type": "Organization",
-            "name": "Онлайн-школа King Code",
-            "contactPoint": {
-                "@type": "ContactPoint",
-                "telephone": "+77066565738",
-                "contactType": "Консультация"
-            },
-            "sameAs": [
-                "https://www.instagram.com/kingcode_school",
-            ]
-        }
-    }
-    
     return (
         <>
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-            />
             <MainScreen scrollTarget="what-we-do" img={mainImg} ageRange="1 - 4 КЛАСС" buttonText="Пробный урок бесплатно">
                 ПРОГРАММИРОВАНИЕ В <span className="highlighted">SCRATCH</span>
             </MainScreen>

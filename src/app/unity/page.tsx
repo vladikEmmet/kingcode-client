@@ -33,31 +33,8 @@ export const metadata: Metadata = {
 }
 
 export default function Unity() {
-    const jsonLd = {
-        "@context": "https://schema.org",
-        "@type": "Course",
-        "name": "Unity",
-        "description": "Курс по разработке игр в онлайн-школе Кинг Код",
-        "provider": {
-            "@type": "Organization",
-            "name": "Онлайн-школа King Code",
-            "contactPoint": {
-                "@type": "ContactPoint",
-                "telephone": "+77066565738",
-                "contactType": "Консультация"
-            },
-            "sameAs": [
-                "https://www.instagram.com/kingcode_school",
-            ]
-        }
-    }
-    
     return (
         <>
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-            />
             <MainScreen scrollTarget="what-we-do" img={mainImg} ageRange="5 - 7 КЛАСС" buttonText="Пробный урок бесплатно">
                 РАЗРАБОТКА ИГР НА <span className="highlighted">UNITY</span>
             </MainScreen>

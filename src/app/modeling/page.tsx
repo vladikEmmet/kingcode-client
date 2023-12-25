@@ -32,31 +32,9 @@ export const metadata: Metadata = {
 }
 
 export default function Modeling() {
-    const jsonLd = {
-        "@context": "https://schema.org",
-        "@type": "Course",
-        "name": "3D-моделирование",
-        "description": "Курс по 3D-моделированию в онлайн-школе Кинг Код",
-        "provider": {
-            "@type": "Organization",
-            "name": "Онлайн-школа King Code",
-            "contactPoint": {
-                "@type": "ContactPoint",
-                "telephone": "+77066565738",
-                "contactType": "Консультация"
-            },
-            "sameAs": [
-                "https://www.instagram.com/kingcode_school",
-            ]
-        }
-    }
     
     return (
         <>
-            <script 
-                type="application/ld+json" 
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-            />
             <MainScreen img={imgMain} ageRange="1-9 класс" scrollTarget="what-we-do" buttonText="Пробный урок бесплатно">
                 3D-МОДЕЛИРОВАНИЕ В <span className="highlighted">BLENDER</span>
             </MainScreen>
