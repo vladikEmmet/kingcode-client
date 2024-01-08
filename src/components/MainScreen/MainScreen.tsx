@@ -27,7 +27,7 @@ export const MainScreen: FC<MainScreenProps> = ({ageRange, img, children, scroll
             <div className={styles.wrapper}>
                 <div className={styles.content} >
                 {/* style={{backgroundImage: `url("${img.src}")`}} */}
-                <Image src={main} alt="Папка с фоном" fill={true} className={styles.bg} priority/>
+                <Image src={img || main} alt="Папка с фоном" fill={true} className={styles.bg} priority/>
                 {ageRange && 
                     <div className={styles.star} style={{backgroundImage: `url(${star.src})`}}>
                         <p className={bold.className}>{ageRange}</p>
