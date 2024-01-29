@@ -1,0 +1,74 @@
+@import "../../../../app/variables.scss";
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    .text {
+        display: flex;
+        flex-direction: column;
+
+        h2 {
+            text-transform: uppercase;
+            text-align: left;
+            color: $white;
+            line-height: 120%;
+            font-size: 2.5rem;
+
+            @media screen and (max-width: 768px) {
+                font-size: 1.8rem;
+            }
+        }
+
+        .flex {
+            display: flex;
+
+            .vpn {
+                font-size: 3.2rem;
+                text-align: left;
+                color: $main-yellow;
+                flex: 1;
+                text-transform: uppercase;
+            }
+
+            .please {
+                font-size: 1.3rem;
+                flex: 0.65;
+                text-transform: uppercase;
+                color: $white;
+                text-align: left;
+            }
+        }
+
+        .secondary {
+            text-transform: uppercase;
+            color: $white;
+            margin-top: 50px;
+            font-size: 1.1rem;
+            text-align: left;
+        }
+
+    }
+
+    .image {
+        height: 500px;
+
+        @media only screen and (max-width: 575px) {
+            height: 350px;
+        }
+
+        @media only screen and (max-width: 420px) {
+            height: 250px;
+        }
+
+        @media only screen and (max-width: 370px) {
+            height: 200px;
+        }
+
+        img {
+            height: 100%;
+            width: auto;
+        }
+    }
+}

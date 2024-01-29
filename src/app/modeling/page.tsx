@@ -34,7 +34,7 @@ export const metadata: Metadata = {
 export default function Modeling() {
     
     return (
-        <>e
+        <>
             <MainScreen img={imgMain} ageRange="1-9 класс" scrollTarget="what-we-do" buttonText="Пробный урок бесплатно">
                 3D-МОДЕЛИРОВАНИЕ В <span className="highlighted">BLENDER</span>
             </MainScreen>
