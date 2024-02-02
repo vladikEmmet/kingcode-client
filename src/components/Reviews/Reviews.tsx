@@ -121,16 +121,6 @@ export const Reviews = () => {
     ]
   };
 
-  const handleBeforeChange = (_: any, next: any) => {
-    if(desktopCarouselRef.current) {
-      desktopCarouselRef.current.slickGoTo(next);
-    }
-  }
-
-  const mainCarouselSettings = {
-    beforeChange: handleBeforeChange,
-  }
-
   const onClick = useCallback((index: number, isFirst: boolean = true) => {
     if(mobile) return null;
     
