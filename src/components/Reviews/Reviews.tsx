@@ -3,7 +3,7 @@
 import styles from "./Reviews.module.scss"
 import { ReviewItem } from "./ReviewItem/ReviewItem";
 import cn from 'clsx'
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useModal } from "@/store/store";
 import Slider from "react-slick";
 import { ReviewData } from "@/services/review/review.types";
@@ -27,6 +27,7 @@ export const Reviews = () => {
   const [secondRow, setSecondRow] = useState<React.ReactNode[]>([]);
   const [allRows, setAllRows] = useState<React.ReactNode[]>([]);
   const [reviews, setReviews] = useState<ReviewData[]>([]);
+  const desktopCarouselRef = useRef<Slider>(null);
 
   useEffect(() => {
     const {width} = defineSizes();
@@ -88,7 +89,7 @@ export const Reviews = () => {
     speed: 500,
     arrows: false,
     autoplay: true,
-    autoplaySpeed: 4000,
+    autoplaySpeed: 4500,
     variableWidth: true,
     adaptiveHeight: true,
     draggable: false,
@@ -119,6 +120,16 @@ export const Reviews = () => {
       },
     ]
   };
+
+  const handleBeforeChange = (_: any, next: any) => {
+    if(desktopCarouselRef.current) {
+      desktopCarouselRef.current.slickGoTo(next);
+    }
+  }
+
+  const mainCarouselSettings = {
+    beforeChange: handleBeforeChange,
+  }
 
   const onClick = useCallback((index: number, isFirst: boolean = true) => {
     if(mobile) return null;
@@ -178,7 +189,7 @@ export const Reviews = () => {
           {
             (!reviews || reviews.length <= 0) ? <p className={styles.empty}>Отзывы скоро появятся</p> : (
               <>
-                <Slider {...syncCarouselSettings} rtl={true} className={cn(styles.slider, styles["slider-desktop"])}>
+                <Slider {...syncCarouselSettings} rtl={true} ref={desktopCarouselRef} className={cn(styles.slider, styles["slider-desktop"])}>
                   {firstRow}
                 </Slider>
                 <Slider  
