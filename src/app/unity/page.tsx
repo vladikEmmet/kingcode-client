@@ -29,6 +29,12 @@ export const metadata: Metadata = {
         type: "website",
         locale: "ru_KZ",
         alternateLocale: ["ru_RU", "ru_US"],
+        images: [
+            {
+                url: `${process.env.NEXT_PUBLIC_URL}/opengraph-image.png`,
+                alt: "King Code",
+            }
+        ]
     },
 }
 
