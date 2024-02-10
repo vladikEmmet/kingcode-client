@@ -23,7 +23,7 @@ export const WhatToKnow = () => {
                         <MdChildCare />
                     </div>
                     <div className={styles["list-description"]}>
-                        Если Ваш ребёнок поступает в развивающую группу, ваше присутствие во время занятия обязательно.
+                        Если Ваш ребёнок поступает в развивающую группу, Ваше присутствие во время занятия обязательно.
                     </div>
                 </div>
                 <div className={styles["list-item"]}>

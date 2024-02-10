@@ -15,6 +15,10 @@
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 15px;
+
+    &.second {
+        margin-top: 50px;
+    }
 }
 
 .element {
@@ -40,7 +44,7 @@
     }
 
     p {
-        font-weight: medium;
+        font-weight: normal;
     }
 
     @media only screen and (min-width: 576px) and (max-width: 991px) {
@@ -53,4 +57,28 @@
         font-size: 25px;
     }
 
+}
+
+.second {
+    @media only screen and (max-width: 575px) {
+        display: none;
+
+        &.mobile-visible {
+            display: flex;
+        }
+    }
+
+    .element {
+        p {
+            max-width: 350px;
+        }
+    }
+}
+
+.more {
+    display: none;
+    
+    @media only screen and (max-width: 575px) {
+        display: block;
+    }
 }
