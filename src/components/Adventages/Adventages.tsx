@@ -74,7 +74,7 @@ export const Adventages = () => {
                 </div>
 
             </div>
-            {!isRowVisible && <Button variant={ButtonVariantsEnum.grey} className={styles.more} onClick={() => setIsRowVisible(true)}>Показать еще</Button>}
+            {!isRowVisible && <Button variant={ButtonVariantsEnum.grey} className={styles.more} onClick={() => setIsRowVisible(true)}>Показать ещё</Button>}
             <div className={cn(styles.container, styles.second, isRowVisible ? styles["mobile-visible"] : null)}>
                 <div className={styles.element}>
                     <Image
