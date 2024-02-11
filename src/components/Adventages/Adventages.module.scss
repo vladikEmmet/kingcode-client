@@ -80,5 +80,10 @@
     
     @media only screen and (max-width: 575px) {
         display: block;
+        margin: 40px auto 0;
+        padding: 15px 25px;
+        background: #424242 !important;
+        color: $white !important;
+        box-shadow: 0 10px #282828 !important;
     }
 }
